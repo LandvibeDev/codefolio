@@ -39,14 +39,6 @@ public class BoardServiceImpl implements BoardService{
 		    
 		  Iterator<Entry<String,Object>> iterator2 = map.entrySet().iterator();
 	        Entry<String,Object> entry = null;
-	        log.debug("--------------------printMap--------------------\n");
-	        while(iterator2.hasNext()){
-	        entry = iterator2.next();
-	        log.debug("key : "+entry.getKey()+",\tvalue : "+entry.getValue());
-	        }
-	        log.debug("");
-	        log.debug("------------------------------------------------\n");
-	        
 	        
 		List<Map<String,Object>> list = fileUtils.parseInsertFileInfo(map, request);
 		for(int i=0, size=list.size(); i<size; i++){
