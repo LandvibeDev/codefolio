@@ -8,7 +8,7 @@
 <head>
 
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
-
+<%@ include file="/WEB-INF/include/include-body.jspf" %>
 
 
 	<!-- timelineJS -->
@@ -23,8 +23,8 @@
     <!-- Style-->
     <style>
       html, body {
-      	height:80%;
-      	width:80%;
+      	height:100%;
+      	width:100%;
       	padding: 0px;
       	margin: 0px;
       	text-align: right;
@@ -36,8 +36,110 @@
     </style> 
   </head>
   <body>
-    <%@ include file="/WEB-INF/include/include-body.jspf" %>
-    <div id="timeline"></div>
+ 
+    
+    
+     
+    </style> 
+  </head>
+  <body >
+
+  <div style="height:18%;width:100% ; float:left; " >
+  <!-- 좌측 상단  -->	
+    <div style="background-color: #3498db; height:100%;width:20% ;float:left; " >
+		
+ 		<a href="#this"  id="Cf">
+ 		<span style="color:#ffffff; " ><button  style=" WIDTH: 100%; HEIGHT: 100%; padding:0%;margin:0%; font-size: 50pt; background-color:#3498db;border:0;float:left;"   type="button"><em>CodeFOLIO</em></button></span>
+		 </a>
+		 
+		<script type="text/javascript">
+
+
+
+		$(document).ready(function(){
+			$("#Cf").on("click", function(e){ //목록으로 버튼
+				e.preventDefault();
+				fn_backHome();
+			});
+		});
+			function fn_backHome(){
+				var comSubmit = new ComSubmit();
+				comSubmit.setUrl("<c:url value='/sample/test.do' />");
+				comSubmit.submit();
+			}
+
+		</script>		
+	</div>
+
+		<!-- 상단 중간(검색) -->
+	
+<div style="background-color :#34e8fb; padding:50pt; height:100%;width:50%;float:left ;" >
+
+	<form class="navbar-search pull-left" >
+  <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:40pt;width:300pt ">
+	<button type="submit" class="btn btn-default-center" style="height:40pt;width:60pt">Submit</button>
+</form>
+
+</div>
+
+
+
+	<!-- 상단 우측 -->
+ <div class="dropdown" style="background-color :#34e8fb;  padding:60pt; height:100%;width:30% ;float:left;" >
+      	
+   	<ul class="nav nav-tabs">
+  <li><a href="#"><span style="color:#9b59b6 " ><strong></strong>홈</span></a></li>
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      <span style="color:#9b59b6 " ><strong>계정 관리</strong></span> <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">비밀번호 변경</a></li>
+    <li><a href="#">회원 탈퇴</a></li>
+    <li><a href="#">로그아웃</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">고객 센터</a></li>
+  </ul>
+  
+    
+  </li>
+  <li><a href="#"><span style="color:#9b59b6 " ><strong>메시지</strong></span></a></li>
+  <li><a href="#"><span style="color:#9b59b6 " ><strong>알림</strong></span></a></li>
+</ul>
+ 		
+</div><!-- /.row -->
+</div>
+
+	<!--중간 좌측 -->
+<div  style=" width:100%;height:67%;float:left;">
+<div  style=" float:left;width:20%;height:100%;" >
+
+
+  <a href="http://localhost:8080/first/sample/test3.do" ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>소스 저장소 </strong></span></button></a>
+<a href="http://localhost:8080/first/sample/test2.do" target="_self" ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"> <strong>코드 포스팅 </strong></span></button></a>
+<a href=""><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>개인 포트폴리오 관리</strong></span></button></a>
+<a href=""><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>팀 프로젝트 내역 </strong></span></button></a>
+
+ 
+  
+  
+ 	<h3><center><strong><span class="glyphicon glyphicon-download" aria-hidden="true"></span>목차<span class="glyphicon glyphicon-download" aria-hidden="true"></span> </strong></center></h3>
+
+ 
+  
+  </div>
+
+
+<!--중간  timeline -->
+<div id="timeline"   style=" float:left;width:60%;height:100%;" ></div>
+
+<!-- 중간 우측 -->
+<div  style=" float:left;width:20%;height:100%" >
+<strong>광고</strong></div>
+</div>
+
+  
+ 
 
     <!-- JavaScript-->
     
