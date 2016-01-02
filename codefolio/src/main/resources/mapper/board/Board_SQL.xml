@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+	
+	<select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			SQL_CALC_FOUND_ROWS
+				BOARD_IDX,
+				TITLE,
+				COUNT,
+				DATE
+			FROM
+				board
+			ORDER BY
+				BOARD_IDX DESC
+			LIMIT #{START}, #{END}
+		]]>
+	</select>
+	
+	<select id="selectBoardTotalCount" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT FOUND_ROWS()
+			AS TOTAL_COUNT
+		]]>
+	</select>
+	
+	
+	
+	<insert id="insertBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
+    
+		<![CDATA[
+			INSERT INTO board
+			(
+				BOARD_IDX,
+			    TITLE, 
+			    CONTENTS, 
+			    COUNT,
+			    DATE, 
+			    USER_IDX,
+			    IMAGE_URL
+			)
+			VALUES
+			(
+				NULL, 
+			    #{TITLE}, 
+			    #{CONTENTS}, 
+			    0, 
+			   	now(), 
+			    1,
+			    #{IMAGE_URL}
+			)
+		]]>
+	<selectKey keyProperty="BOARD_IDX" resultType="Integer">
+        SELECT LAST_INSERT_ID()
+    </selectKey>
+	</insert>
+	
+	<!-- file DB query -->
+	<insert id="insertFile" parameterType="hashmap" >
+	
+    <![CDATA[
+        INSERT INTO attached_file
+        (
+        	BOARD_IDX,
+        	FILE_IDX,
+            ORIGINAL_FILE_NAME,
+            STORED_FILE_NAME,
+            FILE_SIZE
+            
+        )
+        VALUES
+        (
+        	#{BOARD_IDX},
+        	NULL,
+            #{ORIGINAL_FILE_NAME},
+            #{STORED_FILE_NAME},
+            #{FILE_SIZE}
+        )
+    ]]>
+	</insert>
+	
+	<!-- select file and board -->
+	<select id="selectFileList" parameterType="hashmap" resultType="hashmap">
+    <![CDATA[
+        SELECT
+            BOARD_IDX,
+            ORIGINAL_FILE_NAME,
+            ROUND(FILE_SIZE/1024,1) AS FILE_SIZE
+        FROM
+            attached_file
+        WHERE
+            BOARD_IDX = #{IDX}
+            AND DEL_GB = "N"
+    ]]>
+	</select>
+	
+	<update id="updateHitCnt" parameterType="hashmap">
+		<![CDATA[
+			UPDATE board
+			SET
+				COUNT= COUNT +1
+			WHERE
+				BOARD_IDX = #{IDX}	
+		]]>
+	</update>
+	
+	<select id="selectBoardDetail" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+				*
+			FROM
+				board natural join user
+			WHERE
+				BOARD_IDX = #{IDX}		
+		]]>
+	</select>
+	
+	<update id="updateBoard" parameterType="hashmap">
+		<![CDATA[
+			UPDATE board
+			SET
+				TITLE = #{TITLE},
+				CONTENTS = #{CONTENTS}
+			WHERE
+				BOARD_IDX = #{IDX}	
+		]]>
+	</update>
+	
+	<update id="deleteBoard" parameterType="hashmap">
+		<![CDATA[
+			UPDATE board
+			SET
+				TITLE = '삭제되었습니다'
+			WHERE
+				BOARD_IDX = #{IDX}
+		]]>
+	</update>
+	
+	<select id="selectTimelineList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+		SELECT
+		*
+		FROM
+		board natural join user
+		]]>
+	</select>
+	
+	
+	<select id="selectFileInfo" parameterType="hashmap" resultType="hashmap">
+    <![CDATA[
+        SELECT
+            STORED_FILE_NAME,
+            ORIGINAL_FILE_NAME
+        FROM
+            attached_file
+        WHERE
+            BOARD_IDX = #{IDX}
+    ]]>
+</select>
+</mapper>
