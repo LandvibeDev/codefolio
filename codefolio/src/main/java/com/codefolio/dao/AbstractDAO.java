@@ -20,8 +20,6 @@ public class AbstractDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	//override to print log on console
-	
 	protected void printQueryId(String queryId) {
 		if(log.isDebugEnabled()){
 			log.debug("\t QueryId  \t:  " + queryId);
@@ -65,6 +63,7 @@ public class AbstractDAO {
 		return sqlSession.selectList(queryId,params);
 	}
 	
+	// 게시판 페이징
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Map selectPagingList(String queryId, Object params){
 	    printQueryId(queryId);

@@ -3,6 +3,8 @@
 
 <mapper namespace="board">
 	
+	
+	<!-- 게시글 리스트 -->
 	<select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			SELECT
@@ -19,6 +21,8 @@
 		]]>
 	</select>
 	
+	
+	<!-- 게시글 총 개수  -->
 	<select id="selectBoardTotalCount" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			SELECT FOUND_ROWS()
@@ -27,9 +31,8 @@
 	</select>
 	
 	
-	
+	<!-- 게시글 삽입  -->
 	<insert id="insertBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
-    
 		<![CDATA[
 			INSERT INTO board
 			(
@@ -57,9 +60,8 @@
     </selectKey>
 	</insert>
 	
-	<!-- file DB query -->
+	<!-- 파일 삽입  -->
 	<insert id="insertFile" parameterType="hashmap" >
-	
     <![CDATA[
         INSERT INTO attached_file
         (
@@ -81,7 +83,8 @@
     ]]>
 	</insert>
 	
-	<!-- select file and board -->
+	
+	<!-- 파일 정보 in 게시글 상세 페이지   -->
 	<select id="selectFileList" parameterType="hashmap" resultType="hashmap">
     <![CDATA[
         SELECT
@@ -96,6 +99,7 @@
     ]]>
 	</select>
 	
+	<!--  조회수 증가  -->
 	<update id="updateHitCnt" parameterType="hashmap">
 		<![CDATA[
 			UPDATE board
@@ -106,6 +110,7 @@
 		]]>
 	</update>
 	
+	<!-- 게시글 상세 정보   -->
 	<select id="selectBoardDetail" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			SELECT
@@ -117,6 +122,7 @@
 		]]>
 	</select>
 	
+	<!-- 게시글 수정  -->
 	<update id="updateBoard" parameterType="hashmap">
 		<![CDATA[
 			UPDATE board
@@ -128,6 +134,7 @@
 		]]>
 	</update>
 	
+	<!--  게시글 삭제  -->
 	<update id="deleteBoard" parameterType="hashmap">
 		<![CDATA[
 			UPDATE board
@@ -138,6 +145,7 @@
 		]]>
 	</update>
 	
+	<!--  Timeline JS 정보  -->
 	<select id="selectTimelineList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 		SELECT
@@ -147,7 +155,7 @@
 		]]>
 	</select>
 	
-	
+	<!-- 파일 정보 in 파일 다운로드  -->
 	<select id="selectFileInfo" parameterType="hashmap" resultType="hashmap">
     <![CDATA[
         SELECT

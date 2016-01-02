@@ -21,13 +21,21 @@ import com.codefolio.service.BoardService;
 
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
+
+/*
+ * BoardController : 게시판 관련 Controller 
+ * 
+ */
 @Controller
 public class BoardController {
 	Logger log = Logger.getLogger(this.getClass());
 	
+	
 	@Resource(name="boardService")
 	private BoardService boardService;
 	
+
+	//게시판 리스트 페이지    
 	@RequestMapping(value="/board/openBoardList.do")
 	public ModelAndView openBoardList(CommandMap commandMap) throws Exception{
 	    ModelAndView mv = new ModelAndView("/board/boardList");
@@ -40,6 +48,7 @@ public class BoardController {
 	    return mv;
 	}
 	
+	//게시글 작성 페이지 
 	@RequestMapping(value="/board/openBoardWrite.do")
 	public ModelAndView openBoardWrite(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardWrite");
@@ -47,6 +56,7 @@ public class BoardController {
 		return mv;
 	}
 	
+	//게시글 작성 
 	@RequestMapping(value="/board/insertBoard.do")
 	public ModelAndView insertBoard(CommandMap commandMap ,HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView("redirect:/board/openBoardList.do");
@@ -55,6 +65,8 @@ public class BoardController {
 		return mv;
 	}
 	
+	
+	//게시글 상세보기 페이지 
 	@RequestMapping(value="/board/openBoardDetail.do")
 	public ModelAndView openBoardDetail(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardDetail");
@@ -66,6 +78,7 @@ public class BoardController {
 		return mv;
 	}
 	
+	//게시글 수정 페이지 
 	@RequestMapping(value="/board/openBoardUpdate.do")
 	public ModelAndView openBoardUpdate(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardUpdate");
@@ -76,6 +89,7 @@ public class BoardController {
 		return mv;
 	}
 	
+	//게시글 수정 
 	@RequestMapping(value="/board/updateBoard.do")
 	public ModelAndView updateBoard(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("redirect:/board/openBoardDetail.do");
@@ -86,6 +100,7 @@ public class BoardController {
 		return mv;
 	}
 	
+	//게시글 삭제 in 게시글 수정 페이지 
 	@RequestMapping(value="/board/deleteBoard.do")
 	public ModelAndView deleteBoard(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("redirect:/board/openBoardList.do");
@@ -95,6 +110,7 @@ public class BoardController {
 		return mv;
 	}
 	
+	//TimelinJS 페이지 
 	@RequestMapping(value="/board/test.do")
 	public ModelAndView openTimeline(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/test");
@@ -104,6 +120,8 @@ public class BoardController {
 		return mv;
 	}
 	
+	
+	//파일 다운로드 요청 
 	 @RequestMapping(value="/board/downloadFile.do")
 	    public void downloadFile(CommandMap commandMap, HttpServletResponse response) throws Exception{
 	        Map<String,Object> map = boardService.selectFileInfo(commandMap.getMap());
