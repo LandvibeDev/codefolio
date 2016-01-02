@@ -64,7 +64,7 @@
 		});
 			function fn_backHome(){
 				var comSubmit = new ComSubmit();
-				comSubmit.setUrl("<c:url value='/sample/test.do' />");
+				comSubmit.setUrl("<c:url value='/front/Main.do' />");
 				comSubmit.submit();
 			}
 
@@ -115,7 +115,7 @@
 <div  style=" float:left;width:20%;height:100%;" >
 
 
-  <a href="http://localhost:8080/first/sample/test3.do" ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>소스 저장소 </strong></span></button></a>
+  <a href="http://localhost:8080/front/blog.do" ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>소스 저장소 </strong></span></button></a>
 <a href="http://localhost:8080/first/sample/test2.do" target="_self" ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"> <strong>코드 포스팅 </strong></span></button></a>
 <a href=""><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>개인 포트폴리오 관리</strong></span></button></a>
 <a href=""><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>팀 프로젝트 내역 </strong></span></button></a>

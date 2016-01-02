@@ -136,7 +136,9 @@
   
 
    <!-- 중간 중앙 게시판 자리 -->
-<div   style=" height:100%;float:left;width:60%" >코드 포스팅 게시판 들어올것</div>
+<div   style=" height:100%;float:left;width:60%;" >
+<jsp:include page="/board/openBoardList.do"/>
+</div>
 
 <!-- 중앙 우측 광고 -->
 <div  style=" height:100%;float:left;width:20%" >
