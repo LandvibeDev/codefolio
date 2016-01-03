@@ -65,7 +65,7 @@
 		});
 			function fn_backHome(){
 				var comSubmit = new ComSubmit();
-				comSubmit.setUrl("<c:url value='/board/test.do' />");
+				comSubmit.setUrl("<c:url value='/board/Main.do' />");
 				comSubmit.submit();
 			}
 

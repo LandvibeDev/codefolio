@@ -35,21 +35,21 @@
       
     </style> 
   </head>
-  <body>
+  
  
     
     
      
-    </style> 
+
   </head>
   <body >
 
-  <div style="height:18%;width:100% ; float:left; " >
+  <div style="height:15%;width:100% ; float:left; " >
   <!-- 좌측 상단  -->	
-    <div style="background-color: #3498db; height:100%;width:20% ;float:left; " >
+    <div style="background-color: #75A3A3; height:100%;width:20% ;float:left; " >
 		
  		<a href="#this"  id="Cf">
- 		<span style="color:#ffffff; " ><button  style=" WIDTH: 100%; HEIGHT: 100%; padding:0%;margin:0%; font-size: 50pt; background-color:#3498db;border:0;float:left;"   type="button"><em>CodeFOLIO</em></button></span>
+ 		<span style="color:#ffffff; " ><button  style=" WIDTH: 100%; HEIGHT: 100%; padding:0%;margin:0%; font-size: 50pt; background-color:#75A3A3;border:0;float:left;"   type="button"><em>CodeFOLIO</em></button></span>
 		 </a>
 		 
 		<script type="text/javascript">
@@ -73,7 +73,7 @@
 
 		<!-- 상단 중간(검색) -->
 	
-<div style="background-color :#34e8fb; padding:50pt; height:100%;width:50%;float:left ;" >
+<div style="background-color :#75A3A3; padding:50pt; height:100%;width:50%;float:left ;" >
 
 	<form class="navbar-search pull-left" >
   <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:40pt;width:300pt ">
@@ -85,13 +85,13 @@
 
 
 	<!-- 상단 우측 -->
- <div class="dropdown" style="background-color :#34e8fb;  padding:60pt; height:100%;width:30% ;float:left;" >
+ <div class="dropdown" style="background-color :#75A3A3;  padding:3%; height:100%;width:30% ;float:left;" >
       	
    	<ul class="nav nav-tabs">
-  <li><a href="#"><span style="color:#9b59b6 " ><strong></strong>홈</span></a></li>
+  <li><a href="#"><span style="color:#000000 " ><strong></strong>홈</span></a></li>
   <li role="presentation" class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-      <span style="color:#9b59b6 " ><strong>계정 관리</strong></span> <span class="caret"></span>
+      <span style="color:#000000 " ><strong>계정 관리</strong></span> <span class="caret"></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
     <li><a href="#">비밀번호 변경</a></li>
@@ -103,16 +103,32 @@
   
     
   </li>
-  <li><a href="#"><span style="color:#9b59b6 " ><strong>메시지</strong></span></a></li>
-  <li><a href="#"><span style="color:#9b59b6 " ><strong>알림</strong></span></a></li>
+  <li><a href="#"><span style="color:#000000 " ><strong>메시지</strong></span></a></li>
+  <li><a href="#"><span style="color:#000000 " ><strong>알림</strong></span></a></li>
 </ul>
  		
 </div><!-- /.row -->
 </div>
+<!-- 메뉴 바 -->
+<div  style="width:100%;height:7%;float:left;background-color :#75A3A3;">
+	<ul class="nav nav-pills">
+
+  <li role="presentation" ><a href="/codefolio/front/codeHub.do">소스 저장소</a></li>
+  <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
+  <li role="presentation" ><a href="">개인 포트폴리오 관리</a></li>
+  <li role="presentation" class="disabled"><a href="">팀 프로젝트 내역</a></li>
+
+
+</ul>
+
+
+</div>
+
+
 
 	<!--중간 좌측 -->
-<div  style=" width:100%;height:67%;float:left;">
-<div  style=" float:left;width:20%;height:100%;" >
+<div  style="width:100%;height:72%;float:left;">
+<div  style=" float:left;width:20%;height:100%; background-color:#ffffff" >
 
 
   <a href="/codefolio/front/codeHub.do" ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>소스 저장소 </strong></span></button></a>
@@ -131,14 +147,14 @@
 
 
 <!--중간  timeline -->
-<div id="timeline"   style=" float:left;width:60%;height:100%;" ></div>
+<div id="timeline"   style=" float:left;width:80%;height:100%;" ></div>
 
 <!-- 중간 우측 -->
-<div  style=" float:left;width:20%;height:100%" >
-<strong>광고</strong></div>
-</div>
 
-  
+</div>
+<!-- 하단 -->
+ <div style="width:100%;height:6%;float:left;background-color: #E90606;">
+ </div>
  
 
     <!-- JavaScript-->
@@ -147,7 +163,7 @@
 
     var additionalOptions = {
             start_at_end: true,
-            default_bg_color: {r:70, g:0, b:0},
+            default_bg_color: {r:255, g:255, b:255},
             timenav_height_percentage : 30,
             timenav_height_min : 100,
             //timenav_mobile_height_percentage : 40
