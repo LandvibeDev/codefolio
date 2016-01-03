@@ -7,48 +7,49 @@
 <body>
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
 
-<div class="row" style="padding:15px 15px 15px 15px;">
-	<div class="col-md-2">
-		<c:set var="img_url" value="${map.IMAGE_URL }" />
-			<c:if test="${img_url eq ''}">
-				<c:set var="img_url" value="http://dev.naver.com/dbimage.php?id=3955"/>
-    		</c:if>
-		<img src = "${img_url }" width="200" height="150">
+	<div class="row" style="padding:15px 15px 15px 15px;">
+		<div class="col-md-2">
+			<c:set var="img_url" value="${map.IMAGE_URL }" />
+				<c:if test="${img_url eq ''}">
+					<c:set var="img_url" value="http://dev.naver.com/dbimage.php?id=3955"/>
+    			</c:if>
+			<img src = "${img_url }" width="200" height="150">
+		</div>
+  		<div class="col-md-10"><h1>${map.TITLE }</h1> </div>
 	</div>
-  	<div class="col-md-10"><h1>${map.TITLE }</h1> </div>
-</div>
-<div class="row" style="padding:15px 15px 15px 15px;">
-	<div class="col-md-8">코드포스팅(카테고리 이름 들어갈 곳 )</div>
-  	<div class="col-md-4" style="text-align:right;">${map.DATE }</div>
-</div>
-<div class="row" style="padding:15px 15px 15px 15px;">
-  	<div>
-		<ul>
-			<c:forEach var="row" items="${list }">
-            	<input type="hidden" id="IDX" value="${row.BOARD_IDX }">
-                	<li><a href="#this" name="file">${row.ORIGINAL_FILE_NAME }</a> 
-                    (${row.FILE_SIZE }kb)</li>
-        	</c:forEach>
-		</ul>
+	<div class="row" style="padding:15px 15px 15px 15px;">
+		<div class="col-md-8">코드포스팅(카테고리 이름 들어갈 곳 )</div>
+  		<div class="col-md-4" style="text-align:right;">${map.DATE }</div>
 	</div>
-</div>
-<div class="row" style="border-top:1px dotted black; border-bottom:1px dotted black;padding:15px 15px 15px 30px;">
-	<div class="col-md-1"></div>
-	<div class="col-md-10">
+	<div class="row" style="padding:15px 15px 15px 15px;">
+  		<div>
+			<ul>
+				<c:forEach var="row" items="${list }">
+            		<li><input type="hidden" id="IDX" value="${row.FILE_IDX }">
+                		<a href="#this" name="file">${row.ORIGINAL_FILE_NAME }</a> 
+                    	(${row.FILE_SIZE }kb)</li>
+        		</c:forEach>
+			</ul>
+		</div>
+	</div>
+	<div class="row" style="border-top:1px dotted black; border-bottom:1px dotted black;padding:15px 15px 15px 30px;">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
 	
-	<p class="lead">${map.CONTENTS }</p>
+		<p class="lead">${map.CONTENTS }</p>
 	
+		</div>
+  		<div class="col-md-1"></div>
 	</div>
-  	<div class="col-md-1"></div>
-</div>
 
-<div class="row" style="padding:15px 15px 15px 15px;">
-	<div class="col-md-8">
-		<a href="#this" class="btn" id="list">목록으로</a>
-		<a href="#this" class="btn" id="update">수정하기</a>
-		<a href="#this" class="btn" id="delete">삭제하기</a>
+	
+	<div class="row" style="padding:15px 15px 15px 15px;">
+		<div class="col-md-8">
+			<a href="#this" class="btn" id="list">목록으로</a>
+			<a href="#this" class="btn" id="update">수정하기</a>
+			<a href="#this" class="btn" id="delete">삭제하기</a>
+		</div>
 	</div>
-</div>
 	
 	<script type="text/javascript">
         $(document).ready(function(){

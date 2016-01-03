@@ -10,6 +10,8 @@ public interface BoardService {
 	Map<String, Object> selectBoardList(Map<String, Object> map) throws Exception;
 	
 	void insertBoard(Map<String, Object> map,HttpServletRequest request) throws Exception;
+	
+	void insertFile(Map<String, Object> map,HttpServletRequest request) throws Exception;
 
 	Map<String, Object> selectBoardDetail(Map<String, Object> map) throws Exception;
 
@@ -20,5 +22,4 @@ public interface BoardService {
 	public List<Map<String, Object>> selectTimelineList(Map<String, Object> map) throws Exception;
 	
 	Map<String, Object> selectFileInfo(Map<String, Object> map) throws Exception;
-
 }

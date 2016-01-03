@@ -3,53 +3,73 @@
 <html lang="ko">
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
-<script type="text/javascript" src="/resources/ckeditor-2/ckeditor.js"></script>
+
 </head>
 <body>
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
+
+
+	<form id="frm" enctype="multipart/form-data">
 	
-	 <textarea name="editor1" id="editor1" rows="10" cols="80"></textarea>
-	<script>
-       CKEDITOR.replace( "editor1" );
-       document.write("안돼에 ㅔ에에에");
-	</script>
- 	<form id="frm" name="frm" enctype="multipart/form-data"> <!-- 첨부파일  -->
-		<table class="board_view">
-			<colgroup>
-				<col width="15%">
-				<col width="*"/>
-			</colgroup>
-			<caption>게시글 작성</caption>
-			<tbody>
-				<tr>
-					<th scope="row">제목</th>
-					<td><input type="text" id="TITLE" name="TITLE" class="wdp_90"></input></td>
-				</tr>
-				<tr>
-					<th scope="row">사진 URL</th>
-					<td><input type="text" id="IMAGE_URL" name="IMAGE_URL" class="wdp_90"></input></td>
-				</tr>
-				
-				<tr>
-					<th scope="row">내용</th>
-					<td colspan="2" class="view_text">
-						<textarea rows="20" cols="100" title="내용" id="CONTENTS" name="CONTENTS"></textarea>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-			<p>
-				<input type="file" name="file" id="file"> <!-- 첨부파일  -->
-        		<a href="#this" class="btn" id="delete" >파일삭제</a>
-        	</p>
-         
-        <br/><br/>		
-		<a href="#this" class="btn" id="write">작성하기</a>
-		<a href="#this" class="btn" id="list">목록으로</a>
+	<div class="row" style="padding:15px 15px 15px 15px;">
+		<div class="col-md-1"></div>
+  		<div class="col-md-10"">
+  			<div class="form-group">
+    			<label for="TITLE">제목 </label>
+    			<input type='text' class="form-control" id="TITLE" name="TITLE" placeholder="제목을 입력하시오" style="height:40px;">
+    		</div>
+  		</div>
+	</div>
+	<div class="row" style="padding:5px 15px 15px 15px;">
+		<div class="col-md-1"></div>
+  		<div class="col-md-10"">
+  			<div class="form-group">
+    			<label for="CONTENTS">내용 </label>
+    			<textarea id="CONTENTS" name="CONTENTS"></textarea>
+  			</div>
+  		</div>
+	</div>
+	<div class="row" style="padding:5px 15px 15px 15px;">
+		<div class="col-md-1"></div>
+  		<div class="col-md-10"">
+  			<a href="#this" class="btn" id="write">작성하기</a>
+			<a href="#this" class="btn" id="list">목록으로</a>
+  		</div>
+	</div>
+	
 	</form>
 	
 	
 	<script type="text/javascript">
+	
+	
+	 var ckeditor_config = {
+			 	
+	            resize_enabled : true, // 에디터 크기를 조절가
+	            enterMode : CKEDITOR.ENTER_BR , // 엔터키를 <br> 로 적용함.
+	            shiftEnterMode : CKEDITOR.ENTER_P ,  // 쉬프트 +  엔터를 <p> 로 적용함.
+	            toolbarCanCollapse : true ,
+	            height:'400',
+	            removePlugins : "elementspath",
+	            filebrowserUploadUrl: "http://localhost:9090/codefolio/board/insertFile.do" , // 파일 업로드를 처리 할 경로 설정.
+	            
+	            // 에디터에 사용할 기능들 정의
+	            toolbar : [
+	              [ 'Source', '-' , 'NewPage', 'Preview' ],
+	              [ 'Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo' ],
+	              [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],
+	              [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ],
+	              '/',
+	              [ 'Styles', 'Format', 'Font', 'FontSize' ],
+	              [ 'TextColor', 'BGColor' ],
+	              [ 'Image', 'Flash', 'Table' , 'SpecialChar' , 'Link', 'Unlink']
+
+	            ]
+
+	          };
+
+	 CKEDITOR.replace( "CONTENTS" , ckeditor_config );
+	
 	
 	  $(document).ready(function() {
 			$("#list").on("click", function(e) { //목록으로 버튼
@@ -63,11 +83,6 @@
 
 			});
 
-			var domEleArray = [ $('#file').clone() ];
-			$('#delete').click(function() {		//첨부파일 초기화(삭제)
-				domEleArray[1] = domEleArray[0].clone(true); // 쌔거(0번) -> 복사(1번)
-				$('#file').replaceWith(domEleArray[1]);
-			});
 		});
 
 		function fn_openBoardList() { //목록 버튼
@@ -78,14 +93,12 @@
 		}
 
 		function fn_insertBoard() { //작성 버튼 
-			var comSubmit = new ComSubmit("frm");
+			var comSubmit = new ComSubmit('frm');
 			comSubmit.setUrl("<c:url value='/board/insertBoard.do' />");
 			comSubmit.submit();
 		}
 
-		function fn_deleteFile(obj) { //파일 삭제 버튼 
-			obj.parent().remove();
-		}
+		
 	</script>
 </body>
 </html>

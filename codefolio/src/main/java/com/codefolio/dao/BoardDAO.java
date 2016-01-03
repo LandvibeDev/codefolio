@@ -24,6 +24,7 @@ public class BoardDAO extends AbstractDAO{
 	//게시글 삽입
 	public void insertBoard(Map<String, Object> map) throws Exception{
 		insert("board.insertBoard", map);
+		update("board.updateFile",map);
 	}
 
 	//게시글 조회수 증가 

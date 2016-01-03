@@ -35,10 +35,7 @@ public class FileUtils {
          
         List<Map<String,Object>> list = new ArrayList<Map<String,Object>>(); //다중파일 전송을 위한 리스트  
         Map<String, Object> listMap = null; 
-         
         
-        
-        int board_id = (Integer)map.get("BOARD_IDX");  // map에서 생성되는 게시글의 번호 
         
         
         
@@ -58,7 +55,7 @@ public class FileUtils {
                 multipartFile.transferTo(file); //파일저장
                  
                 listMap = new HashMap<String,Object>();
-                listMap.put("BOARD_IDX", board_id);
+                listMap.put("BOARD_IDX", -1);
                 listMap.put("ORIGINAL_FILE_NAME", originalFileName);
                 listMap.put("STORED_FILE_NAME", storedFileName);
                 listMap.put("FILE_SIZE", multipartFile.getSize());

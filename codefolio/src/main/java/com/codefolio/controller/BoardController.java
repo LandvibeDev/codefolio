@@ -65,6 +65,15 @@ public class BoardController {
 		return mv;
 	}
 	
+	//파일 업로드 
+	@RequestMapping(value="/board/insertFile.do")
+	public ModelAndView insertFile(CommandMap commandMap ,HttpServletRequest request) throws Exception{
+		ModelAndView mv = new ModelAndView("/FileNotice");
+		boardService.insertFile(commandMap.getMap(),request);
+			
+		return mv;
+	}
+	
 	
 	//게시글 상세보기 페이지 
 	@RequestMapping(value="/board/openBoardDetail.do")
@@ -114,7 +123,8 @@ public class BoardController {
 	//파일 다운로드 요청 
 	 @RequestMapping(value="/board/downloadFile.do")
 	    public void downloadFile(CommandMap commandMap, HttpServletResponse response) throws Exception{
-	        Map<String,Object> map = boardService.selectFileInfo(commandMap.getMap());
+		 	log.debug(commandMap.get("IDX"));
+		 	Map<String,Object> map = boardService.selectFileInfo(commandMap.getMap());
 	        String storedFileName = (String)map.get("STORED_FILE_NAME");
 	        String originalFileName = (String)map.get("ORIGINAL_FILE_NAME");
 	        

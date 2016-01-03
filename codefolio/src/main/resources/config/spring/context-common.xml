@@ -24,11 +24,10 @@
             </map>
         </property>
     </bean>
-   
                              
     <!-- MultipartResolver 설정 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="100000000" /> <!-- maximum 10MB -->
-        <property name="maxInMemorySize" value="100000000" />
+        <property name="maxUploadSize" value="1000000000" /> <!-- maximum 100MB -->
+        <property name="maxInMemorySize" value="1000000000" />
     </bean>
 </beans>

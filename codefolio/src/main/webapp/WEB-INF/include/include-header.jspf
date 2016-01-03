@@ -29,4 +29,5 @@
 <%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui" %>
 
 <!-- ckeditor -->
+<script src="//cdn.ckeditor.com/4.5.6/full/ckeditor.js"></script>
 

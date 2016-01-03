@@ -44,15 +44,24 @@ public class BoardServiceImpl implements BoardService{
 		
 		boardDAO.insertBoard(map);
 		
-		//첨부파일 정보 저장 
-		List<Map<String,Object>> list = fileUtils.parseInsertFileInfo(map, request);
-		for(int i=0, size=list.size(); i<size; i++){
-			boardDAO.insertFile(list.get(i)); //db에저장 (임시방편 )
-			}
+//		//첨부파일 정보 저장 
+//		List<Map<String,Object>> list = fileUtils.parseInsertFileInfo(map, request);
+//		for(int i=0, size=list.size(); i<size; i++){
+//			boardDAO.insertFile(list.get(i)); //db에저장
+//			}
 		
 	}
 	
-	
+	@Override
+	public void insertFile(Map<String, Object> map,HttpServletRequest request) throws Exception {
+		
+		//첨부파일 정보 저장 
+		List<Map<String,Object>> list = fileUtils.parseInsertFileInfo(map, request);
+		for(int i=0, size=list.size(); i<size; i++){
+			boardDAO.insertFile(list.get(i)); //db에저장
+			}
+		
+	}
 	//게시글 상세 
 	@Override
 	public Map<String, Object> selectBoardDetail(Map<String, Object> map) throws Exception {

@@ -52,13 +52,23 @@
 			    0, 
 			   	now(), 
 			    1,
-			    #{IMAGE_URL}
+			    ""
 			)
 		]]>
 	<selectKey keyProperty="BOARD_IDX" resultType="Integer">
         SELECT LAST_INSERT_ID()
     </selectKey>
 	</insert>
+	
+	<update id="updateFile" parameterType="hashmap">
+		<![CDATA[
+			UPDATE attached_file
+			SET
+				BOARD_IDX = #{BOARD_IDX}
+			WHERE
+				BOARD_IDX = -1	
+		]]>
+	</update>
 	
 	<!-- 파일 삽입  -->
 	<insert id="insertFile" parameterType="hashmap" >
@@ -89,6 +99,7 @@
     <![CDATA[
         SELECT
             BOARD_IDX,
+            FILE_IDX,
             ORIGINAL_FILE_NAME,
             ROUND(FILE_SIZE/1024,1) AS FILE_SIZE
         FROM
@@ -175,7 +186,7 @@
         FROM
             attached_file
         WHERE
-            BOARD_IDX = #{IDX}
+            FILE_IDX = #{IDX}
     ]]>
 </select>
 </mapper>
