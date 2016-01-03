@@ -23,7 +23,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 
 /*
- * BoardController : 게시판 관련 Controller 
+ * FrontConroller : front 관련 Controller
  * 
  */
 @Controller

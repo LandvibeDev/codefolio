@@ -76,7 +76,8 @@
 		
 		function fn_updateBoard(){
 			var comSubmit = new ComSubmit("frm");
-			comSubmit.setUrl("<c:url value='/front/blogUpdate.do' />");
+			comSubmit.setUrl("<c:url value='/board/updateBoard.do' />");
+			comSubmit.addParam("IDX", $("#IDX").val());
 			comSubmit.submit();
 		}
 		

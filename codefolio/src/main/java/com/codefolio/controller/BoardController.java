@@ -59,7 +59,7 @@ public class BoardController {
 	//게시글 작성 
 	@RequestMapping(value="/board/insertBoard.do")
 	public ModelAndView insertBoard(CommandMap commandMap ,HttpServletRequest request) throws Exception{
-		ModelAndView mv = new ModelAndView("redirect:/board/openBoardList.do");
+		ModelAndView mv = new ModelAndView("redirect:/front/blog.do");
 		boardService.insertBoard(commandMap.getMap(),request);
 		
 		return mv;
@@ -92,7 +92,7 @@ public class BoardController {
 	//게시글 수정 
 	@RequestMapping(value="/board/updateBoard.do")
 	public ModelAndView updateBoard(CommandMap commandMap) throws Exception{
-		ModelAndView mv = new ModelAndView("redirect:/board/openBoardDetail.do");
+		ModelAndView mv = new ModelAndView("redirect:/front/blogDetail.do");
 		
 		boardService.updateBoard(commandMap.getMap());
 		
@@ -103,7 +103,7 @@ public class BoardController {
 	//게시글 삭제 in 게시글 수정 페이지 
 	@RequestMapping(value="/board/deleteBoard.do")
 	public ModelAndView deleteBoard(CommandMap commandMap) throws Exception{
-		ModelAndView mv = new ModelAndView("redirect:/board/openBoardList.do");
+		ModelAndView mv = new ModelAndView("redirect:/front/blog.do");
 		
 		boardService.deleteBoard(commandMap.getMap());
 		

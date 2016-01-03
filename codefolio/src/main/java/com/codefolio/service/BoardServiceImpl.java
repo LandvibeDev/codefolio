@@ -43,7 +43,6 @@ public class BoardServiceImpl implements BoardService{
 	public void insertBoard(Map<String, Object> map,HttpServletRequest request) throws Exception {
 		
 		boardDAO.insertBoard(map);
-	        
 		
 		//첨부파일 정보 저장 
 		List<Map<String,Object>> list = fileUtils.parseInsertFileInfo(map, request);
