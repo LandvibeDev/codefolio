@@ -44,12 +44,23 @@
   </head>
   <body >
 
-  <div style="height:15%;width:100% ; float:left; " >
+  <div style="height:12%;width:100% ; float:left; " >
   <!-- 좌측 상단  -->	
-    <div style="background-color: #75A3A3; height:100%;width:20% ;float:left; " >
+  
+<div style="background-color :#75A3A3; height:100%;width:30%;float:left ;" >
+
+	
+<button type="button" class="btn btn-default btn-lg " style="float:left ;background-color :#75A3A3;" ><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:#000000" ></span></button>
+
+</div>
+		<!-- 상단 중간 -->
+	
+
+
+  <div style="background-color: #75A3A3; height:100%;width:40% ;float:left; " >
 		
  		<a href="#this"  id="Cf">
- 		<span style="color:#ffffff; " ><button  style=" WIDTH: 100%; HEIGHT: 100%; padding:0%;margin:0%; font-size: 50pt; background-color:#75A3A3;border:0;float:left;"   type="button"><em>CodeFOLIO</em></button></span>
+ 		<span style="color:#ffffff; " ><button  style=" WIDTH: 100%; HEIGHT: 100%; padding:0%;margin:0%; font-size: 40pt; background-color:#75A3A3;border:0;float:left;"   type="button"><em>CodeFOLIO</em></button></span>
 		 </a>
 		 
 		<script type="text/javascript">
@@ -70,17 +81,6 @@
 
 		</script>		
 	</div>
-
-		<!-- 상단 중간(검색) -->
-	
-<div style="background-color :#75A3A3; padding:50pt; height:100%;width:50%;float:left ;" >
-
-	<form class="navbar-search pull-left" >
-  <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:40pt;width:300pt ">
-	<button type="submit" class="btn btn-default-center" style="height:40pt;width:60pt">Submit</button>
-</form>
-
-</div>
 
 
 
@@ -109,8 +109,19 @@
  		
 </div><!-- /.row -->
 </div>
+
+
+
 <!-- 메뉴 바 -->
 <div  style="width:100%;height:7%;float:left;background-color :#75A3A3;">
+<div style="height:100%;width:35%;float:left;">
+<form class="navbar-search pull-left" >
+  <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:30pt;width:200pt ">
+	<button type="submit" class="btn btn-default-center" style="height:30pt;width:60pt">Submit</button>
+</form>
+</div>
+
+<div style="height:100%;width:40%;float:left;">
 	<ul class="nav nav-pills">
 
   <li role="presentation" ><a href="/codefolio/front/codeHub.do">소스 저장소</a></li>
@@ -120,40 +131,20 @@
 
 
 </ul>
-
+</div>
+<div style="height:100%;width:25%;float:left;"></div>
 
 </div>
 
-
-
-	<!--중간 좌측 -->
-<div  style="width:100%;height:72%;float:left;">
-<div  style=" float:left;width:20%;height:100%; background-color:#ffffff" >
-
-
-  <a href="/codefolio/front/codeHub.do" ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>소스 저장소 </strong></span></button></a>
-<a href="/codefolio/front/blog.do" target="_self" ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"> <strong>코드 포스팅 </strong></span></button></a>
-<a href=""><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>개인 포트폴리오 관리</strong></span></button></a>
-<a href=""><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>팀 프로젝트 내역 </strong></span></button></a>
-
- 
-  
-  
- 	<h3><center><strong><span class="glyphicon glyphicon-download" aria-hidden="true"></span>목차<span class="glyphicon glyphicon-download" aria-hidden="true"></span> </strong></center></h3>
-
- 
-  
-  </div>
 
 
 <!--중간  timeline -->
-<div id="timeline"   style=" float:left;width:80%;height:100%;" ></div>
-
-<!-- 중간 우측 -->
-
+<div id="timeline" style="width:100%;height:75%;float:left;">
 </div>
+
+
 <!-- 하단 -->
- <div style="width:100%;height:6%;float:left;background-color: #E90606;">
+ <div style="width:100%;height:6%;float:left;background-color: #B26B69;">
  </div>
  
 
