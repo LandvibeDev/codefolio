@@ -77,7 +77,7 @@ public class AbstractDAO {
 	    paginationInfo = new PaginationInfo();
 	    paginationInfo.setCurrentPageNo(Integer.parseInt(map.get("currentPageNo").toString()));
 	    if(map.containsKey("PAGE_ROW") == false || StringUtils.isEmpty(map.get("PAGE_ROW")) == true){
-	        paginationInfo.setRecordCountPerPage(15);
+	        paginationInfo.setRecordCountPerPage(10);
 	    }
 	    else{
 	        paginationInfo.setRecordCountPerPage(Integer.parseInt(map.get("PAGE_ROW").toString()));

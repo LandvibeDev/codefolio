@@ -48,6 +48,7 @@
 		</tbody>
 	</table>
 	<br/>
+	
 	<center>
 	<c:if test="${not empty paginationInfo}">
         <ui:pagination paginationInfo = "${paginationInfo}" type="text" jsFunction="fn_search"/>
@@ -55,6 +56,7 @@
     <input type="hidden" id="currentPageNo" name="currentPageNo"/>
 	</center>
 	<a href="#this" class="btn" id="write">글쓰기</a>
+	
 		
 		
 		
@@ -87,7 +89,7 @@
 		
 		 function fn_search(pageNo){
 	            var comSubmit = new ComSubmit();
-	            comSubmit.setUrl("<c:url value='/board/openBoardList.do' />");
+	            comSubmit.setUrl("<c:url value='/front/blog.do' />");
 	            comSubmit.addParam("currentPageNo", pageNo);
 	            comSubmit.submit();
 	        }
