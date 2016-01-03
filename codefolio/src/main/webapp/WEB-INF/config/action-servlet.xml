@@ -15,6 +15,7 @@
     </context:component-scan>
     
 	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/ckeditor/**" location="/ckeditor/" />
 	<mvc:annotation-driven>
 		<mvc:argument-resolvers>
 			<bean class="com.codefolio.resolver.CustomMapArgumentResolver"></bean>		

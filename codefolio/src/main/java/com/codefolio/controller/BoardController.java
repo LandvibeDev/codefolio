@@ -100,7 +100,7 @@ public class BoardController {
 		return mv;
 	}
 	
-	//게시글 삭제 in 게시글 수정 페이지 
+	//게시글 삭제 
 	@RequestMapping(value="/board/deleteBoard.do")
 	public ModelAndView deleteBoard(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("redirect:/front/blog.do");

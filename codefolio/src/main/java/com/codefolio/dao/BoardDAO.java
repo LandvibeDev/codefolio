@@ -51,7 +51,8 @@ public class BoardDAO extends AbstractDAO{
 
 	//게시글 삭제 
 	public void deleteBoard(Map<String, Object> map) throws Exception{
-		update("board.deleteBoard", map);
+		delete("board.deleteBoard", map);
+		delete("board.deleteFile", map);
 	}
 	
 	//TimelineJS 정보

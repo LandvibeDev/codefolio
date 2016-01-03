@@ -3,8 +3,16 @@
 <html lang="ko">
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
+<script type="text/javascript" src="/resources/ckeditor-2/ckeditor.js"></script>
 </head>
 <body>
+<%@ include file="/WEB-INF/include/include-body.jspf" %>
+	
+	 <textarea name="editor1" id="editor1" rows="10" cols="80"></textarea>
+	<script>
+       CKEDITOR.replace( "editor1" );
+       document.write("안돼에 ㅔ에에에");
+	</script>
  	<form id="frm" name="frm" enctype="multipart/form-data"> <!-- 첨부파일  -->
 		<table class="board_view">
 			<colgroup>
@@ -40,11 +48,10 @@
 		<a href="#this" class="btn" id="list">목록으로</a>
 	</form>
 	
-	<%@ include file="/WEB-INF/include/include-body.jspf" %>
+	
 	<script type="text/javascript">
-		
-		
-		$(document).ready(function() {
+	
+	  $(document).ready(function() {
 			$("#list").on("click", function(e) { //목록으로 버튼
 				e.preventDefault();
 				fn_openBoardList();
@@ -76,7 +83,7 @@
 			comSubmit.submit();
 		}
 
-		function fn_deleteFile(obj) { //삭제 버튼 
+		function fn_deleteFile(obj) { //파일 삭제 버튼 
 			obj.parent().remove();
 		}
 	</script>
