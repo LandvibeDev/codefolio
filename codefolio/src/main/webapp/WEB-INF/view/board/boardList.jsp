@@ -76,7 +76,7 @@
 	
 		function fn_openBoardWrite(){
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/front/blogUpdate.do' />");
+			comSubmit.setUrl("<c:url value='/front/blogWrite.do' />");
 			comSubmit.submit();
 		}
 		
