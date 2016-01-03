@@ -65,7 +65,7 @@
 
 		function fn_openBoardList() { //목록 버튼
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/board/openBoardList.do' />");
+			comSubmit.setUrl("<c:url value='/front/blog.do' />");
 			comSubmit.submit();
 
 		}

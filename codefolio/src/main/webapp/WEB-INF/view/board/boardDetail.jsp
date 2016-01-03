@@ -78,14 +78,14 @@
          
         function fn_openBoardList(){
             var comSubmit = new ComSubmit();
-            comSubmit.setUrl("<c:url value='/board/openBoardList.do' />");
+            comSubmit.setUrl("<c:url value='/front/blog.do' />");
             comSubmit.submit();
         }
          
         function fn_openBoardUpdate(){
             var idx = "${map.BOARD_IDX}";
             var comSubmit = new ComSubmit();
-            comSubmit.setUrl("<c:url value='/board/openBoardUpdate.do' />");
+            comSubmit.setUrl("<c:url value='/front/blogUpdate.do' />");
             comSubmit.addParam("IDX", idx);
             comSubmit.submit();
         }

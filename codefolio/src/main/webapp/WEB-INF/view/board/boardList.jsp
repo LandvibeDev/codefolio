@@ -76,13 +76,13 @@
 	
 		function fn_openBoardWrite(){
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/board/openBoardWrite.do' />");
+			comSubmit.setUrl("<c:url value='/front/blogUpdate.do' />");
 			comSubmit.submit();
 		}
 		
 		function fn_openBoardDetail(obj){
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/board/openBoardDetail.do' />");
+			comSubmit.setUrl("<c:url value='/front/blogDetail.do' />");
 			comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
 			comSubmit.submit();
 		}
