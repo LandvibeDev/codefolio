@@ -110,23 +110,6 @@ public class BoardController {
 		return mv;
 	}
 	
-	//Main 페이지 
-	@RequestMapping(value="/front/Main.do")
-	public ModelAndView openTimeline(CommandMap commandMap) throws Exception{
-		ModelAndView mv = new ModelAndView("/front/Main");
-		List<Map<String, Object>> timelines = boardService.selectTimelineList(commandMap.getMap());
-		mv.addObject("timelineJson", timelines);
-		
-		return mv;
-	}
-	
-	// Blog 페이지
-	@RequestMapping(value = "/front/blog.do")
-	public ModelAndView openTimele(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("/front/blog");
-
-		return mv;
-	}
 
 	//파일 다운로드 요청 
 	 @RequestMapping(value="/board/downloadFile.do")
