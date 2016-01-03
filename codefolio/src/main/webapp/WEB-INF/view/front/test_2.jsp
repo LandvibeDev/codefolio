@@ -110,8 +110,8 @@
 <div  style=" width:100%;height:67%;float:left;" >
 <div  style="height:100%;width:20%;float:left;">
 
-<a href="http://localhost:8080/codefolio/board/test_2.do" ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>소스 저장소 </strong></span></button></a>
-<a href="http://localhost:8080/codefolio/board/test_1.do" target="_self" ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"> <strong>코드 포스팅 </strong></span></button></a>
+<a href="http://localhost:8080/codefolio/front/test_2.do" ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>소스 저장소 </strong></span></button></a>
+<a href="http://localhost:8080/codefolio/front/blog.do" target="_self" ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"> <strong>코드 포스팅 </strong></span></button></a>
 <a href=""><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>개인 포트폴리오 관리</strong></span></button></a>
 <a href=""><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>팀 프로젝트 내역 </strong></span></button></a>
 

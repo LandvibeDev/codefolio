@@ -5,7 +5,8 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 </head>
 <body>
-	<h2>게시판 목록!!</h2>
+
+	<h2 align="center"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>게시판 목록!!</h2> <!-- bootstrap 기호 추가 -->
 	<table class="board_list">
 		<colgroup>
 			<col width="10%"/>
@@ -47,13 +48,15 @@
 		</tbody>
 	</table>
 	<br/>
-	
+	<center>
 	<c:if test="${not empty paginationInfo}">
         <ui:pagination paginationInfo = "${paginationInfo}" type="text" jsFunction="fn_search"/>
     </c:if>
-    <input type="hidden" id="currentPageNo" name="currentPageNo"/><br/>
-
+    <input type="hidden" id="currentPageNo" name="currentPageNo"/>
+	</center>
 	<a href="#this" class="btn" id="write">글쓰기</a>
+		
+		
 		
 	<%@ include file="/WEB-INF/include/include-body.jspf" %>
 	<script type="text/javascript">
@@ -89,5 +92,6 @@
 	            comSubmit.submit();
 	        }
 	</script>	
+	
 </body>
 </html>
