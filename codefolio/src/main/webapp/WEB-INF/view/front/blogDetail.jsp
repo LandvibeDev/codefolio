@@ -83,7 +83,7 @@
 
 
 <!--  두번째 층 중간의 페이지 이동에 대한 버튼 -->
-<div style="height:100%;width:35%;float:left;zoom:1.25">
+<div style="height:100%;width:30%;float:left;">
 <ul class="nav nav-pills">
   <li role="presentation" ><a href="/codefolio/front/codeHub.do">소스 저장소</a></li>
   <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
@@ -92,11 +92,11 @@
 </ul>
 </div>
 
-<div style="background-color :#75A3A3; height:100%;width:10%;float:left;" ></div>
+<div style="background-color :#75A3A3; height:100%;width:8%;float:left;" ></div>
 
 
 <!-- 두번째 층 오른쪽 검색기능 -->
-<div style="height:100%;width:20%;float:left;">
+<div style="height:100%;width:2	8%;float:left;">
 <form class="navbar-search pull-left" >
   <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:30pt;width:200pt ">
 	<button type="submit" class="btn btn-default-center" style="height:30pt;width:60pt">Submit</button>
@@ -105,20 +105,16 @@
 
 </div>
 
-<!--페이지에 대한 설명이 있는 세번째 층 -->
-<div  style=" width:100%;height:20%;float:left;background-color :#CFD4C5;align:center;" >
-<h1>설명</h1>
-</div>
-    
+
 
     
     
     
-<!-- 네번째 층에 대한 내용 -->
+<!-- 세번째 층에 대한 내용 -->
 <div  style=" width:100%;height:1500px;border:none;" >
 
 
-<!-- 네번째 층의 왼쪽 메뉴목록 -->
+<!-- 세번째 층의 왼쪽 메뉴목록 -->
 <!-- 밑의 script 참고 -->
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
 <div id="menu_bar" style="height:100%;width:15%;float:left; ">

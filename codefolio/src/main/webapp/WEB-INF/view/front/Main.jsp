@@ -58,6 +58,7 @@
 <!-- 페이지 변경에 대한 내용과 검색기능이  있는 두번째 층 -->
 <div style="width:100%;height:50pt;float:left;background-color :#75A3A3;">
 
+
 <div style="background-color :#75A3A3; height:100%;width:10%;float:left;" ></div>
 
 <!--  두번째 층 왼쪽의 계정관리등을 위한 메뉴형식 -->
@@ -86,7 +87,7 @@
 
 
 <!--  두번째 층 중간의 페이지 이동에 대한 버튼 -->
-<div style="height:100%;width:35%;float:left;zoom:1.25">
+<div style="height:100%;width:30%;float:left;">
 <ul class="nav nav-pills">
   <li role="presentation" ><a href="/codefolio/front/codeHub.do">소스 저장소</a></li>
   <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
@@ -95,11 +96,11 @@
 </ul>
 </div>
 
-<div style="background-color :#75A3A3; height:100%;width:10%;float:left;" ></div>
+<div style="background-color :#75A3A3; height:100%;width:8%;float:left;" ></div>
 
 
 <!-- 두번째 층 오른쪽 검색기능 -->
-<div style="height:100%;width:20%;float:left;">
+<div style="height:100%;width:2	8%;float:left;">
 <form class="navbar-search pull-left" >
   <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:30pt;width:200pt ">
 	<button type="submit" class="btn btn-default-center" style="height:30pt;width:60pt">Submit</button>
@@ -107,7 +108,6 @@
 </div>
 
 </div>
-
 
 <!--중간  timeline -->
 <div id="timeline" style="width:100%;height:75%;float:left;">
