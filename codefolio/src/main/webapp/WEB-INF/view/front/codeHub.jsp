@@ -14,8 +14,7 @@
  
    
 
-	
-   <!-- bootstrap -->
+	 <!-- bootstrap -->
    <link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
    <script src="<%=cp%>/resources/bootstrap/js/bootstrap.min.js"></script>
    
@@ -24,113 +23,177 @@
    
     <!--FONT-->
     <link rel="stylesheet" href="../css/fonts/font.default.css?v1">
-    <!-- Style-->
-      <style>
+    
+     <!-- Style-->
+       <style>
       html, body {
       	height:100%;
       	width:100%;
       	padding: 0px;
       	margin: 0px;
       	text-align: left;
-      	
       
-      }
-      
-    
-      </style>
-    
-    
+      }  
+</style> 
 </head>
-<body>
+<body >
 
 
- <!-- 좌측 상단 -->
-  <div style=" height:18%;width:100% ;float:left;">
-    <div style="background-color: #3498db;height:100%;width:20% ;float:left; " >
-      
-		
- 		<a href="#this"  id="Cf">
- 		<span style="color:#ffffff; " ><button  style=" WIDTH: 100%; HEIGHT: 100%; padding:0%;margin:0%; font-size: 50pt; background-color:#3498db;border:0;float:left;"   type="button"><em>CodeFOLIO</em></button></span>
-		 </a>
-		 
-		<script type="text/javascript">
+ <!-- 첫 번째 층에 대한 내용 -->	
+<div style="height:12%;width:100% ; float:left; " >
+ 
+<!-- 첫 번째 층의 왼쪽 홈 버튼 -->
+<div style="background-color :#75A3A3; height:100%;width:30%;float:left ;" >
+<button type="button" class="btn btn-default btn-lg " style="float:left ;background-color :#75A3A3;" ><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:#000000" ></span></button>
+</div>
+
+<!-- 첫번째 층 중간의 "codeFOLIO" 마크버튼 구현 -->
+<!-- script 이용 id=Cf -->
+<div style="background-color: #75A3A3; height:100%;width:40% ;float:left; " >
+ 	<a href="#this"  id="Cf">
+ 	<span style="color:#ffffff; " ><button  style=" WIDTH: 100%; HEIGHT: 100%; padding:0%;margin:0%; font-size: 40pt; background-color:#75A3A3;border:0;float:left;"   type="button"><em>CodeFOLIO</em></button></span>
+	</a>
+</div>
 
 
 
-		$(document).ready(function(){
-			$("#Cf").on("click", function(e){ //목록으로 버튼
-				e.preventDefault();
-				fn_backHome();
-			});
-		});
-			function fn_backHome(){
-				var comSubmit = new ComSubmit();
-				comSubmit.setUrl("<c:url value='/front/Main.do' />");
-				comSubmit.submit();
-			}
-
-		</script>		
-	</div>
-    
-    <!-- 상단 중간 -->
-   <div style="background-color :#34e8fb;width:50%;height:100%;float:left;padding-top:3%;" >
-    <h1><center><span class="glyphicon glyphicon-education" aria-hidden="true"></span> 소스 저장소 </center></h1>
-    </div>
-    
-    <!-- 우측 상단 -->
-    <div class="dropdown" style="background-color :#34e8fb;  padding:60pt; height:100%;width:30% ;float:left;" >
+<!--  첫번째 층 오른쪽의 계정관리등을 위한 메뉴형식 -->
+<div class="dropdown" style="background-color :#75A3A3; height:100%;width:30% ;float:left;" >
       	
-   	<ul class="nav nav-tabs">
-  <li><a href="#"><span style="color:#9b59b6 " ><strong></strong>홈</span></a></li>
-  <li role="presentation" class="dropdown">
+ <ul class="nav nav-tabs">  <!-- list 시작 -->
+  <li><a href="#"><span style="color:#000000 " ><strong></strong>홈</span></a></li>
+  <li role="presentation" class="dropdown">	 <!-- 두번째 List는 dropdown형식으로 구현 -->
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-      <span style="color:#9b59b6 " ><strong>계정 관리</strong></span> <span class="caret"></span>
+      <span style="color:#000000 " ><strong>계정 관리</strong></span> <span class="caret"></span>
     </a>
+    <!-- dropdown 안쪽의 내용 -->
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
     <li><a href="#">비밀번호 변경</a></li>
     <li><a href="#">회원 탈퇴</a></li>
     <li><a href="#">로그아웃</a></li>
     <li role="separator" class="divider"></li>
     <li><a href="#">고객 센터</a></li>
-  </ul>
-  
-    
+  	</ul>
   </li>
-  <li><a href="#"><span style="color:#9b59b6 " ><strong>메시지</strong></span></a></li>
-  <li><a href="#"><span style="color:#9b59b6 " ><strong>알림</strong></span></a></li>
-</ul>
- 		
-</div><!-- /.row -->
-    
-    </div>
+  <li><a href="#"><span style="color:#000000 " ><strong>메시지</strong></span></a></li>
+  <li><a href="#"><span style="color:#000000 " ><strong>알림</strong></span></a></li>
+</ul>	
+</div>
 
- 
-
-<!--중간 좌측  메뉴 -->
-<div  style=" width:100%;height:67%;float:left;" >
-<div  style="height:100%;width:20%;float:left;">
-
-<a href="/codefolio/front/codeHub.do" target="_self" ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>소스 저장소 </strong></span></button></a>
-<a href="/codefolio/front/blog.do"  ><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"> <strong>코드 포스팅 </strong></span></button></a>
-<a href=""><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>개인 포트폴리오 관리</strong></span></button></a>
-<a href=""><button type="button"  class="btn btn-default" style="width:100%; "><span style="color:#000000;"><strong>팀 프로젝트 내역 </strong></span></button></a>
-
- 
-  <h5><center><span class="glyphicon glyphicon-align-justify" aria-hidden="true"><strong>프로젝트 목록</strong></span></center></h5>
-  
-  
-  </div>
-  
-
-   <!-- 중간 중앙 게시판 자리 -->
-<div   style=" height:100%;float:left;width:60%" >코드 포스팅 게시판 들어올것</div>
-
-<!-- 중앙 우측 광고 -->
-<div  style=" height:100%;float:left;width:20%" >
-<strong>광고</strong></div>
 </div>
 
 
+
+<!-- 페이지 변경에 대한 내용과 검색기능이  있는 두번째 층 -->
+<div  style="width:100%;height:50pt;float:left;background-color :#75A3A3;">
+
+<!-- 두번째 층 왼쪽 검색기능 -->
+<div style="height:100%;width:35%;float:left;">
+<form class="navbar-search pull-left" >
+  <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:30pt;width:200pt ">
+	<button type="submit" class="btn btn-default-center" style="height:30pt;width:60pt">Submit</button>
+</form>
+</div>
+
+<!--  두번째 층 오른쪽의 페이지 이동에 대한 버튼 -->
+<div style="height:100%;width:40%;float:left;">
+<ul class="nav nav-pills">
+  <li role="presentation" ><a href="/codefolio/front/codeHub.do">소스 저장소</a></li>
+  <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
+  <li role="presentation" ><a href="">개인 포트폴리오 관리</a></li>
+  <li role="presentation" class="disabled"><a href="">팀 프로젝트 내역</a></li>
+</ul>
+</div>
+<div style="height:100%;width:25%;float:left;"></div>
+
+</div>
+
+
+
+<!--페이지에 대한 설명이 있는 세번째 층 -->
+<div  style=" width:100%;height:20%;float:left;background-color :#CFD4C5;align:center;" >
+<h1>설명</h1>
+</div>
+    
+
+    
+    
+    
+<!-- 네번째 층에 대한 내용 -->
+<div  style=" width:100%;height:64%;float:left;" >
+
+<!-- 네번째 층의 왼쪽 메뉴목록 -->
+<!-- 밑의 script 참고 -->
+<!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
+<div id="menu_bar" style="height:100%;width:15%;float:left; ">
+<div class="btn-group-vertical" role="group" aria-label="..." style="height:100%;width:70%;">
+  <button type="button" class="btn btn-default">1</button>
+  <button type="button" class="btn btn-default">2</button>
+
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Dropdown link</a></li>
+      <li><a href="#">Dropdown link</a></li>
+    </ul>
+  </div>
+</div>
+
+</div>
+
+
+
+<!--여기에!!!   -->
+<div style=" height:100%;float:left;width:70%;overflow:auto;">
+
+</div>
+
+
+<!-- 부가적인 꼬리말에 대한 층 -->
+<footer style="height:50px;width:100%;float:left;background-color: #B26B69;">
+
+</footer>
+
+
+<!-- script -->
+
+<!-- 첫번째 "codeFOLIO" 버튼에 대한 script -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#Cf").on("click", function(e){ //목록으로 버튼
+		e.preventDefault();
+		fn_backHome();
+		});
+	});
+	function fn_backHome(){
+		var comSubmit = new ComSubmit();
+		comSubmit.setUrl("<c:url value='/front/Main.do' />");
+		comSubmit.submit();
+	}
+</script>		
+
+ <!-- 네번째 층의 왼쪽  메뉴 스크롤시 상단 고정에 대한 스크립트 -->
+ <script type="text/javascript"> 
+ function menuScroll() { 
+     var menu_bar = document.getElementById('menu_bar');
+
+    if($(window).scrollTop() > 300 ) 	// 300이상 일때 부터 상단에 고정
+    	{
+    	hold_bar.style.position = 'fixed';
+    	hold_bar.style.left=0;
+    	hold_bar.style.right=0;
+    	hold_bar.style.top=0;
+    	
+    	}
+     else hold_bar.style.position = ''; //300 이하일때는 아무동작 하지 않는다.
+
+}
+
+$(window).scroll(menuScroll);
+</script>
 
 </body>
 </html>

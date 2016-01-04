@@ -4,6 +4,7 @@
 <% String cp = request.getContextPath(); %>
 
 <%--ContextPath 선언 --%>
+
 <html>
 <head>
 
@@ -43,43 +44,21 @@
 
   </head>
   <body >
-
-  <div style="height:12%;width:100% ; float:left; " >
-  <!-- 좌측 상단  -->	
-  
+ <!-- 첫 번째 층에 대한 내용 -->	
+ <div style="height:12%;width:100% ; float:left; " >
+  <!-- 첫 번째 층의 왼쪽 홈 버튼 -->
 <div style="background-color :#75A3A3; height:100%;width:30%;float:left ;" >
-
-	
 <button type="button" class="btn btn-default btn-lg " style="float:left ;background-color :#75A3A3;" ><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:#000000" ></span></button>
-
 </div>
-		<!-- 상단 중간 -->
-	
-
-
-  <div style="background-color: #75A3A3; height:100%;width:40% ;float:left; " >
+<!-- 첫번째 층 중간의 "codeFOLIO" 마크버튼 구현 -->
+<!-- script 이용 id=Cf -->
+<div style="background-color: #75A3A3; height:100%;width:40% ;float:left; " >
 		
  		<a href="#this"  id="Cf">
  		<span style="color:#ffffff; " ><button  style=" WIDTH: 100%; HEIGHT: 100%; padding:0%;margin:0%; font-size: 40pt; background-color:#75A3A3;border:0;float:left;"   type="button"><em>CodeFOLIO</em></button></span>
 		 </a>
 		 
-		<script type="text/javascript">
-
-
-
-		$(document).ready(function(){
-			$("#Cf").on("click", function(e){ //목록으로 버튼
-				e.preventDefault();
-				fn_backHome();
-			});
-		});
-			function fn_backHome(){
-				var comSubmit = new ComSubmit();
-				comSubmit.setUrl("<c:url value='/front/Main.do' />");
-				comSubmit.submit();
-			}
-
-		</script>		
+		
 	</div>
 
 
@@ -149,6 +128,26 @@
  
 
     <!-- JavaScript-->
+    
+    
+    <script type="text/javascript">
+
+
+
+		$(document).ready(function(){
+			$("#Cf").on("click", function(e){ //목록으로 버튼
+				e.preventDefault();
+				fn_backHome();
+			});
+		});
+			function fn_backHome(){
+				var comSubmit = new ComSubmit();
+				comSubmit.setUrl("<c:url value='/front/Main.do' />");
+				comSubmit.submit();
+			}
+
+		</script>		
+    
     
     <script>
 
