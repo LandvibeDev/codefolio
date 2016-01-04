@@ -18,16 +18,18 @@
   		<div class="col-md-10"><h1>${map.TITLE }</h1> </div>
 	</div>
 	<div class="row" style="padding:15px 15px 15px 15px;">
-		<div class="col-md-8">코드포스팅(카테고리 이름 들어갈 곳 )</div>
+		<div class="col-md-8">${topic.NAME }</div>
   		<div class="col-md-4" style="text-align:right;">${map.DATE }</div>
 	</div>
 	<div class="row" style="padding:15px 15px 15px 15px;">
   		<div>
 			<ul>
 				<c:forEach var="row" items="${list }">
-            		<li><input type="hidden" id="IDX" value="${row.FILE_IDX }">
+            		<li>
+            			<input type="hidden" id="IDX" value="${row.FILE_IDX }">
                 		<a href="#this" name="file">${row.ORIGINAL_FILE_NAME }</a> 
-                    	(${row.FILE_SIZE }kb)</li>
+                    	(${row.FILE_SIZE }kb)
+                    </li>
         		</c:forEach>
 			</ul>
 		</div>

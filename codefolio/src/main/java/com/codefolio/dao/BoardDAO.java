@@ -16,6 +16,11 @@ public class BoardDAO extends AbstractDAO{
 	    return (Map<String, Object>)selectPagingList("board.selectBoardList", map);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectTopicList(Map<String, Object> map) throws Exception{
+	    return (List<Map<String, Object>>)selectList("board.selectTopicList", map);
+	}
+	
 	//파일 정보 저장 
 	public void insertFile(Map<String, Object> map) throws Exception{
 	    insert("board.insertFile", map); 	//파일입력 
@@ -36,6 +41,12 @@ public class BoardDAO extends AbstractDAO{
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> selectBoardDetail(Map<String, Object> map) throws Exception{
 		return (Map<String, Object>) selectOne("board.selectBoardDetail", map);
+	}
+
+	//주제 정보 
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> selectTopicInfo(Map<String, Object> map) throws Exception{
+		return (Map<String, Object>) selectOne("board.selectTopicInfo", map);
 	}
 	
 	

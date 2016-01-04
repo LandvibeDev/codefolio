@@ -10,6 +10,7 @@
 			SELECT
 			SQL_CALC_FOUND_ROWS
 				BOARD_IDX,
+				TOPIC_IDX,
 				TITLE,
 				COUNT,
 				DATE
@@ -20,7 +21,15 @@
 			LIMIT #{START}, #{END}
 		]]>
 	</select>
-	
+		<!-- 게시글 리스트 -->
+	<select id="selectTopicList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+				*
+			FROM
+				board_topic
+		]]>
+	</select>
 	
 	<!-- 게시글 총 개수  -->
 	<select id="selectBoardTotalCount" parameterType="hashmap" resultType="hashmap">
@@ -37,6 +46,7 @@
 			INSERT INTO board
 			(
 				BOARD_IDX,
+				TOPIC_IDX,
 			    TITLE, 
 			    CONTENTS, 
 			    COUNT,
@@ -46,7 +56,8 @@
 			)
 			VALUES
 			(
-				NULL, 
+				NULL,
+				#{TOPIC_IDX}, 
 			    #{TITLE}, 
 			    #{CONTENTS}, 
 			    0, 
@@ -127,9 +138,23 @@
 			SELECT
 				*
 			FROM
-				board natural join user
+				board 
+			NATURAL JOIN 
+				user
 			WHERE
 				BOARD_IDX = #{IDX}		
+		]]>
+	</select>
+	
+	<!-- 게시글 토픽 정보   -->
+	<select id="selectTopicInfo" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+				*
+			FROM
+				board_topic 
+			WHERE
+				TOPIC_IDX = #{TOPIC_IDX}		
 		]]>
 	</select>
 	
