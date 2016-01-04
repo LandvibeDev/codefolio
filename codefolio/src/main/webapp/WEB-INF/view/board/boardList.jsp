@@ -29,6 +29,7 @@
 						<tr>
 							<td>${row.BOARD_IDX }</td>
 							<td class="title">
+							<input type='hidden' id='TOPIC_IDX' value="${row.TOPIC_IDX }">
 							<input type='hidden' id='IDX' value="${row.BOARD_IDX }">
 								<a href='#this' name='title'>${row.TITLE }</a>
 							</td>
@@ -84,6 +85,7 @@
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/front/blogDetail.do' />");
 			comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
+			comSubmit.addParam("TOPIC_IDX", obj.parent().find("#TOPIC_IDX").val());
 			comSubmit.submit();
 		}
 		

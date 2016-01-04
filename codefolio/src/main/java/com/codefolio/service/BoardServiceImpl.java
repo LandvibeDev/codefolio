@@ -37,7 +37,12 @@ public class BoardServiceImpl implements BoardService{
 	public Map<String, Object> selectBoardList(Map<String, Object> map) throws Exception {
 	    return boardDAO.selectBoardList(map);
 	}
-
+	
+	//게시판 주제 리스트 
+	public List<Map<String, Object>> selectTopicList(Map<String, Object> map) throws Exception{
+		return boardDAO.selectTopicList(map);
+	}
+	
 	//게시글 입력 
 	@Override
 	public void insertBoard(Map<String, Object> map,HttpServletRequest request) throws Exception {
@@ -69,6 +74,8 @@ public class BoardServiceImpl implements BoardService{
 		Map<String,Object> resultMap = new HashMap<String, Object>();
 		Map<String, Object> tempMap = boardDAO.selectBoardDetail(map); // 게시글 정보 
 		resultMap.put("map", tempMap);
+		Map<String, Object> topicMap = boardDAO.selectTopicInfo(map); // 주제 정보 
+		resultMap.put("topicInfo", topicMap);
 		
 		List<Map<String,Object>> list = boardDAO.selectFileList(map);	// 파일 정보
 		resultMap.put("list",list);

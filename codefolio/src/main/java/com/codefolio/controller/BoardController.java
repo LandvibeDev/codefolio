@@ -53,6 +53,9 @@ public class BoardController {
 	public ModelAndView openBoardWrite(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardWrite");
 		
+		List<Map<String, Object>> list = boardService.selectTopicList(commandMap.getMap());
+		mv.addObject("topicList", list);
+		
 		return mv;
 	}
 	
@@ -83,6 +86,7 @@ public class BoardController {
 		Map<String,Object> map = boardService.selectBoardDetail(commandMap.getMap());
 		mv.addObject("map", map.get("map"));
 		mv.addObject("list", map.get("list"));
+		mv.addObject("topic", map.get("topicInfo"));
 		
 		return mv;
 	}
@@ -123,7 +127,7 @@ public class BoardController {
 	//파일 다운로드 요청 
 	 @RequestMapping(value="/board/downloadFile.do")
 	    public void downloadFile(CommandMap commandMap, HttpServletResponse response) throws Exception{
-		 	log.debug(commandMap.get("IDX"));
+		 	
 		 	Map<String,Object> map = boardService.selectFileInfo(commandMap.getMap());
 	        String storedFileName = (String)map.get("STORED_FILE_NAME");
 	        String originalFileName = (String)map.get("ORIGINAL_FILE_NAME");
@@ -138,5 +142,7 @@ public class BoardController {
 	         
 	        response.getOutputStream().flush();
 	        response.getOutputStream().close();
+	        
+	        
 	    }
 }

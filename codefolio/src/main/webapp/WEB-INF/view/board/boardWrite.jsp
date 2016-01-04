@@ -14,9 +14,30 @@
 	<div class="row" style="padding:15px 15px 15px 15px;">
 		<div class="col-md-1"></div>
   		<div class="col-md-10"">
+  			<div class="dropdown">
+  			<button class="btn btn-default btn-lg dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    				주제
+    			<span class="caret"></span>
+  			</button>
+  			
+  			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+  				<c:forEach var="topic" items="${topicList }">
+            		<li role="presentation">
+            			<input type="hidden" id="TOPIC_IDX" value="${topic.TOPIC_IDX }">
+            			<a role="menuitem" tabindex="${topic.TOPIC_IDX }">"${topic.NAME }"</a>
+            		</li>
+        		</c:forEach>
+  			</ul>
+			</div>
+  		</div>
+	</div>
+	
+	<div class="row" style="padding:15px 15px 15px 15px;">
+		<div class="col-md-1"></div>
+  		<div class="col-md-10"">
   			<div class="form-group">
     			<label for="TITLE">제목 </label>
-    			<input type='text' class="form-control" id="TITLE" name="TITLE" placeholder="제목을 입력하시오" style="height:40px;">
+    			<input type='text' class="form-control" id="TITLE" name="TITLE" placeholder="제목을 입력하세요" style="height:40px;">
     		</div>
   		</div>
 	</div>
@@ -70,7 +91,12 @@
 
 	 CKEDITOR.replace( "CONTENTS" , ckeditor_config );
 	
-	
+	 	$(".dropdown-menu li a").click(function(){ // 버튼 이름 변경 
+	 		
+	 		$("#dropdownMenu1").html($(this).text()+' <span class="caret"></span>');
+	 		topic_idx = $(this).parent().find("#TOPIC_IDX").val();
+		}); 
+	 
 	  $(document).ready(function() {
 			$("#list").on("click", function(e) { //목록으로 버튼
 				e.preventDefault();
@@ -80,10 +106,10 @@
 			$("#write").on("click", function(e) { //작성하기 버튼
 				e.preventDefault();
 				fn_insertBoard();
-
 			});
-
+			
 		});
+	  
 
 		function fn_openBoardList() { //목록 버튼
 			var comSubmit = new ComSubmit();
@@ -95,9 +121,13 @@
 		function fn_insertBoard() { //작성 버튼 
 			var comSubmit = new ComSubmit('frm');
 			comSubmit.setUrl("<c:url value='/board/insertBoard.do' />");
+			if(topic_idx == null){
+				topic_idx = 0;
+			}
+			comSubmit.addParam("TOPIC_IDX",topic_idx);
 			comSubmit.submit();
 		}
-
+		
 		
 	</script>
 </body>
