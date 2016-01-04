@@ -67,6 +67,7 @@ public class ProjectController {
 		    return mv;
 		}
 		
+		
 		@RequestMapping(value="/front/codeHubDetail.do")
 		public ModelAndView opencodeDetail(CommandMap commandMap) throws Exception{
 		    ModelAndView mv = new ModelAndView("/front/codeHubDetail");

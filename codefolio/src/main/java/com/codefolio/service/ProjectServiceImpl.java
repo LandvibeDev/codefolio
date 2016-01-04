@@ -60,6 +60,7 @@ public class ProjectServiceImpl implements ProjectService{
 	@Override
 	public List<String> getfileList(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
+		log.debug(" map.get(IDX).toString() :" + map.get("IDX")  );
 		return gitUtils.getProjectList(map.get("IDX").toString());
 		 
 	}

@@ -216,7 +216,7 @@ $(window).scroll(menuScroll);
 		
 		function fn_insertBoard(){
 			var comSubmit = new ComSubmit("frm");
-			comSubmit.setUrl("<c:url value='/front/codeHubDetail.do' />");
+			comSubmit.setUrl("<c:url value='front/codeHubResult.do' />");
 			comSubmit.submit();
 		}
 	</script>

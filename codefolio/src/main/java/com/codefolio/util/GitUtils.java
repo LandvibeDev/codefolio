@@ -914,9 +914,10 @@ public class GitUtils {
 	
 	public List<String> getProjectList(String projectName){
 		 FileRepositoryBuilder builder = new FileRepositoryBuilder();
-		String out ="";
+		
 		List list= new ArrayList();
         try {
+        	log.debug("errororororoor123 "+ "\n");
         	Repository repository = builder
 			        .readEnvironment() // scan environment GIT_* variables
 			        .setGitDir(new File("C:/test0101/" + projectName +"/.git")) // scan up the file system tree
@@ -930,6 +931,7 @@ public class GitUtils {
              
               }
 		} catch (IOException e) {
+			log.debug("errororororoor "+ "\n");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
