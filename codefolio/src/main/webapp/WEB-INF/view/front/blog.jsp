@@ -33,6 +33,7 @@
       	margin: 0px;
       	text-align: left;
       
+      
       }  
 </style> 
 </head>
@@ -40,16 +41,9 @@
 
 
  <!-- 첫 번째 층에 대한 내용 -->	
-<div style="height:12%;width:100% ; float:left; " >
- 
-<!-- 첫 번째 층의 왼쪽 홈 버튼 -->
-<div style="background-color :#75A3A3; height:100%;width:30%;float:left ;" >
-<button type="button" class="btn btn-default btn-lg " style="float:left ;background-color :#75A3A3;" ><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:#000000" ></span></button>
-</div>
-
 <!-- 첫번째 층 중간의 "codeFOLIO" 마크버튼 구현 -->
 <!-- script 이용 id=Cf -->
-<div style="background-color: #75A3A3; height:100%;width:40% ;float:left; " >
+<div  style="background-color: #75A3A3;height:12%;width:100% ; float:left; " >
  	<a href="#this"  id="Cf">
  	<span style="color:#ffffff; " ><button  style=" WIDTH: 100%; HEIGHT: 100%; padding:0%;margin:0%; font-size: 40pt; background-color:#75A3A3;border:0;float:left;"   type="button"><em>CodeFOLIO</em></button></span>
 	</a>
@@ -57,10 +51,15 @@
 
 
 
-<!--  첫번째 층 오른쪽의 계정관리등을 위한 메뉴형식 -->
-<div class="dropdown" style="background-color :#75A3A3; height:100%;width:30% ;float:left;" >
+<!-- 페이지 변경에 대한 내용과 검색기능이  있는 두번째 층 -->
+<div style="width:100%;height:50pt;float:left;background-color :#75A3A3;">
+
+<div style="background-color :#75A3A3; height:100%;width:10%;float:left;" ></div>
+
+<!--  두번째 층 왼쪽의 계정관리등을 위한 메뉴형식 -->
+<div  class="dropdown" style="background-color :#75A3A3; height:100%;width:25%;float:left;" >
       	
- <ul class="nav nav-tabs">  <!-- list 시작 -->
+ <ul class="nav nav-tabs" style="border-bottom:none;">  <!-- list 시작 -->
   <li><a href="#"><span style="color:#000000 " ><strong></strong>홈</span></a></li>
   <li role="presentation" class="dropdown">	 <!-- 두번째 List는 dropdown형식으로 구현 -->
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -80,23 +79,10 @@
 </ul>	
 </div>
 
-</div>
 
 
-
-<!-- 페이지 변경에 대한 내용과 검색기능이  있는 두번째 층 -->
-<div  style="width:100%;height:50pt;float:left;background-color :#75A3A3;">
-
-<!-- 두번째 층 왼쪽 검색기능 -->
-<div style="height:100%;width:35%;float:left;">
-<form class="navbar-search pull-left" >
-  <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:30pt;width:200pt ">
-	<button type="submit" class="btn btn-default-center" style="height:30pt;width:60pt">Submit</button>
-</form>
-</div>
-
-<!--  두번째 층 오른쪽의 페이지 이동에 대한 버튼 -->
-<div style="height:100%;width:40%;float:left;">
+<!--  두번째 층 중간의 페이지 이동에 대한 버튼 -->
+<div style="height:100%;width:40%;float:left;zoom:1.3;">
 <ul class="nav nav-pills">
   <li role="presentation" ><a href="/codefolio/front/codeHub.do">소스 저장소</a></li>
   <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
@@ -104,7 +90,15 @@
   <li role="presentation" class="disabled"><a href="">팀 프로젝트 내역</a></li>
 </ul>
 </div>
-<div style="height:100%;width:25%;float:left;"></div>
+
+
+<!-- 두번째 층 오른쪽 검색기능 -->
+<div style="height:100%;width:25%;float:left;">
+<form class="navbar-search pull-left" >
+  <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:30pt;width:200pt ">
+	<button type="submit" class="btn btn-default-center" style="height:30pt;width:60pt">Submit</button>
+</form>
+</div>
 
 </div>
 
@@ -120,7 +114,7 @@
     
     
 <!-- 네번째 층에 대한 내용 -->
-<div  style=" width:100%;height:64%;float:left;" >
+<div  style=" width:100%;height:1500px;border:none;" >
 
 <!-- 네번째 층의 왼쪽 메뉴목록 -->
 <!-- 밑의 script 참고 -->
@@ -135,13 +129,16 @@
       Dropdown
       <span class="caret"></span>
     </button>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu" >
       <li><a href="#">Dropdown link</a></li>
       <li><a href="#">Dropdown link</a></li>
     </ul>
   </div>
 </div>
 
+</div>
+
+<div id="menu_bar_default" style="float:left; ">
 </div>
 
 
@@ -179,19 +176,27 @@
 </script>		
 
  <!-- 네번째 층의 왼쪽  메뉴 스크롤시 상단 고정에 대한 스크립트 -->
- <script type="text/javascript"> 
+ <script> 
  function menuScroll() { 
      var menu_bar = document.getElementById('menu_bar');
-
+     var menu_bar_default = document.getElementById('menu_bar_default');
+     
     if($(window).scrollTop() > 300 ) 	// 300이상 일때 부터 상단에 고정
     	{
-    	hold_bar.style.position = 'fixed';
-    	hold_bar.style.left=0;
-    	hold_bar.style.right=0;
-    	hold_bar.style.top=0;
+    	menu_bar.style.position = 'fixed';
+    	menu_bar.style.top=0;
+    	menu_bar_default.style.position='';
+    	menu_bar_default.style.height='100%';
+    	menu_bar_default.style.width='15%';
     	
     	}
-     else hold_bar.style.position = ''; //300 이하일때는 아무동작 하지 않는다.
+     else 
+    	 {
+    	 menu_bar.style.position = ''; //300 이하일때는 기존의 자리로 이동.
+    	 menu_bar_default.style.height='';
+     	menu_bar_default.style.width='';
+    	 
+    	 }
 
 }
 
