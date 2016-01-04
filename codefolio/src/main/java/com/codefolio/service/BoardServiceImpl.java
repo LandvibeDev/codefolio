@@ -38,7 +38,7 @@ public class BoardServiceImpl implements BoardService{
 	    return boardDAO.selectBoardList(map);
 	}
 	
-	//게시판 주제 리스트 
+	//게시판 카테고리 리스트 
 	public List<Map<String, Object>> selectTopicList(Map<String, Object> map) throws Exception{
 		return boardDAO.selectTopicList(map);
 	}

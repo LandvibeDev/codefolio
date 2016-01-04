@@ -4,7 +4,7 @@
 <mapper namespace="board">
 	
 	
-	<!-- 게시글 리스트 -->
+	<!-- 모든 게시글 리스트 -->
 	<select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			SELECT
@@ -21,13 +21,36 @@
 			LIMIT #{START}, #{END}
 		]]>
 	</select>
-		<!-- 게시글 리스트 -->
+	
+	<!-- 특정한 카테고리 게시글 리스트 -->
+	<select id="selectTopicBoardList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			SQL_CALC_FOUND_ROWS
+				BOARD_IDX,
+				TOPIC_IDX,
+				TITLE,
+				COUNT,
+				DATE
+			FROM
+				board
+			WHERE
+				TOPIC_IDX = #{T_IDX}
+			ORDER BY
+				BOARD_IDX DESC
+			LIMIT #{START}, #{END}
+		]]>
+	</select>
+	
+		<!-- 카테고리 리스트 -->
 	<select id="selectTopicList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			SELECT
 				*
 			FROM
 				board_topic
+			ORDER BY
+				TOPIC_IDX DESC
 		]]>
 	</select>
 	
@@ -38,6 +61,16 @@
 			AS TOTAL_COUNT
 		]]>
 	</select>
+	
+	<!-- 카테고리 게시글 총 개수  -->
+	<!-- 
+	<select id="selectTopicBoardTotalCount" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT FOUND_ROWS()
+			
+			AS TOTAL_COUNT
+		]]>
+	</select> -->
 	
 	
 	<!-- 게시글 삽입  -->
@@ -146,7 +179,7 @@
 		]]>
 	</select>
 	
-	<!-- 게시글 토픽 정보   -->
+	<!-- 게시글 카테고리 정보   -->
 	<select id="selectTopicInfo" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			SELECT

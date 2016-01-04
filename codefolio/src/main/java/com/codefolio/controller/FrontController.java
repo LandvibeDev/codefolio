@@ -48,7 +48,11 @@ public class FrontController {
 	@RequestMapping(value = "/front/blog.do")
 	public ModelAndView openBlogList(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("/front/blog");
-
+			
+		List<Map<String, Object>> list = boardService.selectTopicList(commandMap.getMap());
+		mv.addObject("topicList", list);
+		mv.addObject("TOPIC_IDX", commandMap.get("TOPIC_IDX"));
+		
 		return mv;
 	}
 

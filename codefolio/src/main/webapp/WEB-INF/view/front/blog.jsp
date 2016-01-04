@@ -40,7 +40,6 @@
 <body >
 
 
-
  <!-- 첫 번째 층에 대한 내용 -->	
 <!-- 첫번째 층 중간의 "codeFOLIO" 마크버튼 구현 -->
 <!-- script 이용 id=Cf -->
@@ -112,7 +111,7 @@
     
 
     
-    
+ 
     
 <!-- 네번째 층에 대한 내용 -->
 <div  style=" width:100%;height:1500px;border:none;" >
@@ -121,33 +120,23 @@
 <!-- 네번째 층의 왼쪽 메뉴목록 -->
 <!-- 밑의 script 참고 -->
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
-<div id="menu_bar" style="height:100%;width:15%;float:left; ">
-<div class="btn-group-vertical" role="group" aria-label="..." style="height:100%;width:95%;">
-  <button type="button" class="btn ">SPRING</button>
-  <button type="button" class="btn ">JAVASCRIPT</button>
-
-  <div class="btn-group" role="group">
-    <button type="button" class="btn " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" style="width:100%;">
-      <li><a href="#">Dropdown link</a></li>
-      <li><a href="#">Dropdown link</a></li>
-    </ul>
-  </div>
-</div>
-
-</div>
+	<div id="menu_bar" style="height:100%;width:15%;float:left; ">
+		<div class="btn-group-vertical" role="group" aria-label="..." style="height:100%;width:95%;">
+			<c:forEach var="topic" items="${topicList }">
+				<input type='text' id='IDX' value="${topic.TOPIC_IDX }">
+				<button type="submit" class="btn" name='topicBtn'>${topic.NAME }</button>
+	    	</c:forEach>
+		</div>
+	</div>
 
 <div id="menu_bar_after" style="float:left; ">
 </div>
 
-
-
 <!--네번째 층의 게시판 목록 리스트에 대한 jsp 호출   -->
 <div style=" height:100%;float:left;width:70%;overflow:auto;">
-<jsp:include page="/board/openBoardList.do" flush="false"/>
+	<jsp:include page="/board/openBoardList.do" flush="false">
+		<jsp:param name="TOPIC_IDX" value="${TOPIC_IDX }" />
+	</jsp:include>
 </div>
 
 <div style=" height:100%;float:left;width:15%;overflow:auto;">
@@ -167,16 +156,32 @@
 <!-- 첫번째 "codeFOLIO" 버튼에 대한 script -->
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#Cf").on("click", function(e){ //목록으로 버튼
-		e.preventDefault();
-		fn_backHome();
+		$("#Cf").on("click", function(e){ 
+			e.preventDefault();
+			fn_backHome();
 		});
+		
+		$("button[name='topicBtn']").on("click", function(e){ 
+			e.preventDefault();
+			fn_boardChange($(this));
+		});
+		
 	});
+	
 	function fn_backHome(){
 		var comSubmit = new ComSubmit();
 		comSubmit.setUrl("<c:url value='/front/Main.do' />");
 		comSubmit.submit();
 	}
+	
+	function fn_boardChange(obj){
+		var comSubmit = new ComSubmit();
+		comSubmit.setUrl("<c:url value='/front/blog.do' />");
+		alert(obj.parent().find("#IDX").val());
+		comSubmit.addParam("TOPIC_IDX", obj.parent().find("#IDX").val());
+		comSubmit.submit();
+	}
+	
 </script>		
 
  <!-- 네번째 층의 왼쪽  메뉴 스크롤시 상단 고정에 대한 스크립트 -->

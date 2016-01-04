@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Repository;
 
 @Repository("boardDAO")
@@ -13,7 +15,9 @@ public class BoardDAO extends AbstractDAO{
 	//게시글 리스트
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> selectBoardList(Map<String, Object> map) throws Exception{
-	    return (Map<String, Object>)selectPagingList("board.selectBoardList", map);
+		String queryId = map.get("T_IDX").equals(-1)? "board.selectBoardList":"selectTopicBoardList"; 
+	   
+		return (Map<String, Object>)selectPagingList(queryId, map);
 	}
 	
 	@SuppressWarnings("unchecked")

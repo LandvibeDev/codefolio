@@ -37,9 +37,13 @@ public class BoardController {
 
 	//게시판 리스트 페이지    
 	@RequestMapping(value="/board/openBoardList.do")
-	public ModelAndView openBoardList(CommandMap commandMap) throws Exception{
+	public ModelAndView openBoardList(CommandMap commandMap,HttpServletRequest request) throws Exception{
 	    ModelAndView mv = new ModelAndView("/board/boardList");
-	     
+	    
+	    log.debug(request.getAttribute("TOPIC_IDX"));
+	    
+	    commandMap.put("T_IDX", request.getAttribute("TOPIC_IDX")==null? -1:request.getAttribute("TOPIC_IDX"));
+	    
 	    Map<String,Object> resultMap = boardService.selectBoardList(commandMap.getMap());
 	     
 	    mv.addObject("paginationInfo", (PaginationInfo)resultMap.get("paginationInfo"));
