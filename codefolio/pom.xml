@@ -310,6 +310,53 @@
     		<version>2.4</version>
 		</dependency>
 		
+		<dependency>
+      <groupId>org.eclipse.jgit</groupId>
+      <artifactId>org.eclipse.jgit</artifactId>
+      <version>4.1.1.201511131810-r</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jgit</groupId>
+      <artifactId>org.eclipse.jgit.archive</artifactId>
+      <version>4.1.1.201511131810-r</version>
+    </dependency>
+    
+    	<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
+		<dependency>
+	<groupId>org.gitective</groupId>
+	<artifactId>gitective-core</artifactId>
+	<version>0.9.9</version>
+</dependency>
+      <!-- Smart HTTP Servlet -->
+
+<dependency>
+	<groupId>com.github.rjeschke</groupId>
+	<artifactId>txtmark</artifactId>
+	<version>0.9</version>
+</dependency>
+    <dependency>
+      <groupId>org.eclipse.jgit</groupId>
+      <artifactId>org.eclipse.jgit.http.server</artifactId>
+      <version>4.1.1.201511131810-r</version>
+    </dependency>
+     <dependency>
+      <groupId>org.eclipse.jgit</groupId>
+      <artifactId>org.eclipse.jgit.junit</artifactId>
+      <version>4.1.1.201511131810-r</version>
+    </dependency>
+  
+    
+    	<dependency>
+		<groupId>commons-io</groupId>
+		<artifactId>commons-io</artifactId>
+		<version>2.4</version>
+	</dependency>
+		
 	</dependencies>
 	
 	

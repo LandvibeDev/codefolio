@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="project">
+	
+	<insert id="insertProject" parameterType="hashmap" >
+    
+		<![CDATA[
+			INSERT INTO project
+			(
+				PRJ_IDX,
+			    TITLE,
+			    DATE, 
+			    COMMENT,
+			    LANG, 
+			    IMAGE_URL
+			)
+			VALUES
+			(
+				NULL, 
+			  #{projectName}, 
+			    now(), 
+			 #{comment},
+			   	'language example',
+			    'https://www.google.com/images/nav_logo242.png/'
+			)
+		]]>
+	</insert>
+	
+	<select id="selectProjectList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+				BOARD_IDX,
+				TITLE,
+				COUNT,
+				DATE
+			FROM
+				board
+			ORDER BY
+				BOARD_IDX DESC
+			LIMIT #{START}, #{END}
+		]]>
+	</select>
+</mapper>

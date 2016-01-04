@@ -6,15 +6,16 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.internal.storage.file.FileRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.mysql.jdbc.log.Log;
  
 @Component("fileUtils")
 public class FileUtils {
@@ -63,5 +64,51 @@ public class FileUtils {
             }
         }
         return list;
+    }
+    
+    public String makegit(Map<String,Object> map, HttpServletRequest request) throws Exception{
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+        Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+         
+        MultipartFile multipartFile = null;
+        String originalFileName = null;
+        String originalFileExtension = null;
+        String storedFileName = null;
+         
+        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>(); //다중파일 전송을 위한 리스트  
+        Map<String, Object> listMap = null; 
+         
+		File file = new File(filePath);
+		if (file.exists() == false) {
+			file.mkdirs(); // 지정된위치에 폴더가 없으면 폴더생성
+		}
+
+        while(iterator.hasNext()){
+            multipartFile = multipartHttpServletRequest.getFile(iterator.next());
+            if(multipartFile.isEmpty() == false){
+            	
+            	GitUtils gitUtil = new GitUtils();
+            	gitUtil.setGitPath(filePath);  // to 디렉토리 지정
+            	gitUtil.setPath(gitUtil.getGitPath() + "/"+ ".git" ); //
+            	gitUtil.setLocalRepo(new FileRepository(gitUtil.getPath()));
+            	gitUtil.setGit(new Git(gitUtil.getLocalRepo()));
+            	gitUtil.setConfig(gitUtil.getLocalRepo().getConfig());
+            	gitUtil.setRepo(true);
+            	
+               try {
+        		gitUtil.createRepository();
+        	} catch (Exception e) {
+        		// TODO Auto-generated catch block
+        		e.printStackTrace();
+        	}
+               
+               
+               
+               gitUtil.uploadZip("sw", "s5646s@naver.com", "empty_Branch", "hello jgit", multipartFile);
+            //   gitUtil.writeBranches();
+
+            }
+        }
+		return multipartFile.getOriginalFilename().substring(0, multipartFile.getOriginalFilename().lastIndexOf('.'));
     }
 }
