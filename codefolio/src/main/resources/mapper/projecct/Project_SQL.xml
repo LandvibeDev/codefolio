@@ -30,15 +30,14 @@
 	<select id="selectProjectList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			SELECT
-				BOARD_IDX,
+				PRJ_IDX,
 				TITLE,
-				COUNT,
-				DATE
+				DATE,
+				COMMENT,
+				LANG,
+				IMAGE_URL
 			FROM
-				board
-			ORDER BY
-				BOARD_IDX DESC
-			LIMIT #{START}, #{END}
+				project
 		]]>
 	</select>
 </mapper>

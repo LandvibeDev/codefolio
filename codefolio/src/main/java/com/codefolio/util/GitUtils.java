@@ -5,10 +5,15 @@ package com.codefolio.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -907,33 +912,80 @@ public class GitUtils {
 	}
 	
 	
-	public String getProjectList(String projectName, int depth){
+	public List<String> getProjectList(String projectName){
 		 FileRepositoryBuilder builder = new FileRepositoryBuilder();
 		String out ="";
+		List list= new ArrayList();
         try {
         	Repository repository = builder
 			        .readEnvironment() // scan environment GIT_* variables
 			        .setGitDir(new File("C:/test0101/" + projectName +"/.git")) // scan up the file system tree
 			        .build();
         	DirCache index = DirCache.read(repository);
+        	 ObjectLoader loader = null;
         	log.debug("DirCache has " + index.getEntryCount() + " items");
               for (int i = 0; i < index.getEntryCount(); i++) {
-                  // the number after the AnyObjectId is the "stage", see the constants in DirCacheEntry
-              	String directory_depth[] =  index.getEntry(i).getPathString().split("/",10);
               	log.debug(index.getEntry(i).getPathString()+ "\n");
-              	//if( directory_depth.length-1 ==  depth ){
-              	// <a href="file:///C:/test0101/" + projectName"> Link 1</a>
-              		out += "<a href =\"file:////test0101/" + projectName+"/" + index.getEntry(i).getPathString()+ "\">" +  index.getEntry(i).getPathString() + "</a> <br>";
-              //	}
-              
+              	list.add(index.getEntry(i).getPathString());
+             
               }
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return out;
+		return list;
         
 	}
+	
+	
+	public String getSource(String projectName, String path) throws UnsupportedEncodingException{
+		 FileRepositoryBuilder builder = new FileRepositoryBuilder();
+		 ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		 
+		List list= new ArrayList();
+		HashMap<String, ObjectId> map = new HashMap<String, ObjectId>();
+		 ObjectLoader loader = null;
+       try {
+       	Repository repository = builder
+			        .readEnvironment() // scan environment GIT_* variables
+			        .setGitDir(new File("C:/test0101/" + projectName +"/.git")) // scan up the file system tree
+			        .build();
+       	DirCache index = DirCache.read(repository);
+       	
+       	log.debug("DirCache has " + index.getEntryCount() + " items");
+             for (int i = 0; i < index.getEntryCount(); i++) {
+             //	log.debug(index.getEntry(i).getPathString()+ "\n");
+             	list.add(index.getEntry(i).getPathString());
+             	map.put(index.getEntry(i).getPathString(),index.getEntry(i).getObjectId() );
+            
+             }
+             for(int i =0 ; i< list.size(); i++)
+             { 
+            	 //log.debug("********** baos test  :  " + list.get(i)+ "\n");
+            	// log.debug("********** baos test  :  " + path+ "\n");
+             	if (list.get(i).equals(path))
+             	{ 
+             		loader = repository.open(map.get(path));
+             		loader.copyTo(baos);
+             		// log.debug("********** baos test  :  " + baos.toString()+ "\n");
+             	    //loader.copyTo(System.out);
+             	}
+                
+             }
+             
+            
+             
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+     
+      
+		return baos.toString();
+       
+	}
+	
+	
 
 	/** 브랜치 대 브랜치 병합이 아닌 커밋 대 브랜치 병합인 채리픽 방식으로 통합하는 기능
 	 * @param cherryPickRepo

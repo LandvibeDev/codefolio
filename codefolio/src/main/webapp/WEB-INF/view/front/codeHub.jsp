@@ -141,8 +141,20 @@
 
 
 
-<!--여기에!!!   -->
+<!-- 소스 저장소 내용   -->
 <div style=" height:100%;float:left;width:70%;overflow:auto;">
+
+
+<form id="frm" name="frm" enctype="multipart/form-data"> <!-- 첨부파일  -->
+	
+		 <input type="file" name="file"> <!-- 첨부파일  -->
+		 
+        <br/>
+        <div>	프로젝트 설명  <input type= "text" name = "comment" id = "comment" ></div>
+		
+		<a href="#this" class="btn" id="write">커밋!!</a>
+	</form>
+
 
 </div>
 </div>
@@ -190,6 +202,24 @@
 
 $(window).scroll(menuScroll);
 </script>
+
+<script type="text/javascript">
+		$(document).ready(function(){
+			
+			
+			$("#write").on("click", function(e){ //작성하기 버튼
+				e.preventDefault();
+				fn_insertBoard();
+			});
+		});
+		
+		
+		function fn_insertBoard(){
+			var comSubmit = new ComSubmit("frm");
+			comSubmit.setUrl("<c:url value='/front/codeHubDetail.do' />");
+			comSubmit.submit();
+		}
+	</script>
 
 </body>
 </html>

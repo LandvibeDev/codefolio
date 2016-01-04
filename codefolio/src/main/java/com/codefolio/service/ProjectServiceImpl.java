@@ -37,20 +37,39 @@ public class ProjectServiceImpl implements ProjectService{
 	@Resource(name="gitUtils")
 	private GitUtils gitUtils;
 	
+	@Override
+	public List<Map<String, Object>> selectProjectList(Map<String, Object> map) throws Exception {
+	    return projectDAO.selectProjectList(map);
+	}
 	
+
 	
 	@Override
 	public String gitStore(Map<String, Object> map, HttpServletRequest request) throws Exception {
 		// TODO Auto-generated method stub
-		String result= "";
+		String result= "success";
 		String projectName="";
 		projectName = fileUtils.makegit(map, request);
 		log.debug("projectName : "+projectName );
-			result = gitUtils.getProjectList(projectName, 4);
-			map.put("projectName", projectName);
-		
-			projectDAO.insertProject(map);
+			
 			return result;
+	}
+
+
+
+	@Override
+	public List<String> getfileList(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return gitUtils.getProjectList(map.get("IDX").toString());
+		 
+	}
+	
+	@Override
+	public String getSource(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		
+		return gitUtils.getSource(map.get("TITLE").toString(), map.get("IDX").toString());
+		 
 	}
 	
 	

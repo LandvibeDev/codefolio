@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 public class FileUtils {
     private static final String filePath = "/Users/kimgh6554/Documents/Dev/File/"; //파일이 저장될 위치 mac 
     //private static final String filePath = "C:\\dev\\file\\"; //파일이 저장될 위치 window
+    private static final String filePath_zip = "C:/dev/git/";
     Logger log = Logger.getLogger(this.getClass());
 	
     
@@ -78,7 +79,7 @@ public class FileUtils {
         List<Map<String,Object>> list = new ArrayList<Map<String,Object>>(); //다중파일 전송을 위한 리스트  
         Map<String, Object> listMap = null; 
          
-		File file = new File(filePath);
+		File file = new File(filePath_zip);
 		if (file.exists() == false) {
 			file.mkdirs(); // 지정된위치에 폴더가 없으면 폴더생성
 		}
@@ -88,7 +89,7 @@ public class FileUtils {
             if(multipartFile.isEmpty() == false){
             	
             	GitUtils gitUtil = new GitUtils();
-            	gitUtil.setGitPath(filePath);  // to 디렉토리 지정
+            	gitUtil.setGitPath(filePath_zip);  // to 디렉토리 지정
             	gitUtil.setPath(gitUtil.getGitPath() + "/"+ ".git" ); //
             	gitUtil.setLocalRepo(new FileRepository(gitUtil.getPath()));
             	gitUtil.setGit(new Git(gitUtil.getLocalRepo()));
@@ -105,7 +106,7 @@ public class FileUtils {
                
                
                gitUtil.uploadZip("sw", "s5646s@naver.com", "empty_Branch", "hello jgit", multipartFile);
-            //   gitUtil.writeBranches();
+              // gitUtil.writeBranches();
 
             }
         }
