@@ -49,9 +49,13 @@ public class ProjectServiceImpl implements ProjectService{
 		// TODO Auto-generated method stub
 		String result= "success";
 		String projectName="";
+		
 		projectName = fileUtils.makegit(map, request);
 		log.debug("projectName : "+projectName );
-			
+		
+		map.put("projectName", projectName);
+		projectDAO.insertProject(map);
+		
 			return result;
 	}
 
@@ -60,7 +64,7 @@ public class ProjectServiceImpl implements ProjectService{
 	@Override
 	public List<String> getfileList(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
-		log.debug(" map.get(IDX).toString() :" + map.get("IDX")  );
+		log.debug(" map.get(IDX).toString() :" + map.get("IDX").toString()  );
 		return gitUtils.getProjectList(map.get("IDX").toString());
 		 
 	}

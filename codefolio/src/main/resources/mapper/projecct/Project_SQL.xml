@@ -20,7 +20,7 @@
 				NULL, 
 			  #{projectName}, 
 			    now(), 
-			 #{comment},
+			  #{comment},
 			   	'language example',
 			    'https://www.google.com/images/nav_logo242.png/'
 			)
