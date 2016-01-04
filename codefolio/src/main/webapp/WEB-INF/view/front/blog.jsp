@@ -40,6 +40,7 @@
 <body >
 
 
+
  <!-- 첫 번째 층에 대한 내용 -->	
 <!-- 첫번째 층 중간의 "codeFOLIO" 마크버튼 구현 -->
 <!-- script 이용 id=Cf -->
@@ -82,7 +83,7 @@
 
 
 <!--  두번째 층 중간의 페이지 이동에 대한 버튼 -->
-<div style="height:100%;width:30%;float:left;">
+<div style="height:100%;width:35%;float:left;zoom:1.25">
 <ul class="nav nav-pills">
   <li role="presentation" ><a href="/codefolio/front/codeHub.do">소스 저장소</a></li>
   <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
@@ -95,7 +96,7 @@
 
 
 <!-- 두번째 층 오른쪽 검색기능 -->
-<div style="height:100%;width:25%;float:left;">
+<div style="height:100%;width:20%;float:left;">
 <form class="navbar-search pull-left" >
   <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:30pt;width:200pt ">
 	<button type="submit" class="btn btn-default-center" style="height:30pt;width:60pt">Submit</button>
@@ -103,8 +104,6 @@
 </div>
 
 </div>
-
-
 
 <!--페이지에 대한 설명이 있는 세번째 층 -->
 <div  style=" width:100%;height:20%;float:left;background-color :#CFD4C5;align:center;" >
@@ -122,7 +121,7 @@
 <!-- 네번째 층의 왼쪽 메뉴목록 -->
 <!-- 밑의 script 참고 -->
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
-<div id="menu_bar" style="height:100%;width:13%;float:left; ">
+<div id="menu_bar" style="height:100%;width:15%;float:left; ">
 <div class="btn-group-vertical" role="group" aria-label="..." style="height:100%;width:95%;">
   <button type="button" class="btn ">SPRING</button>
   <button type="button" class="btn ">JAVASCRIPT</button>
@@ -210,5 +209,11 @@
 $(window).scroll(menuScroll);
 </script>
 
+
+
+
+
+
+  
 </body>
 </html>

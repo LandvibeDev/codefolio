@@ -86,7 +86,7 @@
 
 
 <!--  두번째 층 중간의 페이지 이동에 대한 버튼 -->
-<div style="height:100%;width:30%;float:left;">
+<div style="height:100%;width:35%;float:left;zoom:1.25">
 <ul class="nav nav-pills">
   <li role="presentation" ><a href="/codefolio/front/codeHub.do">소스 저장소</a></li>
   <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
@@ -99,7 +99,7 @@
 
 
 <!-- 두번째 층 오른쪽 검색기능 -->
-<div style="height:100%;width:25%;float:left;">
+<div style="height:100%;width:20%;float:left;">
 <form class="navbar-search pull-left" >
   <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:30pt;width:200pt ">
 	<button type="submit" class="btn btn-default-center" style="height:30pt;width:60pt">Submit</button>
