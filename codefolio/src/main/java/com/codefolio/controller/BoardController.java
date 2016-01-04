@@ -40,9 +40,8 @@ public class BoardController {
 	public ModelAndView openBoardList(CommandMap commandMap,HttpServletRequest request) throws Exception{
 	    ModelAndView mv = new ModelAndView("/board/boardList");
 	    
-	    log.debug(request.getAttribute("TOPIC_IDX"));
-	    
-	    commandMap.put("T_IDX", request.getAttribute("TOPIC_IDX")==null? -1:request.getAttribute("TOPIC_IDX"));
+	    commandMap.put("T_IDX", request.getAttribute("TOPIC_IDX")==null||request.getAttribute("TOPIC_IDX").equals("undefined")?
+	    		-1:request.getAttribute("TOPIC_IDX"));
 	    
 	    Map<String,Object> resultMap = boardService.selectBoardList(commandMap.getMap());
 	     
@@ -67,7 +66,7 @@ public class BoardController {
 	@RequestMapping(value="/board/insertBoard.do")
 	public ModelAndView insertBoard(CommandMap commandMap ,HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView("redirect:/front/blog.do");
-		boardService.insertBoard(commandMap.getMap(),request);
+		boardService.insertBoard(commandMap.getMap());
 		
 		return mv;
 	}

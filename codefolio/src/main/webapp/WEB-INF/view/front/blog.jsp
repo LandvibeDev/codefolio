@@ -120,11 +120,23 @@
 <!-- 네번째 층의 왼쪽 메뉴목록 -->
 <!-- 밑의 script 참고 -->
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
+		<form id='frmTopic' class="form-inline">
+  			<div class="form-group">
+    			<input type="text" class="form-control" id="NAME" name="NAME" placeholder="카테고리 추가">
+  				<button type="button" class="btn btn-default" id="addTopic">
+  					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  				</button>
+  			</div>
+ 		</form>
+ 		
 	<div id="menu_bar" style="height:100%;width:15%;float:left; ">
 		<div class="btn-group-vertical" role="group" aria-label="..." style="height:100%;width:95%;">
+				<p style="margin:0px; padding:0px"/>
+				<button class="btn" name='topicBtn' >모든글보기</button>
 			<c:forEach var="topic" items="${topicList }">
-				<input type='text' id='IDX' value="${topic.TOPIC_IDX }">
-				<button type="submit" class="btn" name='topicBtn'>${topic.NAME }</button>
+				<p style="margin:0px; padding:0px"/>
+				<input type='hidden' id='IDX' value="${topic.TOPIC_IDX }">
+				<button class="btn" name='topicBtn' >${topic.NAME }</button>
 	    	</c:forEach>
 		</div>
 	</div>
@@ -166,6 +178,11 @@
 			fn_boardChange($(this));
 		});
 		
+		$("#addTopic").on("click", function(e){ 
+			e.preventDefault();
+			fn_addTopic();
+		});
+		
 	});
 	
 	function fn_backHome(){
@@ -177,8 +194,13 @@
 	function fn_boardChange(obj){
 		var comSubmit = new ComSubmit();
 		comSubmit.setUrl("<c:url value='/front/blog.do' />");
-		alert(obj.parent().find("#IDX").val());
 		comSubmit.addParam("TOPIC_IDX", obj.parent().find("#IDX").val());
+		comSubmit.submit();
+	}
+	
+	function fn_addTopic(){
+		var comSubmit = new ComSubmit('frmTopic');
+		comSubmit.setUrl("<c:url value='/front/insertTopic.do' />");
 		comSubmit.submit();
 	}
 	

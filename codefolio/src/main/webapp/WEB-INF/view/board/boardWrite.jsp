@@ -13,7 +13,7 @@
 	
 	<div class="row" style="padding:15px 15px 15px 15px;">
 		<div class="col-md-1"></div>
-  		<div class="col-md-10"">
+  		<div class="col-md-10">
   			<div class="dropdown">
   			<button class="btn btn-default btn-lg dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
     				주제

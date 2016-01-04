@@ -35,6 +35,11 @@ public class BoardDAO extends AbstractDAO{
 		insert("board.insertBoard", map);
 		update("board.updateFile",map);
 	}
+	
+	//카테고리 삽입 
+	public void insertTopic(Map<String, Object> map) throws Exception{
+		insert("board.insertTopic", map);
+	}
 
 	//게시글 조회수 증가 
 	public void updateHitCnt(Map<String, Object> map) throws Exception{

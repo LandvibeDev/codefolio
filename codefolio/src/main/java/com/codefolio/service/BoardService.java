@@ -10,8 +10,10 @@ public interface BoardService {
 	Map<String, Object> selectBoardList(Map<String, Object> map) throws Exception;
 	
 	List<Map<String, Object>> selectTopicList(Map<String, Object> map) throws Exception;
+
+	void insertBoard(Map<String, Object> map) throws Exception;
 	
-	void insertBoard(Map<String, Object> map,HttpServletRequest request) throws Exception;
+	void insertTopic(Map<String, Object> map) throws Exception;
 	
 	void insertFile(Map<String, Object> map,HttpServletRequest request) throws Exception;
 

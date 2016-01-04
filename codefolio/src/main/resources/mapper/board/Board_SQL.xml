@@ -62,17 +62,6 @@
 		]]>
 	</select>
 	
-	<!-- 카테고리 게시글 총 개수  -->
-	<!-- 
-	<select id="selectTopicBoardTotalCount" parameterType="hashmap" resultType="hashmap">
-		<![CDATA[
-			SELECT FOUND_ROWS()
-			
-			AS TOTAL_COUNT
-		]]>
-	</select> -->
-	
-	
 	<!-- 게시글 삽입  -->
 	<insert id="insertBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
 		<![CDATA[
@@ -104,6 +93,20 @@
     </selectKey>
 	</insert>
 	
+	<insert id="insertTopic" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
+		<![CDATA[
+			INSERT INTO board_topic
+			(
+				TOPIC_IDX,
+				NAME
+			)
+			VALUES
+			(
+				NULL,
+				#{NAME}	
+			)
+		]]>
+	</insert>
 	<update id="updateFile" parameterType="hashmap">
 		<![CDATA[
 			UPDATE attached_file

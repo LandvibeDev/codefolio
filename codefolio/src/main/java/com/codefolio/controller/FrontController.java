@@ -55,6 +55,16 @@ public class FrontController {
 		
 		return mv;
 	}
+	
+	//카테고리 추가 
+	@RequestMapping(value="/front/insertTopic.do")
+	public ModelAndView insertTopic(CommandMap commandMap) throws Exception{
+		boardService.insertTopic(commandMap.getMap());
+		
+		ModelAndView mv = new ModelAndView("redirect:/front/blog.do");
+		
+		return mv;
+	}
 
 	// BlogDetail 페이지
 	@RequestMapping(value = "/front/blogDetail.do")
