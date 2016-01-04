@@ -209,14 +209,14 @@ $(window).scroll(menuScroll);
 			
 			$("#write").on("click", function(e){ //작성하기 버튼
 				e.preventDefault();
-				fn_insertBoard();
+				fn_insertBoard1();
 			});
 		});
 		
 		
-		function fn_insertBoard(){
+		function fn_insertBoard1(){
 			var comSubmit = new ComSubmit("frm");
-			comSubmit.setUrl("<c:url value='front/codeHubResult.do' />");
+			comSubmit.setUrl("<c:url value='/front/codeHubResult.do' />");
 			comSubmit.submit();
 		}
 	</script>

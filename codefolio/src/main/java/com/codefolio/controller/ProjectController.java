@@ -44,7 +44,7 @@ public class ProjectController {
 			return mv;
 		}
 		
-		@RequestMapping(value = "/front/codeHubResult.do")
+		@RequestMapping(value =  "/front/codeHubResult.do")
 		public ModelAndView resultGit(CommandMap commandMap ,HttpServletRequest request) throws Exception{
 			ModelAndView mv = new ModelAndView("/front/codeHubResult");
 			//  log.debug("request : "+request.toString() + "\n" + commandMap.get("file").toString()+ "\n");
