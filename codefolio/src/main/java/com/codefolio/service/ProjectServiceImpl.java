@@ -56,9 +56,11 @@ public class ProjectServiceImpl implements ProjectService{
 		String projectName="";
 		
 		projectName = fileUtils.makegit(map, request);
+		
 		log.debug("projectName : "+projectName );
 		
 		map.put("projectName", projectName);
+		map.put("readme", gitUtils.getSource(projectName, "README.md").substring(0, 100));
 		projectDAO.insertProject(map);
 		
 			return result;

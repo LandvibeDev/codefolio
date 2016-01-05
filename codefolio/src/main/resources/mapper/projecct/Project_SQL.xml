@@ -19,7 +19,7 @@
 				NULL, 
 			  #{projectName}, 
 			    now(), 
-			  #{comment},
+			  #{readme},
 			   	'language example'
 			)
 		]]>

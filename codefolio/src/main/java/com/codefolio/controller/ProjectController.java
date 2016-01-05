@@ -52,6 +52,7 @@ public class ProjectController {
 			//sampleService.insertBoard(commandMap.getMap(),request);\
 			String result = "";
 			result += projectService.gitStore(commandMap.getMap(),request);
+			
 			log.debug("result = "+ result.toString() + "\n");
 			mv.addObject("fileList", result);
 			return mv;
