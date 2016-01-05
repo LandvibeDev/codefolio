@@ -88,7 +88,7 @@
   <li role="presentation" ><a href="/codefolio/front/codeHub.do">소스 저장소</a></li>
   <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
   <li role="presentation" class="disabled" ><a href="">개인 포트폴리오 관리</a></li>
-  <li role="presentation" class="disabled"><a href="">팀 프로젝트 내역</a></li>
+
 </ul>
 </div>
 

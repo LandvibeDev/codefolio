@@ -187,7 +187,7 @@
  <script type="text/javascript"> 
  function menuScroll() { 
      var menu_bar = document.getElementById('menu_bar');
-
+     var menu_bar_after = document.getElementById('menu_bar_after');
      
      if($(window).scrollTop() > 300 ) 	// 300이상 일때 부터 상단에 고정
      	{
