@@ -38,9 +38,6 @@ public class FileUtils {
         List<Map<String,Object>> list = new ArrayList<Map<String,Object>>(); //다중파일 전송을 위한 리스트  
         Map<String, Object> listMap = null; 
         
-        
-        
-        
 		File file = new File(filePath);
 		if (file.exists() == false) {
 			file.mkdirs(); // 지정된위치에 폴더가 없으면 폴더생성

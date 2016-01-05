@@ -66,7 +66,7 @@
 	
 	 var ckeditor_config = {
 			 	
-	            resize_enabled : true, // 에디터 크기를 조절가
+	            resize_enabled : true, // 에디터 크기를 조절가능
 	            enterMode : CKEDITOR.ENTER_BR , // 엔터키를 <br> 로 적용함.
 	            shiftEnterMode : CKEDITOR.ENTER_P ,  // 쉬프트 +  엔터를 <p> 로 적용함.
 	            toolbarCanCollapse : true ,
@@ -81,17 +81,25 @@
 	            filebrowserFlashUploadUrl : '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash', */
 	            
 	            // 에디터에 사용할 기능들 정의
-	            toolbar : [
-	              [ 'Source', '-' , 'NewPage', 'Preview' ],
-	              [ 'Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo' ],
-	              [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],
-	              [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ],
-	              '/',
-	              [ 'Styles', 'Format', 'Font', 'FontSize' ],
-	              [ 'TextColor', 'BGColor' ],
-	              [ 'Image', 'Table' , 'SpecialChar' , 'Link', 'Unlink']
-
+	            toolbar :[ 
+	            	['Source','-','Save','NewPage','Preview','-','Templates'],
+	            	['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'],
+	            	['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+	            	['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
+	            	['BidiLtr', 'BidiRtl'],
+	            	'/',
+	            	['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+	            	['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
+	            	['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+	            	['Link','Unlink','Anchor'],
+	            	['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+	            	'/',
+	            	['Styles','Format','Font','FontSize'],
+	            	['TextColor','BGColor'],
+	            	['Maximize', 'ShowBlocks','-','About']
 	            ]
+	            	
+	            	
 
 	          };
 

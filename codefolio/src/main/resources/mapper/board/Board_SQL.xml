@@ -73,8 +73,7 @@
 			    CONTENTS, 
 			    COUNT,
 			    DATE, 
-			    USER_IDX,
-			    IMAGE_URL
+			    USER_IDX
 			)
 			VALUES
 			(
@@ -84,8 +83,7 @@
 			    #{CONTENTS}, 
 			    0, 
 			   	now(), 
-			    1,
-			    ""
+			    1
 			)
 		]]>
 	<selectKey keyProperty="BOARD_IDX" resultType="Integer">

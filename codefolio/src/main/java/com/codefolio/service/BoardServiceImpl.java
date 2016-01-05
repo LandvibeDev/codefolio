@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.codefolio.dao.BoardDAO;
 import com.codefolio.util.FileUtils;
+import com.codefolio.util.TimelineUtils;
 
 
 /*
@@ -31,6 +32,9 @@ public class BoardServiceImpl implements BoardService{
 	
 	@Resource(name="boardDAO")
 	private BoardDAO boardDAO;
+	
+	@Resource(name="timelineUtils")
+	private TimelineUtils timelineUtils;
 	
 	//게시글 리스트 
 	@Override
@@ -109,7 +113,7 @@ public class BoardServiceImpl implements BoardService{
 	//TimelineJS 정보 
 	@Override
 	public List<Map<String, Object>> selectTimelineList(Map<String, Object> map) throws Exception {
-	    return boardDAO.selectTimelineList(map);
+	    return timelineUtils.makeTiemline(boardDAO.selectTimelineList(map));
 	}
 	
 	
