@@ -40,6 +40,7 @@
 <body >
 
 
+
  <!-- 첫 번째 층에 대한 내용 -->	
 <!-- 첫번째 층 중간의 "codeFOLIO" 마크버튼 구현 -->
 <!-- script 이용 id=Cf -->
@@ -82,7 +83,7 @@
 
 
 <!--  두번째 층 중간의 페이지 이동에 대한 버튼 -->
-<div style="height:100%;width:35%;float:left;zoom:1.25">
+<div style="height:100%;width:30%;float:left;">
 <ul class="nav nav-pills">
   <li role="presentation" ><a href="/codefolio/front/codeHub.do">소스 저장소</a></li>
   <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
@@ -91,11 +92,11 @@
 </ul>
 </div>
 
-<div style="background-color :#75A3A3; height:100%;width:10%;float:left;" ></div>
+<div style="background-color :#75A3A3; height:100%;width:8%;float:left;" ></div>
 
 
 <!-- 두번째 층 오른쪽 검색기능 -->
-<div style="height:100%;width:20%;float:left;">
+<div style="height:100%;width:2	8%;float:left;">
 <form class="navbar-search pull-left" >
   <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:30pt;width:200pt ">
 	<button type="submit" class="btn btn-default-center" style="height:30pt;width:60pt">Submit</button>
@@ -104,47 +105,42 @@
 
 </div>
 
-<!--페이지에 대한 설명이 있는 세번째 층 -->
-<div  style=" width:100%;height:20%;float:left;background-color :#CFD4C5;align:center;" >
-<h1>설명</h1>
-</div>
-    
+
 
     
- 
     
-<!-- 네번째 층에 대한 내용 -->
+    
+<!-- 세번째 층에 대한 내용 -->
 <div  style=" width:100%;height:1500px;border:none;" >
 
 
-<!-- 네번째 층의 왼쪽 메뉴목록 -->
+<!-- 세번째 층의 왼쪽 메뉴목록 -->
 <!-- 밑의 script 참고 -->
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
-		<form id='frmTopic' class="form-inline">
-  			<div class="form-group">
-    			<input type="text" class="form-control" id="NAME" name="NAME" placeholder="카테고리 추가">
-  				<button type="button" class="btn btn-default" id="addTopic">
-  					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-  				</button>
-  			</div>
- 		</form>
- 		
-	<div id="menu_bar" style="height:100%;width:15%;float:left; ">
-		<div class="btn-group-vertical" role="group" aria-label="..." style="height:100%;width:95%;">
-				<p style="margin:0px; padding:0px"/>
-				<button class="btn" name='topicBtn' >모든글보기</button>
-			<c:forEach var="topic" items="${topicList }">
-				<p style="margin:0px; padding:0px"/>
-				<input type='hidden' id='IDX' value="${topic.TOPIC_IDX }">
-				<button class="btn" name='topicBtn' >${topic.NAME }</button>
-	    	</c:forEach>
-		</div>
-	</div>
+<div id="menu_bar" style="height:100%;width:15%;float:left; ">
+<div class="btn-group-vertical" role="group" aria-label="..." style="height:100%;width:95%;">
+  <button type="button" class="btn ">SPRING</button>
+  <button type="button" class="btn ">JAVASCRIPT</button>
+
+  <div class="btn-group" role="group">
+    <button type="button" class="btn " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" style="width:100%;">
+      <li><a href="#">Dropdown link</a></li>
+      <li><a href="#">Dropdown link</a></li>
+    </ul>
+  </div>
+</div>
+
+</div>
 
 <div id="menu_bar_after" style="float:left; ">
 </div>
 
-<!--네번째 층의 게시판 목록 리스트에 대한 jsp 호출   -->
+
+<!--세번째 층의 게시판 목록 리스트에 대한 jsp 호출   -->
 <div style=" height:100%;float:left;width:70%;overflow:auto;">
 	<jsp:include page="/board/openBoardList.do" flush="false">
 		<jsp:param name="TOPIC_IDX" value="${TOPIC_IDX }" />
@@ -214,22 +210,24 @@
     
      
      
-    if($(window).scrollTop() > 300 ) 	// 300이상 일때 부터 상단에 고정
-    	{
-    	menu_bar.style.position = 'fixed';
-    	menu_bar.style.top=0;
-    	menu_bar_after.style.position='';
-    	menu_bar_after.style.height='100%';
-    	menu_bar_after.style.width='15%';
-    	
-    	}
-     else 
-    	 {
-    	 menu_bar.style.position = ''; //300 이하일때는 기존의 자리로 이동.
-    	 menu_bar_after.style.height='';
-     	 menu_bar_after.style.width='';
-    	 
-    	 }
+     
+     if($(window).scrollTop() > 300 ) 	// 300이상 일때 부터 상단에 고정
+     	{
+     	menu_bar.style.position = 'fixed';
+     	menu_bar.style.top=0;
+     	menu_bar_after.style.position='';
+     	menu_bar_after.style.height='100%';
+     	menu_bar_after.style.width='15%';
+     	
+     	}
+      else 
+     	 {
+     	 menu_bar.style.position = ''; //300 이하일때는 기존의 자리로 이동.
+     	 menu_bar_after.style.height='';
+      	 menu_bar_after.style.width='';
+     	 
+     	 }
+
 
 }
 

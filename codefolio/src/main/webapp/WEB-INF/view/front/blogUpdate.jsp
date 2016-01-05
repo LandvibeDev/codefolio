@@ -15,7 +15,7 @@
    
 
 	 <!-- bootstrap -->
-   <link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="<%=cp%>/resources/bootstrap/cssㄹ/bootstrap.min.css" rel="stylesheet">
    <script src="<%=cp%>/resources/bootstrap/js/bootstrap.min.js"></script>
    
 	 <!-- CSS-->
@@ -141,7 +141,7 @@
 
 
 <!--네번째 층의 게시판 목록 리스트에 대한 jsp 호출   -->
-<div style=" height:100%;float:left;width:80%;outline:solid;overflow:auto;">
+<div style=" height:100%;float:left;width:80%;overflow:auto;">
 <jsp:include page="/board/openBoardUpdate.do" flush="false"/>
 </div>
 
@@ -179,22 +179,23 @@
     
      
      
-    if($(window).scrollTop() > 300 ) 	// 300이상 일때 부터 상단에 고정
-    	{
-    	menu_bar.style.position = 'fixed';
-    	menu_bar.style.top=0;
-    	menu_bar_after.style.position='';
-    	menu_bar_after.style.height='100%';
-    	menu_bar_after.style.width='15%';
-    	
-    	}
-     else 
-    	 {
-    	 menu_bar.style.position = ''; //300 이하일때는 기존의 자리로 이동.
-    	 menu_bar_after.style.height='';
-     	 menu_bar_after.style.width='';
-    	 
-    	 }
+     
+     if($(window).scrollTop() > 300 ) 	// 300이상 일때 부터 상단에 고정
+     	{
+     	menu_bar.style.position = 'fixed';
+     	menu_bar.style.top=0;
+     	menu_bar_after.style.position='';
+     	menu_bar_after.style.height='100%';
+     	menu_bar_after.style.width='15%';
+     	
+     	}
+      else 
+     	 {
+     	 menu_bar.style.position = ''; //300 이하일때는 기존의 자리로 이동.
+     	 menu_bar_after.style.height='';
+      	 menu_bar_after.style.width='';
+     	 
+     	 }
 
 }
 
