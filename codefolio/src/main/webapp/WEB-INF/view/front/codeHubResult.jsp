@@ -85,7 +85,7 @@
 <!--  두번째 층 중간의 페이지 이동에 대한 버튼 -->
 <div style="height:100%;width:30%;float:left;">
 <ul class="nav nav-pills">
-  <li role="presentation" ><a href="/codefolio/front/codeHub.do">소스 저장소</a></li>
+  <li role="presentation" ><a href="/codefolio/front/codeHubList.do">소스 저장소</a></li>
   <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
   <li role="presentation" ><a href="">개인 포트폴리오 관리</a></li>
   <li role="presentation" class="disabled"><a href="">팀 프로젝트 내역</a></li>

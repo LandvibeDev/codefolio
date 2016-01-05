@@ -197,7 +197,7 @@
 		            },
 		            "media": {
 		                	"url": "${timeline.IMAGE_URL }",
-		                	"credit": "<a href ='/front/blog.do' id = 'board'>게시판으로</a>"
+		                	"credit": "<a href ='codeHubList.do'>게시판으로</a>"
 		            },
 		            "text": {
 		            	
