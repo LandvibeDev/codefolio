@@ -54,12 +54,6 @@ public class BoardServiceImpl implements BoardService{
 		
 		boardDAO.insertBoard(map);
 		
-//		//첨부파일 정보 저장 
-//		List<Map<String,Object>> list = fileUtils.parseInsertFileInfo(map, request);
-//		for(int i=0, size=list.size(); i<size; i++){
-//			boardDAO.insertFile(list.get(i)); //db에저장
-//			}
-		
 	}
 	@Override
 	public void insertTopic(Map<String, Object> map) throws Exception{
@@ -82,7 +76,7 @@ public class BoardServiceImpl implements BoardService{
 	public Map<String, Object> selectBoardDetail(Map<String, Object> map, boolean isBoardDetail) throws Exception {
 		if(isBoardDetail){boardDAO.updateHitCnt(map);} // 조회수 증가 
 		Map<String,Object> resultMap = new HashMap<String, Object>();
-		Map<String, Object> tempMap = boardDAO.selectBoardDetail(map); // 게시글 정보 
+		Map<String, Object> tempMap = timelineUtils.extractUrlContents(boardDAO.selectBoardDetail(map)); // 게시글 정보 
 		resultMap.put("map", tempMap);
 		Map<String, Object> topicMap = boardDAO.selectTopicInfo(map); // 주제 정보 
 		resultMap.put("topicInfo", topicMap);
@@ -113,7 +107,7 @@ public class BoardServiceImpl implements BoardService{
 	//TimelineJS 정보 
 	@Override
 	public List<Map<String, Object>> selectTimelineList(Map<String, Object> map) throws Exception {
-	    return timelineUtils.makeTiemline(boardDAO.selectTimelineList(map));
+	    return timelineUtils.extractUrlContents(boardDAO.selectTimelineList(map));
 	}
 	
 	

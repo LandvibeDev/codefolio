@@ -32,7 +32,7 @@ public class TimelineUtils {
 	 *  
 	 * @param queryId List from DB
 	 */
-	public List<Map<String,Object>> makeTiemline(List<Map<String,Object>> list) throws Exception{
+	public List<Map<String,Object>> extractUrlContents(List<Map<String,Object>> list) throws Exception{
 		
 		String imageURL = null;
 		String contents = null;
@@ -54,6 +54,22 @@ public class TimelineUtils {
 		}
 		
 		return resultList;
+	}
+	
+	/** 
+	 * DB의 data 가공
+	 *  
+	 * @param queryId Map from DB
+	 */
+	public Map<String,Object> extractUrlContents(Map<String,Object> map) throws Exception{
+		
+		String imageURL = extractUrl((String)map.get("CONTENTS"));
+		String contents = extractTotalUnderline((String)map.get("CONTENTS"));
+		
+		map.put("IMAGE_URL", imageURL);
+		map.put("TIMELINE_CONTENTS", contents);
+		
+		return map;
 	}
 
 	/**
