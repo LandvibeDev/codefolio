@@ -85,10 +85,7 @@ public class ProjectController {
 		@RequestMapping(value="/front/codeHubBrowser.do")
 		public ModelAndView opencodeBrowser(CommandMap commandMap) throws Exception{
 		    ModelAndView mv = new ModelAndView("/front/codeHubDetail");
-		     
 		    List<String> list = projectService.getfileList(commandMap.getMap());
-		    log.debug("FILEPATH = "+ commandMap.get("FILEPATH") + "\n");
-		    log.debug("list = "+ commandMap.get("IDX") + "\n");
 		    mv.addObject("list",list);
 		    mv.addObject("title",commandMap.get("TITLE"));
 		    mv.addObject("filepath",commandMap.get("FILEPATH")+"/");
@@ -100,8 +97,6 @@ public class ProjectController {
 		public ModelAndView opencodeViewer(CommandMap commandMap) throws Exception{
 		    ModelAndView mv = new ModelAndView("/front/codeHubViewer");
 		     
-		   // mv.addObject("title",commandMap.get("TITLE"));
-		    
 		    mv.addObject("source",projectService.getSource(commandMap.getMap()));
 		     
 		    return mv;
