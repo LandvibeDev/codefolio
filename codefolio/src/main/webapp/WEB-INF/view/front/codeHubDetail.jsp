@@ -144,39 +144,66 @@
 
 </div>
 
-<div id="title">${title}</div>
+<div id="title" style=display:none;">${title}</div>
+
 <!-- 소스 저장소 내용   -->
 <div style=" height:100%;float:left;width:70%;overflow:auto;">
 <h2 align="center"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> ${title}  </h2> <!-- bootstrap 기호 추가 -->
-
+<c:set var="currentPath" value="first/src/main/"/>
+ <c:set var="currentPathLength" value="${fn:length(currentPath)}"/>
 <table class="board_list">
 		<colgroup>
-			<col width="10%"/>
-			<col width="*"/>
-			<col width="15%"/>
-			<col width="20%"/>
+			<col width="100%"/>
 		</colgroup>
 		<thead>
 			<tr>
-				<th scope="col">번호</th>
-				<th scope="col">프로젝트명</th>
-				<th scope="col">언어</th>
-				<th scope="col">시작일</th>
+				<th scope="col">${currentPath}</th>
 			</tr>
 		</thead>
 		<tbody>
+		  <c:set var="temp" value="0"/>
+			<c:set var="init" value="0"/>
 			<c:choose>
 				<c:when test="${fn:length(list) > 0}">
-					<c:forEach items="${list}" var="row">
-						<tr>
-							
+					<c:forEach items="${list}" var="row"  varStatus="status">
+					
+					<c:set var="originalPath" value="${row}"/>    
+					<c:set var="originalPathLength" value="${fn:length(originalPath)}"/>     
+					<c:set var="length" value= "${fn:indexOf(originalPath, \"/\")}"/>
+					<c:set var="partialPath" value= "${fn:substring(originalPath, currentPathLength, originalPathLength)}"/>
+					<c:set var="test" value= "${fn:contains(partialPath,\"/\" )}"/>
+					<c:if test = "${fn:startsWith(originalPath, currentPath)}" > 
+					<c:if test = "${fn:contains(partialPath,\"/\" )}" >  
+					<c:set var="directoryLength" value="${fn:indexOf(partialPath, \"/\")}"/>      
+					<c:set var="directory" value= "${fn:substring(partialPath, 0,directoryLength)}"/>
+					
+					<c:if test = "${(directory ne temp)||(temp eq init)}" >  
+					<tr>
 							<td class="title">
+							디렉토리
 							<input type='hidden' id='IDX' value="${row}">
-								<a href='#this' name='title'>${row}</a>
+								<a href='#this' name='title'> ${directory} </a>
+								<c:set var="temp" value="${directory}"/>
+								<c:set var="init" value="1"/>
 							</td>
-							
 						</tr>
-						
+					</c:if>
+					</c:if>
+					</c:if>
+					
+			    	 <c:if test = "${fn:startsWith(originalPath, currentPath)}" > 
+					<c:if test = "${not fn:contains(partialPath,\"/\" )}" > 
+						<tr>
+							<td class="title">
+							 파일
+							<input type='hidden' id='IDX' value="${row}">
+								<a href='#this' name='title'>${partialPath}</a>
+								
+							</td>
+						</tr>
+					</c:if>
+					</c:if>
+					<c:set var="tempNum" value="${status.index}"/>
 					</c:forEach>
 				</c:when>
 				<c:otherwise>

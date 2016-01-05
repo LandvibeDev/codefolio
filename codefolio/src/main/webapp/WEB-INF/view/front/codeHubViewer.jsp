@@ -150,22 +150,7 @@
 <div style=" height:100%;float:left;width:70%;overflow:auto;">
 
 
-<table class="board_list">
-		<colgroup>
-			<col width="10%"/>
-			<col width="*"/>
-			<col width="15%"/>
-			<col width="20%"/>
-		</colgroup>
-		<thead>
-			<tr>
-				<th scope="col">번호</th>
-				<th scope="col">프로젝트명</th>
-				<th scope="col">언어</th>
-				<th scope="col">시작일</th>
-			</tr>
-		</thead>
-		<tbody>
+
 		<script src="../ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 		<pre id="editor">
 ${source}
@@ -173,9 +158,6 @@ ${source}
 </pre>
 
 			
-		</tbody>
-	</table>
-
 
 </div>
 
