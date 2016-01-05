@@ -18,6 +18,7 @@ import com.codefolio.dao.BoardDAO;
 import com.codefolio.dao.ProjectDAO;
 import com.codefolio.util.FileUtils;
 import com.codefolio.util.GitUtils;
+import com.codefolio.util.TimelineUtils;
 
 
 /*
@@ -37,9 +38,13 @@ public class ProjectServiceImpl implements ProjectService{
 	@Resource(name="gitUtils")
 	private GitUtils gitUtils;
 	
+	@Resource(name="timelineUtils")
+	private TimelineUtils timelineUtils;
+	
+	
 	@Override
 	public List<Map<String, Object>> selectProjectList(Map<String, Object> map) throws Exception {
-	    return projectDAO.selectProjectList(map);
+	    return timelineUtils.extractUrlContents(projectDAO.selectProjectList(map));
 	}
 	
 

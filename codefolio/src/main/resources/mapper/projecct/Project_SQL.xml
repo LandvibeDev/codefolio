@@ -11,9 +11,8 @@
 				PRJ_IDX,
 			    TITLE,
 			    DATE, 
-			    COMMENT,
-			    LANG, 
-			    IMAGE_URL
+			    CONTENTS,
+			    LANG
 			)
 			VALUES
 			(
@@ -21,8 +20,7 @@
 			  #{projectName}, 
 			    now(), 
 			  #{comment},
-			   	'language example',
-			    'https://www.google.com/images/nav_logo242.png/'
+			   	'language example'
 			)
 		]]>
 	</insert>
@@ -33,9 +31,8 @@
 				PRJ_IDX,
 				TITLE,
 				DATE,
-				COMMENT,
-				LANG,
-				IMAGE_URL
+				CONTENTS,
+				LANG
 			FROM
 				project
 		]]>

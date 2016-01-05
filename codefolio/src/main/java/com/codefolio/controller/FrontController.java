@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.codefolio.common.CommandMap;
 import com.codefolio.service.BoardService;
+import com.codefolio.service.ProjectService;
 
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
@@ -34,11 +35,21 @@ public class FrontController {
 	@Resource(name="boardService")
 	private BoardService boardService;
 	
+	@Resource(name="projectService")
+	private ProjectService projectService;
+	
 	// Main 페이지
 	@RequestMapping(value = "/front/Main.do")
 	public ModelAndView openMainTimeline(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("/front/Main");
 		List<Map<String, Object>> timelines = boardService.selectTimelineList(commandMap.getMap());
+		List<Map<String, Object>> timelinesOfProject = projectService.selectProjectList(commandMap.getMap());
+		
+		
+		Map<String, Object> iter = null;
+		for (int i = 0; i < timelinesOfProject.size(); i++) {
+			timelines.add(timelinesOfProject.get(i));
+		}
 		mv.addObject("timelineJson", timelines);
 
 		return mv;
