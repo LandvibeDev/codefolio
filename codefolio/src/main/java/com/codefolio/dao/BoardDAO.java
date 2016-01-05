@@ -30,6 +30,7 @@ public class BoardDAO extends AbstractDAO{
 	    insert("board.insertFile", map); 	//파일입력 
 	}
 	
+	
 	//게시글 삽입
 	public void insertBoard(Map<String, Object> map) throws Exception{
 		insert("board.insertBoard", map);

@@ -7,7 +7,7 @@
 <title>Notice</title>
 </head>
 <body>
-<h1>File is uploaded!</h1>
+<h1>File/Image is uploaded!</h1>
 
 </body>
 </html>

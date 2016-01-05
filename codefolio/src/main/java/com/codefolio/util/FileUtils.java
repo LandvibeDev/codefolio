@@ -51,7 +51,7 @@ public class FileUtils {
             if(multipartFile.isEmpty() == false){
                 originalFileName = multipartFile.getOriginalFilename();
                 originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
-                storedFileName = CommonUtils.getRandomString() + originalFileExtension; //랜덤파일이름+확장
+                storedFileName = CommonUtils.getRandomString() + originalFileExtension; //랜덤파일이름+확장자 
                  
                 file = new File(filePath + storedFileName);
                 multipartFile.transferTo(file); //파일저장

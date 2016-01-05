@@ -16,8 +16,8 @@ public interface BoardService {
 	void insertTopic(Map<String, Object> map) throws Exception;
 	
 	void insertFile(Map<String, Object> map,HttpServletRequest request) throws Exception;
-
-	Map<String, Object> selectBoardDetail(Map<String, Object> map) throws Exception;
+	
+	public Map<String, Object> selectBoardDetail(Map<String, Object> map, boolean isBoardDetail) throws Exception;
 
 	void updateBoard(Map<String, Object> map) throws Exception;
 

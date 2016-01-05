@@ -197,12 +197,12 @@
 		            },
 		            "media": {
 		                	"url": fn_urlDefault("${timeline.IMAGE_URL}"),
-		                	"credit": "<a href ='openBoardList.do' id = 'board'>게시판으로</a>"
+		                	"credit": "<a href ='/front/blog.do' id = 'board'>게시판으로</a>"
 		            },
 		            "text": {
 		            	
 		                "headline":"${timeline.TITLE}", 
-		                "text": fn_contentSlice("${timeline.CONTENTS}")
+		                "text": "${timeline.CONTENTS}"
 		            },
 		            "autolink" : "true"
 		        },
@@ -215,7 +215,7 @@
     
    
       
-      function fn_dateParse(str){ //date parse
+      function fn_dateParse(str){ //date parsing
   		var dateList = new Array();
       	var date = str.split(/[-:. ]/);
       	dateList.push(date[0]);	//year

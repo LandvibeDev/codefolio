@@ -86,7 +86,8 @@
             var idx = "${map.BOARD_IDX}";
             var comSubmit = new ComSubmit();
             comSubmit.setUrl("<c:url value='/front/blogUpdate.do' />");
-            comSubmit.addParam("IDX", idx);
+            comSubmit.addParam("IDX", "${map.BOARD_IDX}");
+            comSubmit.addParam("TOPIC_IDX", "${map.TOPIC_IDX}");
             comSubmit.submit();
         }
         

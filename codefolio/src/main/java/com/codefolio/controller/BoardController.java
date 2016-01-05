@@ -73,20 +73,19 @@ public class BoardController {
 	
 	//파일 업로드 
 	@RequestMapping(value="/board/insertFile.do")
-	public ModelAndView insertFile(CommandMap commandMap ,HttpServletRequest request) throws Exception{
+	public ModelAndView insertFile(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("/FileNotice");
-		boardService.insertFile(commandMap.getMap(),request);
-			
+		boardService.insertFile(commandMap.getMap(), request);
+
 		return mv;
 	}
-	
 	
 	//게시글 상세보기 페이지 
 	@RequestMapping(value="/board/openBoardDetail.do")
 	public ModelAndView openBoardDetail(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardDetail");
 		
-		Map<String,Object> map = boardService.selectBoardDetail(commandMap.getMap());
+		Map<String,Object> map = boardService.selectBoardDetail(commandMap.getMap(),true);
 		mv.addObject("map", map.get("map"));
 		mv.addObject("list", map.get("list"));
 		mv.addObject("topic", map.get("topicInfo"));
@@ -99,8 +98,11 @@ public class BoardController {
 	public ModelAndView openBoardUpdate(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardUpdate");
 		
-		Map<String,Object> map = boardService.selectBoardDetail(commandMap.getMap());
-		mv.addObject("map", map);
+		Map<String,Object> map = boardService.selectBoardDetail(commandMap.getMap(),false);
+		mv.addObject("map", map.get("map"));
+		mv.addObject("topicInfo", map.get("topicInfo"));
+		List<Map<String, Object>> list = boardService.selectTopicList(commandMap.getMap());
+		mv.addObject("topicList", list);
 		
 		return mv;
 	}
@@ -111,7 +113,7 @@ public class BoardController {
 		ModelAndView mv = new ModelAndView("redirect:/front/blogDetail.do");
 		
 		boardService.updateBoard(commandMap.getMap());
-		
+		mv.addObject("TOPIC_IDX", commandMap.get("TOPIC_IDX"));
 		mv.addObject("IDX", commandMap.get("IDX"));
 		return mv;
 	}

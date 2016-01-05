@@ -72,16 +72,16 @@ public class BoardServiceImpl implements BoardService{
 			}
 		
 	}
+	
 	//게시글 상세 
 	@Override
-	public Map<String, Object> selectBoardDetail(Map<String, Object> map) throws Exception {
-		boardDAO.updateHitCnt(map); // 조회수 증가 
+	public Map<String, Object> selectBoardDetail(Map<String, Object> map, boolean isBoardDetail) throws Exception {
+		if(isBoardDetail){boardDAO.updateHitCnt(map);} // 조회수 증가 
 		Map<String,Object> resultMap = new HashMap<String, Object>();
 		Map<String, Object> tempMap = boardDAO.selectBoardDetail(map); // 게시글 정보 
 		resultMap.put("map", tempMap);
 		Map<String, Object> topicMap = boardDAO.selectTopicInfo(map); // 주제 정보 
 		resultMap.put("topicInfo", topicMap);
-		
 		List<Map<String,Object>> list = boardDAO.selectFileList(map);	// 파일 정보
 		resultMap.put("list",list);
 		

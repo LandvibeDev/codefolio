@@ -16,15 +16,15 @@
   		<div class="col-md-10">
   			<div class="dropdown">
   			<button class="btn btn-default btn-lg dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-    				주제
-    			<span class="caret"></span>
+    				<font color="#808080">주제</font>
+    			<span style="color:808080" class="caret"></span>
   			</button>
   			
   			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
   				<c:forEach var="topic" items="${topicList }">
             		<li role="presentation">
             			<input type="hidden" id="TOPIC_IDX" value="${topic.TOPIC_IDX }">
-            			<a role="menuitem" tabindex="${topic.TOPIC_IDX }">"${topic.NAME }"</a>
+            			<a role="menuitem" tabindex="${topic.TOPIC_IDX }">${topic.NAME }</a>
             		</li>
         		</c:forEach>
   			</ul>
@@ -72,7 +72,13 @@
 	            toolbarCanCollapse : true ,
 	            height:'400',
 	            removePlugins : "elementspath",
-	            filebrowserUploadUrl: "http://localhost:9090/codefolio/board/insertFile.do" , // 파일 업로드를 처리 할 경로 설정.
+	           	filebrowserUploadUrl: "http://localhost:9090/codefolio/board/insertFile.do" , // 파일 업로드를 처리 할 경로 설정.
+	           	/*  filebrowserBrowseUrl : '/ckfinder/ckfinder.html',
+	            filebrowserImageBrowseUrl : '/ckfinder/ckfinder.html?Type=Images',
+	            filebrowserFlashBrowseUrl : '/ckfinder/ckfinder.html?Type=Flash',
+	            filebrowserUploadUrl : '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+	            filebrowserImageUploadUrl : '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+	            filebrowserFlashUploadUrl : '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash', */
 	            
 	            // 에디터에 사용할 기능들 정의
 	            toolbar : [
@@ -83,7 +89,7 @@
 	              '/',
 	              [ 'Styles', 'Format', 'Font', 'FontSize' ],
 	              [ 'TextColor', 'BGColor' ],
-	              [ 'Image', 'Flash', 'Table' , 'SpecialChar' , 'Link', 'Unlink']
+	              [ 'Image', 'Table' , 'SpecialChar' , 'Link', 'Unlink']
 
 	            ]
 
@@ -91,11 +97,7 @@
 
 	 CKEDITOR.replace( "CONTENTS" , ckeditor_config );
 	
-	 	$(".dropdown-menu li a").click(function(){ // 버튼 이름 변경 
-	 		
-	 		$("#dropdownMenu1").html($(this).text()+' <span class="caret"></span>');
-	 		topic_idx = $(this).parent().find("#TOPIC_IDX").val();
-		}); 
+	 	
 	 
 	  $(document).ready(function() {
 			$("#list").on("click", function(e) { //목록으로 버튼
@@ -108,6 +110,11 @@
 				fn_insertBoard();
 			});
 			
+			$(".dropdown-menu li a").click(function(){ // 버튼 이름 변경 
+		 		
+		 		$("#dropdownMenu1").html('<font color="#808080">'+$(this).text()+'</font> <span style="color:808080" class="caret"></span>');
+		 		topic_idx = $(this).parent().find("#TOPIC_IDX").val();
+			}); 
 		});
 	  
 
@@ -121,7 +128,7 @@
 		function fn_insertBoard() { //작성 버튼 
 			var comSubmit = new ComSubmit('frm');
 			comSubmit.setUrl("<c:url value='/board/insertBoard.do' />");
-			if(topic_idx == null){
+			if(typeof topic_idx === 'undefined'){
 				topic_idx = 0;
 			}
 			comSubmit.addParam("TOPIC_IDX",topic_idx);
