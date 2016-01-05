@@ -87,7 +87,7 @@
 <ul class="nav nav-pills">
   <li role="presentation" ><a href="/codefolio/front/codeHub.do">소스 저장소</a></li>
   <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
-  <li role="presentation" ><a href="">개인 포트폴리오 관리</a></li>
+  <li role="presentation" class="disabled" ><a href="">개인 포트폴리오 관리</a></li>
   <li role="presentation" class="disabled"><a href="">팀 프로젝트 내역</a></li>
 </ul>
 </div>
@@ -108,39 +108,42 @@
 
 
     
+
     
+ 
     
-<!-- 세번째 층에 대한 내용 -->
+<!-- 네번째 층에 대한 내용 -->
 <div  style=" width:100%;height:1500px;border:none;" >
 
 
-<!-- 세번째 층의 왼쪽 메뉴목록 -->
+<!-- 네번째 층의 왼쪽 메뉴목록 -->
 <!-- 밑의 script 참고 -->
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
-	<form id='frmTopic' class="form-inline">
+
+<div id="menu_bar" style="height:100%;width:15%;float:left;">
+		<form id='frmTopic' class="form-inline">
   			<div class="form-group">
-    			<input type="text" class="form-control" id="NAME" name="NAME" placeholder="카테고리 추가">
-  				<button type="button" class="btn btn-default" id="addTopic">
+    			<input type="text" class="form-control" id="NAME" name="NAME" placeholder="카테고리 추가" style="height:30pt;width:175pt;">
+  				<button type="button" class="btn" id="addTopic" style="height:30pt;width:35pt;">
   					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
   				</button>
   			</div>
  		</form>
  		
-	<div id="menu_bar" style="height:100%;width:15%;float:left; ">
-		<div class="btn-group-vertical" role="group" aria-label="..." style="height:100%;width:95%;">
-				<p style="margin:0px; padding:0px"/>
-				<button class="btn" name='topicBtn' >모든글보기</button>
+	
+		<div class="btn-group-vertical" role="group" aria-label="..." >
+				<p style="margin:0px; padding:0px;"/>
+				<button class="btn" name='topicBtn' style="height:30pt;width:217pt;">모든글보기</button>
 			<c:forEach var="topic" items="${topicList }">
 				<p style="margin:0px; padding:0px"/>
 				<input type='hidden' id='IDX' value="${topic.TOPIC_IDX }">
-				<button class="btn" name='topicBtn' >${topic.NAME }</button>
+				<button class="btn" name='topicBtn' style="height:30pt;width:217pt;" >${topic.NAME }</button>
 	    	</c:forEach>
 		</div>
 	</div>
 
 <div id="menu_bar_after" style="float:left; ">
 </div>
-
 
 <!--세번째 층의 게시판 목록 리스트에 대한 jsp 호출   -->
 <div style=" height:100%;float:left;width:70%;overflow:auto;">
@@ -176,10 +179,7 @@
 			fn_boardChange($(this));
 		});
 		
-		$("#addTopic").on("click", function(e){ 
-			e.preventDefault();
-			fn_addTopic();
-		});
+		
 		
 	});
 	
@@ -196,11 +196,8 @@
 		comSubmit.submit();
 	}
 	
-	function fn_addTopic(){
-		var comSubmit = new ComSubmit('frmTopic');
-		comSubmit.setUrl("<c:url value='/front/insertTopic.do' />");
-		comSubmit.submit();
-	}
+	
+	
 	
 </script>		
 
@@ -212,24 +209,22 @@
     
      
      
-     
      if($(window).scrollTop() > 300 ) 	// 300이상 일때 부터 상단에 고정
-     	{
-     	menu_bar.style.position = 'fixed';
-     	menu_bar.style.top=0;
-     	menu_bar_after.style.position='';
-     	menu_bar_after.style.height='100%';
-     	menu_bar_after.style.width='15%';
-     	
-     	}
-      else 
-     	 {
-     	 menu_bar.style.position = ''; //300 이하일때는 기존의 자리로 이동.
-     	 menu_bar_after.style.height='';
-      	 menu_bar_after.style.width='';
-     	 
-     	 }
-
+  	{
+  	menu_bar.style.position = 'fixed';
+  	menu_bar.style.top=0;
+  	menu_bar_after.style.position='';
+  	menu_bar_after.style.height='100%';
+  	menu_bar_after.style.width='15%';
+  	
+  	}
+   else 
+  	 {
+  	 menu_bar.style.position = ''; //300 이하일때는 기존의 자리로 이동.
+  	 menu_bar_after.style.height='';
+   	 menu_bar_after.style.width='';
+  	 
+  	 }
 
 }
 
