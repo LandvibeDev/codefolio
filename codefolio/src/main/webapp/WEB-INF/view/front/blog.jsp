@@ -117,24 +117,26 @@
 <!-- 세번째 층의 왼쪽 메뉴목록 -->
 <!-- 밑의 script 참고 -->
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
-<div id="menu_bar" style="height:100%;width:15%;float:left; ">
-<div class="btn-group-vertical" role="group" aria-label="..." style="height:100%;width:95%;">
-  <button type="button" class="btn ">SPRING</button>
-  <button type="button" class="btn ">JAVASCRIPT</button>
-
-  <div class="btn-group" role="group">
-    <button type="button" class="btn " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" style="width:100%;">
-      <li><a href="#">Dropdown link</a></li>
-      <li><a href="#">Dropdown link</a></li>
-    </ul>
-  </div>
-</div>
-
-</div>
+	<form id='frmTopic' class="form-inline">
+  			<div class="form-group">
+    			<input type="text" class="form-control" id="NAME" name="NAME" placeholder="카테고리 추가">
+  				<button type="button" class="btn btn-default" id="addTopic">
+  					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  				</button>
+  			</div>
+ 		</form>
+ 		
+	<div id="menu_bar" style="height:100%;width:15%;float:left; ">
+		<div class="btn-group-vertical" role="group" aria-label="..." style="height:100%;width:95%;">
+				<p style="margin:0px; padding:0px"/>
+				<button class="btn" name='topicBtn' >모든글보기</button>
+			<c:forEach var="topic" items="${topicList }">
+				<p style="margin:0px; padding:0px"/>
+				<input type='hidden' id='IDX' value="${topic.TOPIC_IDX }">
+				<button class="btn" name='topicBtn' >${topic.NAME }</button>
+	    	</c:forEach>
+		</div>
+	</div>
 
 <div id="menu_bar_after" style="float:left; ">
 </div>
