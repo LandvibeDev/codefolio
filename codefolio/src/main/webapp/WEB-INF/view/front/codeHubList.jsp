@@ -108,8 +108,6 @@
 
 
     
-    
-    
 <!-- 세번째 층에 대한 내용 -->
 <div  style=" width:100%;height:1500px;border:none;" >
 
@@ -117,24 +115,26 @@
 <!-- 세번째 층의 왼쪽 메뉴목록 -->
 <!-- 밑의 script 참고 -->
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
-<div id="menu_bar" style="height:100%;width:15%;float:left; ">
-<div class="btn-group-vertical" role="group" aria-label="..." style="height:100%;width:95%;">
-  <button type="button" class="btn ">SPRING</button>
-  <button type="button" class="btn ">JAVASCRIPT</button>
+	<div id="menu_bar" style="height:100%;width:15%;float:left; ">
+	
+	<form id="frm" name="frm" enctype="multipart/form-data"> <!-- 첨부파일  -->
+	
+		 <input type="file" name="file"> <!-- 첨부파일  -->
+		 
+        <br/>
+        <div>	프로젝트 설명  <input type= "text" name = "comment" id = "comment" ></div>
+		
+		<a href="#this" class="btn" id="write">커밋!!</a>
+	</form>
+	
+		
+		<!-- 소스 저장소 내용   -->
 
-  <div class="btn-group" role="group">
-    <button type="button" class="btn " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" style="width:100%;">
-      <li><a href="#">Dropdown link</a></li>
-      <li><a href="#">Dropdown link</a></li>
-    </ul>
-  </div>
-</div>
 
-</div>
+
+
+
+	</div>
 
 <div id="menu_bar_after" style="float:left; ">
 </div>
@@ -246,6 +246,20 @@ $(window).scroll(menuScroll);
 				e.preventDefault();
 				fn_openBoardDetail($(this));
 			});
+			
+			
+			$(document).ready(function(){
+				
+				
+				$("#write").on("click", function(e){ //작성하기 버튼
+					e.preventDefault();
+					fn_insertBoard1();
+				});
+			});
+		/*	$("button[name='topicBtn']").on("click", function(e){ 
+				e.preventDefault();
+				fn_boardChange($(this));
+			});*/
 		});
 	
 		
@@ -254,6 +268,18 @@ $(window).scroll(menuScroll);
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/front/codeHubDetail.do' />");
 			comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
+			comSubmit.submit();
+		}
+	/*	function fn_boardChange(obj){
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("<c:url value='/front/codeHubDetail.do' />");
+			comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
+			comSubmit.submit();
+		}*/
+		
+		function fn_insertBoard1(){
+			var comSubmit = new ComSubmit("frm");
+			comSubmit.setUrl("<c:url value='/front/codeHubResult.do' />");
 			comSubmit.submit();
 		}
 		

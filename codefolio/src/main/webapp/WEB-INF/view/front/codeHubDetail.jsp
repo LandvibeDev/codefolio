@@ -119,19 +119,7 @@
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
 <div id="menu_bar" style="height:100%;width:15%;float:left; ">
 <div class="btn-group-vertical" role="group" aria-label="..." style="height:100%;width:95%;">
-  <button type="button" class="btn ">SPRING</button>
-  <button type="button" class="btn ">JAVASCRIPT</button>
 
-  <div class="btn-group" role="group">
-    <button type="button" class="btn " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" style="width:100%;">
-      <li><a href="#">Dropdown link</a></li>
-      <li><a href="#">Dropdown link</a></li>
-    </ul>
-  </div>
 </div>
 
 </div>
