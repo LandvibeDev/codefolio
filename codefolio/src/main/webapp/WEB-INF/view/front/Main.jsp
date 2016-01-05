@@ -196,13 +196,13 @@
 		                "format": 		""
 		            },
 		            "media": {
-		                	"url": fn_urlDefault("${timeline.IMAGE_URL}"),
+		                	"url": "${timeline.IMAGE_URL }",
 		                	"credit": "<a href ='/front/blog.do' id = 'board'>게시판으로</a>"
 		            },
 		            "text": {
 		            	
 		                "headline":"${timeline.TITLE}", 
-		                "text": "${timeline.CONTENTS}"
+		                "text": "${timeline.TIMELINE_CONTENTS } "
 		            },
 		            "autolink" : "true"
 		        },
@@ -226,14 +226,8 @@
       	dateList.push(date[5]);	//second
       	
       	return dateList;
-  	}
-      function fn_urlDefault(url){
-      	if(url == ""){
-      		return "http://dev.naver.com/dbimage.php?id=3955";
-      	}
-      		
-      	return url;
-      }
+  		}
+      
       
       function fn_contentSlice(content){ 	//content를 200글자 이하로 축소 
       	if(content.length>200){
@@ -241,7 +235,7 @@
       	}
       	return content;
       
-      }
+      	}
    
         
     
