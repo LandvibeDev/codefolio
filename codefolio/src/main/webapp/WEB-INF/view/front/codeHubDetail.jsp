@@ -145,11 +145,12 @@
 </div>
 
 <div id="title" style=display:none;">${title}</div>
-
+<div id="filepathTemp" style=display:none;">${filepath}</div>
 <!-- 소스 저장소 내용   -->
 <div style=" height:100%;float:left;width:70%;overflow:auto;">
+
 <h2 align="center"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> ${title}  </h2> <!-- bootstrap 기호 추가 -->
-<c:set var="currentPath" value="first/src/main/"/>
+<c:set var="currentPath" value= "${filepath}" />
  <c:set var="currentPathLength" value="${fn:length(currentPath)}"/>
 <table class="board_list">
 		<colgroup>
@@ -161,6 +162,11 @@
 			</tr>
 		</thead>
 		<tbody>
+		<tr>
+							<td class="title">
+								<a href='#this' name='back'>  ... </a>
+							</td>
+						</tr>
 		  <c:set var="temp" value="0"/>
 			<c:set var="init" value="0"/>
 			<c:choose>
@@ -172,17 +178,19 @@
 					<c:set var="length" value= "${fn:indexOf(originalPath, \"/\")}"/>
 					<c:set var="partialPath" value= "${fn:substring(originalPath, currentPathLength, originalPathLength)}"/>
 					<c:set var="test" value= "${fn:contains(partialPath,\"/\" )}"/>
-					<c:if test = "${fn:startsWith(originalPath, currentPath)}" > 
-					<c:if test = "${fn:contains(partialPath,\"/\" )}" >  
+					
+					<c:if test = "${fn:startsWith(originalPath, currentPath)}" >    <!-- 현재 경로 해당 -->
+					<c:if test = "${fn:contains(partialPath,\"/\" )}" >                  <!-- 디렉토리의 경우 경로 해당 -->
 					<c:set var="directoryLength" value="${fn:indexOf(partialPath, \"/\")}"/>      
 					<c:set var="directory" value= "${fn:substring(partialPath, 0,directoryLength)}"/>
-					
-					<c:if test = "${(directory ne temp)||(temp eq init)}" >  
+					 
+					<c:if test = "${(directory ne temp)||(temp eq init)}" >        <!-- 디렉토리의 경우 경로 해당 -->
 					<tr>
 							<td class="title">
-							디렉토리
-							<input type='hidden' id='IDX' value="${row}">
-								<a href='#this' name='title'> ${directory} </a>
+							<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+							
+							<input type='hidden' id='DIR' value="${directory}">
+								<a href='#this' name='directory'> &nbsp ${directory} </a>
 								<c:set var="temp" value="${directory}"/>
 								<c:set var="init" value="1"/>
 							</td>
@@ -190,14 +198,13 @@
 					</c:if>
 					</c:if>
 					</c:if>
-					
 			    	 <c:if test = "${fn:startsWith(originalPath, currentPath)}" > 
 					<c:if test = "${not fn:contains(partialPath,\"/\" )}" > 
 						<tr>
 							<td class="title">
-							 파일
+							 	<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
 							<input type='hidden' id='IDX' value="${row}">
-								<a href='#this' name='title'>${partialPath}</a>
+								<a href='#this' name='title'>&nbsp${partialPath}</a>
 								
 							</td>
 						</tr>
@@ -270,6 +277,16 @@ $(window).scroll(menuScroll);
 				fn_openBoardDetail($(this));
 			});
 		});
+		
+		$(document).ready(function(){
+			
+			$("a[name='directory']").on("click", function(e){ //제목 
+				e.preventDefault();
+				fn_openDirectory($(this));
+			});
+		});
+		
+
 	
 		
 		
@@ -283,8 +300,21 @@ $(window).scroll(menuScroll);
 			comSubmit.submit();
 		}
 		
+		function fn_openDirectory(obj){
+			var comSubmit = new ComSubmit();
+			var TITLE = $('#title').html();
+			var PATH = $('#filepathTemp').html();
+			comSubmit.setUrl("<c:url value='/front/codeHubBrowser.do' />");
+			comSubmit.addParam("FILEPATH",PATH+ obj.parent().find("#DIR").val());
+			comSubmit.addParam("IDX", TITLE);
+			comSubmit.addParam("TITLE", TITLE);
+			
+			comSubmit.submit();
+			
+		}
+		
+	
+		
 	</script>	
-
-
 </body>
 </html>

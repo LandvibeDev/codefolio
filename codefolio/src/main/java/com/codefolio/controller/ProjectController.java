@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.codefolio.common.CommandMap;
@@ -76,9 +77,24 @@ public class ProjectController {
 		     
 		    mv.addObject("list",list);
 		    mv.addObject("title",commandMap.get("IDX"));
+		    mv.addObject("filepath","");
 		     
 		    return mv;
 		}
+		
+		@RequestMapping(value="/front/codeHubBrowser.do")
+		public ModelAndView opencodeBrowser(CommandMap commandMap) throws Exception{
+		    ModelAndView mv = new ModelAndView("/front/codeHubDetail");
+		     
+		    List<String> list = projectService.getfileList(commandMap.getMap());
+		    log.debug("FILEPATH = "+ commandMap.get("FILEPATH") + "\n");
+		    log.debug("list = "+ commandMap.get("IDX") + "\n");
+		    mv.addObject("list",list);
+		    mv.addObject("title",commandMap.get("TITLE"));
+		    mv.addObject("filepath",commandMap.get("FILEPATH")+"/");
+		    return mv;
+		}
+		
 		
 		@RequestMapping(value="/front/codeHubViewer.do")
 		public ModelAndView opencodeViewer(CommandMap commandMap) throws Exception{
