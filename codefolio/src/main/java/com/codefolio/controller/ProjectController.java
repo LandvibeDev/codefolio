@@ -23,97 +23,112 @@ import com.codefolio.service.ProjectService;
 
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
-
-/*
- * FrontConroller : front 관련 Controller
+/**
  * 
+ * 프로젝트 관련 Controller
+ *
  */
 @Controller
 public class ProjectController {
 	Logger log = Logger.getLogger(this.getClass());
-	
 
-	@Resource(name="projectService")
+	@Resource(name = "projectService")
 	private ProjectService projectService;
 
 	
-	// Project 페이지
-		@RequestMapping(value = "/front/codeHub.do")
-		public ModelAndView openProjectList(CommandMap commandMap) throws Exception {
-			ModelAndView mv = new ModelAndView("/front/codeHub");
-			
-			return mv;
-		}
-		
-		@RequestMapping(value =  "/front/codeHubResult.do")
-		public ModelAndView resultGit(CommandMap commandMap ,HttpServletRequest request) throws Exception{
-			ModelAndView mv = new ModelAndView("/front/codeHubResult");
-			//  log.debug("request : "+request.toString() + "\n" + commandMap.get("file").toString()+ "\n");
-			//sampleService.insertBoard(commandMap.getMap(),request);\
-			String result = "";
-			result += projectService.gitStore(commandMap.getMap(),request);
-			
-			log.debug("result = "+ result.toString() + "\n");
-			mv.addObject("fileList", result);
-			return mv;
-		}
-		
-		@RequestMapping(value="/front/codeHubList.do")
-		public ModelAndView opencodeHubList(CommandMap commandMap) throws Exception{
-		    ModelAndView mv = new ModelAndView("/front/codeHubList");
-		     
-		    List<Map<String,Object>> list = projectService.selectProjectList(commandMap.getMap());
-		     
-		    mv.addObject("list",list);
-		     
-		    return mv;
-		}
-		
-		
-		@RequestMapping(value="/front/codeHubDetail.do")
-		public ModelAndView opencodeDetail(CommandMap commandMap) throws Exception{
-		    ModelAndView mv = new ModelAndView("/front/codeHubDetail");
-		     
-		    List<String> list = projectService.getfileList(commandMap.getMap());
-		     
-		    mv.addObject("list",list);
-		    mv.addObject("title",commandMap.get("IDX"));
-		    mv.addObject("filepath","");
-		     
-		    return mv;
-		}
-		
-		@RequestMapping(value="/front/codeHubBrowser.do")
-		public ModelAndView opencodeBrowser(CommandMap commandMap) throws Exception{
-		    ModelAndView mv = new ModelAndView("/front/codeHubDetail");
-		    List<String> list = projectService.getfileList(commandMap.getMap());
-		    mv.addObject("list",list);
-		    mv.addObject("title",commandMap.get("TITLE"));
-		    mv.addObject("filepath",commandMap.get("FILEPATH")+"/");
-		    return mv;
-		}
-		
-		
-		@RequestMapping(value="/front/codeHubViewer.do")
-		public ModelAndView opencodeViewer(CommandMap commandMap) throws Exception{
-		    ModelAndView mv = new ModelAndView("/front/codeHubViewer");
-		     
-		    mv.addObject("source",projectService.getSource(commandMap.getMap()));
-		     
-		    return mv;
-		}
-		
-		@RequestMapping(value="/front/test.do")
-		public ModelAndView opencodeViewe2r(CommandMap commandMap) throws Exception{
-		    ModelAndView mv = new ModelAndView("/front/test");
-		     
-		   
-		    return mv;
-		}
-		
+	/**
+	 * 프로젝트 리스트 페이지
+	 * 
+	 * @param commandMap
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/front/codeHubList.do")
+	public ModelAndView opencodeHubList(CommandMap commandMap) throws Exception {
+		ModelAndView mv = new ModelAndView("/front/codeHubList");
+
+		List<Map<String, Object>> list = projectService.selectProjectList(commandMap.getMap());
+
+		mv.addObject("list", list);
+
+		return mv;
+	}
+
+	/**
+	 * 프로젝트 업로드 결과 페이지
+	 * 
+	 * @param commandMap
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/front/codeHubResult.do")
+	public ModelAndView resultGit(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		ModelAndView mv = new ModelAndView("/front/codeHubResult");
+		// log.debug("request : "+request.toString() + "\n" +
+		// commandMap.get("file").toString()+ "\n");
+		// sampleService.insertBoard(commandMap.getMap(),request);\
+		String result = "";
+		result += projectService.gitStore(commandMap.getMap(), request);
+
+		log.debug("result = " + result.toString() + "\n");
+		mv.addObject("fileList", result);
+		return mv;
+	}
+
+	/**
+	 * 프로젝트 첫 디렉토리 페이지
+	 * 
+	 * @param commandMap
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/front/codeHubDetail.do")
+	public ModelAndView opencodeDetail(CommandMap commandMap) throws Exception {
+		ModelAndView mv = new ModelAndView("/front/codeHubDetail");
+
+		List<String> list = projectService.getfileList(commandMap.getMap());
+
+		mv.addObject("list", list);
+		mv.addObject("title", commandMap.get("IDX"));
+		mv.addObject("filepath", "");
+
+		return mv;
+	}
 	
-	
-	
-	
-	
+	/**
+	 * 프로젝트 브라우저 페이지
+	 * 
+	 * @param commandMap
+	 * @return
+	 * @throws Exception
+	 */
+
+	@RequestMapping(value = "/front/codeHubBrowser.do")
+	public ModelAndView opencodeBrowser(CommandMap commandMap) throws Exception {
+		ModelAndView mv = new ModelAndView("/front/codeHubDetail");
+		List<String> list = projectService.getfileList(commandMap.getMap());
+		mv.addObject("list", list);
+		mv.addObject("title", commandMap.get("TITLE"));
+		mv.addObject("filepath", commandMap.get("FILEPATH") + "/");
+		return mv;
+	}
+
+	/**
+	 * 파일 뷰 페이지
+	 * 
+	 * @param commandMap
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/front/codeHubViewer.do")
+	public ModelAndView opencodeViewer(CommandMap commandMap) throws Exception {
+		ModelAndView mv = new ModelAndView("/front/codeHubViewer");
+
+		mv.addObject("source", projectService.getSource(commandMap.getMap()));
+
+		return mv;
+	}
+
+
 }

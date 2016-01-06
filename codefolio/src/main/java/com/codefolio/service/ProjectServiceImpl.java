@@ -21,8 +21,8 @@ import com.codefolio.util.GitUtils;
 import com.codefolio.util.TimelineUtils;
 
 
-/*
- *  게시판 관련 비지니스 계층 
+/**
+ * 프로젝트 관련 서비스 계층
  * 
  */
 @Service("projectService")
@@ -42,13 +42,22 @@ public class ProjectServiceImpl implements ProjectService{
 	private TimelineUtils timelineUtils;
 	
 	
+	/**
+	 * TimelineJS 정보
+	 * @return DB data 에서 TimelineJS에 쓰일 정보들 추출 
+	 */
+
 	@Override
 	public List<Map<String, Object>> selectProjectList(Map<String, Object> map) throws Exception {
 	    return timelineUtils.extractUrlContentsFromProject(projectDAO.selectProjectList(map));
 	}
 	
 
-	
+	/**
+	 * 로컬 저장소에 git repositoy 생성, 업로드한 프로젝트 이동 
+	 * @return 결과
+	 */
+
 	@Override
 	public String gitStore(Map<String, Object> map, HttpServletRequest request) throws Exception {
 		// TODO Auto-generated method stub
@@ -68,6 +77,10 @@ public class ProjectServiceImpl implements ProjectService{
 			return result;
 	}
 
+	/**
+	 * git repositoy의 파일 목록을 리턴
+	 * @return 결과
+	 */
 	@Override
 	public List<String> getfileList(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
@@ -75,7 +88,10 @@ public class ProjectServiceImpl implements ProjectService{
 		return gitUtils.getProjectList(map.get("IDX").toString());
 		 
 	}
-	
+	/**
+	 * git repository의 파일들의 경로를 통해 해당 코드를 리턴
+	 * @return 결과
+	 */
 	@Override
 	public String getSource(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub

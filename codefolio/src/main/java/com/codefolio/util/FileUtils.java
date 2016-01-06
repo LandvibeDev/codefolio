@@ -71,7 +71,13 @@ public class FileUtils {
         }
         return list;
     }
-    
+    /**
+     * 파일의 정보들을 재정의하여 저장 
+     * @param map
+     * @param request
+     * @return 
+     * @throws Exception
+     */
     public String makegit(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
@@ -81,8 +87,6 @@ public class FileUtils {
         String originalFileExtension = null;
         String storedFileName = null;
          
-        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>(); //다중파일 전송을 위한 리스트  
-        Map<String, Object> listMap = null; 
          
 		File file = new File(filePath_zip);
 		if (file.exists() == false) {

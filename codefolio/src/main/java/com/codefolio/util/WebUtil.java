@@ -21,7 +21,8 @@ import org.springframework.web.util.HtmlUtils;
 
 import com.github.rjeschke.txtmark.Processor;
 
-
+//https://github.com/goesang/forweaver
+//forweaver의 WebUtil을 이용
 
 /** 각종 웹 유틸 클래스
  * @author go

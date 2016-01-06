@@ -1,7 +1,8 @@
 package com.codefolio.util;
-//https://github.com/centic9/jgit-cookbook와 
-//https://github.com/kevinsawicki/gitective
-//참고하여 코딩
+
+//https://github.com/goesang/forweaver
+//forweaver의 주요 git 함수를 수정하여 이용
+
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
