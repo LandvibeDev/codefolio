@@ -15,7 +15,7 @@
 ####1. Git을 이용한 소스 저장 관리     
 ####2. CKEditor 기반의 블로그 
 ####3. TimelineJS를 이용한 타임라인 구성
-####4. Spring MVC + MySQL + JavaScript을 사용
+####4. Spring MVC + MySQL + JavaScript 사용
 
 
 
@@ -43,7 +43,7 @@ MIT license를 통하여 배포 (README.md 참조)
         <property name="url" value="jdbc:mysql://[URL]"/>
         <property name="username" value="[ID]"/>
         <property name="password" value="[password]"/>
-        ```
+```
 
 2. 설정이 끝나면 코드를 실행하고 
 `http://localhost:8080/codefolio/front/Main.do`
