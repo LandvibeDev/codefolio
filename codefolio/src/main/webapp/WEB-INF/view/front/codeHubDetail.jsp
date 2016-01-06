@@ -10,14 +10,13 @@
 	
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
-
+<%@ include file="/WEB-INF/include/include-Topbase.jspf" %>
  
    
 
 	 <!-- bootstrap -->
    <link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
    <script src="<%=cp%>/resources/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<%=cp%>/resources/bootstrap/js/bootstrap.js"></script>
    
 	 <!-- CSS-->
     <link rel="stylesheet" href="../css/timeline.css?v1">
@@ -33,6 +32,7 @@
       	padding: 0px;
       	margin: 0px;
       	text-align: left;
+      	
       
       
       }  
@@ -42,70 +42,10 @@
 
 
 
- <!-- 첫 번째 층에 대한 내용 -->	
-<!-- 첫번째 층 중간의 "codeFOLIO" 마크버튼 구현 -->
-<!-- script 이용 id=Cf -->
-<div  style="background-color: #75A3A3;height:12%;width:100% ; float:left; " >
- 	<a href="#this"  id="Cf">
- 	<span style="color:#ffffff; " ><button  style=" WIDTH: 100%; HEIGHT: 100%; padding:0%;margin:0%; font-size: 40pt; background-color:#75A3A3;border:0;float:left;"   type="button"><em>CodeFOLIO</em></button></span>
-	</a>
-</div>
 
 
 
-<!-- 페이지 변경에 대한 내용과 검색기능이  있는 두번째 층 -->
-<div style="width:100%;height:50pt;float:left;background-color :#75A3A3;">
-
-<div style="background-color :#75A3A3; height:100%;width:10%;float:left;" ></div>
-
-<!--  두번째 층 왼쪽의 계정관리등을 위한 메뉴형식 -->
-<div  class="dropdown" style="background-color :#75A3A3; height:100%;width:25%;float:left;" >
-      	
- <ul class="nav nav-tabs" style="border-bottom:none;">  <!-- list 시작 -->
-  <li ><a href="http://localhost:8080/codefolio/"><span style="color:#000000 " ><strong>홈</strong></span></a></li>
-  <li role="presentation" class="dropdown">	 <!-- 두번째 List는 dropdown형식으로 구현 -->
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-      <span style="color:#000000 " ><strong>계정 관리</strong></span> <span class="caret"></span>
-    </a>
-    <!-- dropdown 안쪽의 내용 -->
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li ><a href="#">비밀번호 변경</a></li>
-    <li><a href="#">회원 탈퇴</a></li>
-    <li><a href="#">로그아웃</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">고객 센터</a></li>
-  	</ul>
-  </li>
-  <li><a href="#"><span style="color:#000000 " ><strong>메시지</strong></span></a></li>
-  <li><a href="#"><span style="color:#000000 " ><strong>알림</strong></span></a></li>
-</ul>	
-</div>
-
-
-
-<!--  두번째 층 중간의 페이지 이동에 대한 버튼 -->
-<div style="height:100%;width:30%;float:left;">
-<ul class="nav nav-pills">
-  <li role="presentation" ><a href="/codefolio/front/codeHubList.do">소스 저장소</a></li>
-  <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
-  <li role="presentation" ><a href="">개인 포트폴리오 관리</a></li>
-
-</ul>
-</div>
-
-<div style="background-color :#75A3A3; height:100%;width:8%;float:left;" ></div>
-
-
-<!-- 두번째 층 오른쪽 검색기능 -->
-<div style="height:100%;width:2	8%;float:left;">
-<form class="navbar-search pull-left" >
-  <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:30pt;width:200pt ">
-	<button type="submit" class="btn btn-default-center" style="height:30pt;width:60pt">Submit</button>
-</form>
-</div>
-
-</div>
-
+    
 
 
     
