@@ -65,7 +65,9 @@ MySQL 설정
 
 
 
+#소개 자료,영상 링크
 [PPT URL](http://www.slideshare.net/ssuser980538/codefolio-ppt-56740769)
+
 [YOUTUBE URL](https://youtu.be/P7sICkc1dsY)
 
 
