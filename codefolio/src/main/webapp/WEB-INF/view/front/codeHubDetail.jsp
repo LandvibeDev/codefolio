@@ -17,6 +17,7 @@
 	 <!-- bootstrap -->
    <link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
    <script src="<%=cp%>/resources/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<%=cp%>/resources/bootstrap/js/bootstrap.js"></script>
    
 	 <!-- CSS-->
     <link rel="stylesheet" href="../css/timeline.css?v1">
@@ -61,7 +62,7 @@
 <div  class="dropdown" style="background-color :#75A3A3; height:100%;width:25%;float:left;" >
       	
  <ul class="nav nav-tabs" style="border-bottom:none;">  <!-- list 시작 -->
-  <li ><a href="#"><span style="color:#000000 " ><strong>홈</strong></span></a></li>
+  <li ><a href="http://localhost:8080/codefolio/"><span style="color:#000000 " ><strong>홈</strong></span></a></li>
   <li role="presentation" class="dropdown">	 <!-- 두번째 List는 dropdown형식으로 구현 -->
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
       <span style="color:#000000 " ><strong>계정 관리</strong></span> <span class="caret"></span>
@@ -88,7 +89,7 @@
   <li role="presentation" ><a href="/codefolio/front/codeHubList.do">소스 저장소</a></li>
   <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
   <li role="presentation" ><a href="">개인 포트폴리오 관리</a></li>
-  <li role="presentation" class="disabled"><a href="">팀 프로젝트 내역</a></li>
+
 </ul>
 </div>
 
@@ -127,10 +128,13 @@
 <div id="menu_bar_after" style="float:left; ">
 </div>
 
+<!-- 메뉴와 게시판 사이의 빈 공간 -->
+<div style=" height:100%;float:left;width:5%;"></div>
 
+
+<!-- 소스 저장소 내용   -->
 <div id="title" style="display:none;">${title}</div>
 <div id="filepathTemp" style="display:none;">${filepath}</div>
-<!-- 소스 저장소 내용   -->
 <div style=" height:100%;float:left;width:70%;overflow:auto;">
 
 <h2 align="center"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> ${title}  </h2> <!-- bootstrap 기호 추가 -->
@@ -237,24 +241,27 @@
  <script type="text/javascript"> 
  function menuScroll() { 
      var menu_bar = document.getElementById('menu_bar');
-
+     var menu_bar_after = document.getElementById('menu_bar_after');
+    
+     
      
      if($(window).scrollTop() > 300 ) 	// 300이상 일때 부터 상단에 고정
-     	{
-     	menu_bar.style.position = 'fixed';
-     	menu_bar.style.top=0;
-     	menu_bar_after.style.position='';
-     	menu_bar_after.style.height='100%';
-     	menu_bar_after.style.width='15%';
-     	
-     	}
-      else 
-     	 {
-     	 menu_bar.style.position = ''; //300 이하일때는 기존의 자리로 이동.
-     	 menu_bar_after.style.height='';
-      	 menu_bar_after.style.width='';
-     	 
-     	 }
+  	{
+  	menu_bar.style.position = 'fixed';
+  	menu_bar.style.top=0;
+  	menu_bar_after.style.position='';
+  	menu_bar_after.style.height='100%';
+  	menu_bar_after.style.width='15%';
+  	
+  	}
+   else 
+  	 {
+  	 menu_bar.style.position = ''; //300 이하일때는 기존의 자리로 이동.
+  	 menu_bar_after.style.height='';
+   	 menu_bar_after.style.width='';
+  	 
+  	 }
+
 }
 
 $(window).scroll(menuScroll);

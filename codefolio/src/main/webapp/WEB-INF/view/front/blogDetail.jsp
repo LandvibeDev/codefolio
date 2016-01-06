@@ -61,7 +61,7 @@
 <div  class="dropdown" style="background-color :#75A3A3; height:100%;width:25%;float:left;" >
       	
  <ul class="nav nav-tabs" style="border-bottom:none;">  <!-- list 시작 -->
-  <li ><a href="#"><span style="color:#000000 " ><strong>홈</strong></span></a></li>
+  <li ><a href="http://localhost:8080/codefolio/"><span style="color:#000000 " ><strong>홈</strong></span></a></li>
   <li role="presentation" class="dropdown">	 <!-- 두번째 List는 dropdown형식으로 구현 -->
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
       <span style="color:#000000 " ><strong>계정 관리</strong></span> <span class="caret"></span>
@@ -85,7 +85,7 @@
 <!--  두번째 층 중간의 페이지 이동에 대한 버튼 -->
 <div style="height:100%;width:30%;float:left;">
 <ul class="nav nav-pills">
-  <li role="presentation" ><a href="/codefolio/front/codeHub.do">소스 저장소</a></li>
+  <li role="presentation" ><a href="/codefolio/front/codeHubList.do">소스 저장소</a></li>
   <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
   <li role="presentation" class="disabled" ><a href="">개인 포트폴리오 관리</a></li>
 

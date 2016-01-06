@@ -65,7 +65,7 @@
 <div  class="dropdown" style="background-color :#75A3A3; height:100%;width:25%;float:left;" >
       	
  <ul class="nav nav-tabs" style="border-bottom:none;">  <!-- list 시작 -->
-  <li ><a href="#"><span style="color:#000000 " ><strong>홈</strong></span></a></li>
+  <li ><a href="http://localhost:8080/codefolio/"><span style="color:#000000 " ><strong>홈</strong></span></a></li>
   <li role="presentation" class="dropdown">	 <!-- 두번째 List는 dropdown형식으로 구현 -->
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
       <span style="color:#000000 " ><strong>계정 관리</strong></span> <span class="caret"></span>

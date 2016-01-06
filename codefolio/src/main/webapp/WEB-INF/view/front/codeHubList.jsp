@@ -62,7 +62,7 @@
 <div  class="dropdown" style="background-color :#75A3A3; height:100%;width:25%;float:left;" >
          
  <ul class="nav nav-tabs" style="border-bottom:none;">  <!-- list 시작 -->
-  <li ><a href="#"><span style="color:#000000 " ><strong>홈</strong></span></a></li>
+  <li ><a href="http://localhost:8080/codefolio/"><span style="color:#000000 " ><strong>홈</strong></span></a></li>
   <li role="presentation" class="dropdown">    <!-- 두번째 List는 dropdown형식으로 구현 -->
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
       <span style="color:#000000 " ><strong>계정 관리</strong></span> <span class="caret"></span>
@@ -89,7 +89,6 @@
   <li role="presentation" ><a href="/codefolio/front/codeHubList.do">소스 저장소</a></li>
   <li role="presentation" ><a href="/codefolio/front/blog.do">코드 포스팅</a></li>
   <li role="presentation" ><a href="">개인 포트폴리오 관리</a></li>
-  <li role="presentation" class="disabled"><a href="">팀 프로젝트 내역</a></li>
 </ul>
 </div>
 
@@ -116,7 +115,7 @@
 <!-- 세번째 층의 왼쪽 메뉴목록 -->
 <!-- 밑의 script 참고 -->
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
-<div id="menu_bar" style="height:100%;width:15%;float:left;outline:solid; ">
+<div id="menu_bar" style="height:100%;width:15%;float:left;">
    <form id="frm" name="frm" enctype="multipart/form-data" style="height:100%;width:100%;float:left;"> <!-- 첨부파일  -->
    
       
@@ -136,7 +135,7 @@
   		 나라별 언어
    		 <span class="caret"></span>
  	 	</button>
- 		 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:100%;float:left;align:center;" >
+ 		 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:100%;float:left;" >
    		<li><a href="#">한국어</a></li>
     	<li><a href="#">스패인어</a></li>
     	<li><a href="#">중국어</a></li>
@@ -151,10 +150,11 @@
 <div id="menu_bar_after" style="float:left; ">
 </div>
 
-
+<!-- 메뉴와 게시판 사이의 빈 공간 -->
+<div style=" height:100%;float:left;width:5%;"></div>
 
 <!-- 소스 저장소 내용   -->
-<div style=" height:100%;float:left;width:70%;overflow:auto;">
+<div style=" height:100%;float:left;width:65%;overflow:auto;">
 <h2 align="center"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Code Hub </h2> <!-- bootstrap 기호 추가 -->
    <table class="board_list">
       <colgroup>
