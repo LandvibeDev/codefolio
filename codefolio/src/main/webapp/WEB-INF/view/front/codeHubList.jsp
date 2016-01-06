@@ -46,35 +46,32 @@
 <div style=" height:100%;float:left;width:5%;"></div>
 
 <!-- 소스 저장소 내용   -->
-<div style=" height:100%;float:left;width:65%;overflow:auto;">
+<div style=" height:100%;float:left;width:70%;overflow:auto; align:left;">
 <h2 align="center"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Code Hub </h2> <!-- bootstrap 기호 추가 -->
-   <table class="board_list">
+   <table class="board_list" text-align="left">
       <colgroup>
-         <col width="10%"/>
          <col width="*"/>
-         <col width="15%"/>
-         <col width="20%"/>
+         <col width="30%"/>
+         <col width="30%"/>
       </colgroup>
       <thead>
          <tr>
-            <th scope="col">번호</th>
-            <th scope="col">프로젝트명</th>
-            <th scope="col">언어</th>
-            <th scope="col">시작일</th>
+            <th scope="col" text-align="left">Name</th>
+            <th scope="col" text-align="left"> Comment</th>
+            <th scope="col" text-align="left"> StartDate</th>
          </tr>
       </thead>
       <tbody>
          <c:choose>
             <c:when test="${fn:length(list) > 0}">
                <c:forEach items="${list}" var="row">
-                  <tr>
-                     <td>${row.PRJ_IDX }</td>
+                  <tr >
                      <td class="title">
                      <input type='hidden' id='IDX' value="${row.TITLE }">
                         <a href='#this' name='title'>${row.TITLE }</a>
                      </td>
-                     <td>${row.LANG }</td>
-                     <td>${row.DATE }</td>
+                     <td  > ${row.CONTENTS }</td>
+                     <td > ${row.DATE }</td>
                      
                   </tr>
                   
