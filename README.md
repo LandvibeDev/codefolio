@@ -45,7 +45,7 @@ MIT license를 통하여 배포 (README.md 참조)
         <property name="password" value="[password]"/>
 ```
 
-2. 설정이 끝나면 코드를 실행하고 
+2. 설정이 끝나면 코드를 실행하고  
 `http://localhost:8080/codefolio/front/Main.do`
 에 접속해 주시면 됩니다.
 
