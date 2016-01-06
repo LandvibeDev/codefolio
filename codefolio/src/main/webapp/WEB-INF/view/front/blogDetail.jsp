@@ -11,7 +11,6 @@
 </head>
 <body >
 
-    
 <!-- side menu와 게시판에 대한 내용 (row 3)-->
 <div  style=" width:100%;height:1500px;border:none;" >
 
@@ -55,7 +54,6 @@
 
 
 <!-- script -->
-
 <!-- 로고 버튼에 대한 script(fn-backHome), side menu 버튼에 대한 blog페이지 재호출-->
 <script type="text/javascript">
 	$(document).ready(function(){

@@ -11,14 +11,14 @@
 </head>
 <body >
   
-<!-- 세번째 층에 대한 내용 -->
+<!-- side menu와 게시판에 대한 내용 (row 3)-->
 <div  style=" width:100%;height:1500px;border:none;" >
 
 <!-- side menu (row 3 - col 1)-->
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
 <!-- 밑의 script 참고 -->
+<!--side menu 버튼에 해당하는 게시판 내용  -->
 <div id="menu_bar" style="height:100%;width:15%;float:left;">
-	<!--side menu 버튼에 해당하는 게시판 내용  -->
 	<div class="btn-group-vertical" role="group" aria-label="..." >
 		<p style="margin:0px; padding:0px;"/>
 		<button class="btn" name='topicBtn' style="height:30pt;width:217pt;"><span style="color:#000000">모든글보기</span></button>
@@ -34,25 +34,27 @@
 <div id="menu_bar_after" style="float:left; ">
 </div>
 
-
-
-<!--네번째 층의 게시판 목록 리스트에 대한 jsp 호출   -->
-<div style=" height:100%;float:left;width:80%;overflow:auto;">
-<jsp:include page="/board/openBoardUpdate.do" flush="false"/>
+<!-- 게시판 (row 3 - col 2)-->
+<div style=" height:100%;float:left;width:70%;overflow:auto;">
+	<jsp:include page="/board/openBoardUpdate.do" flush="false">
+		<jsp:param name="TOPIC_IDX" value="${TOPIC_IDX }" />
+	</jsp:include>
 </div>
 
+<!-- 공백 (row 3 - col 3)-->
+<div style=" height:100%;float:left;width:15%;overflow:auto;">
+</div>
 </div>
 
 
-<!-- 부가적인 꼬리말에 대한 층 -->
+<!-- 부가적인 이용약관에 대한 내용 (row 4)-->
 <footer style="height:50px;width:100%;float:left;background-color: #000000;">
 
 </footer>
 
 
 <!-- script -->
-
-<!-- 첫번째 "codeFOLIO" 버튼에 대한 script -->
+<!-- 로고 버튼에 대한 script(fn-backHome), side menu 버튼에 대한 blog페이지 재호출-->
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#Cf").on("click", function(e){ 
@@ -87,7 +89,7 @@
 	
 </script>		
 
- <!-- 네번째 층의 왼쪽  메뉴 스크롤시 상단 고정에 대한 스크립트 -->
+<!-- 스크롤이 300이상시 빈공간을 채워주는 side menu에 대한 내용(row 3 - col 1-1) -->
  <script> 
  function menuScroll() { 
      var menu_bar = document.getElementById('menu_bar');
@@ -117,11 +119,5 @@
 $(window).scroll(menuScroll);
 </script>
 
-
-
-
-
-
-  
 </body>
 </html>

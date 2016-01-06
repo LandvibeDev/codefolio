@@ -21,45 +21,36 @@
       }
       
     </style> 
-  </head>
-  
-
-  </head>
-  <body >
-<!--중간  timeline -->
+</head>
+ <body>
+ 
+<!-- timeline (row 3) -->
 <div id="timeline" style="width:100%;height:75%;float:left;">
 </div>
 
 
-<!-- 하단 -->
+<!-- 부가적인 이용약관에 대한 내용 (row 4)-->
  <footer style="width:100%;height:6%;float:left;background-color: #000000;">
- </footer>>
+ </footer>
  
 
     <!-- JavaScript-->
-    
-    
-    <script type="text/javascript">
-
-
-
+ <script type="text/javascript">
 		$(document).ready(function(){
 			$("#Cf").on("click", function(e){ //목록으로 버튼
 				e.preventDefault();
 				fn_backHome();
 			});
 		});
-			function fn_backHome(){
+		function fn_backHome(){
 				var comSubmit = new ComSubmit();
 				comSubmit.setUrl("<c:url value='/front/Main.do' />");
 				comSubmit.submit();
 			}
-
-		</script>		
+</script>		
     
     
-    <script>
-
+ <script>
     var additionalOptions = {
             start_at_end: true,
             default_bg_color: {r:255, g:255, b:255},
@@ -195,12 +186,6 @@
     
      
       </script>
- 
-    
-      
-    
-  </body>
-</html>
 
-</body>
+ </body>
 </html>
