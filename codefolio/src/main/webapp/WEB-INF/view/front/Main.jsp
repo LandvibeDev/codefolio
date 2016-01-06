@@ -182,7 +182,7 @@
 			},
 		    "scale": "human",
 		    "events": [ 		
-				<c:forEach items="${timelineJson }" var="timeline">
+				<c:forEach items="${timelineJson}" var="timeline">
 				
 				{
 		            "start_date": {
@@ -197,7 +197,7 @@
 		            },
 		            "media": {
 		                	"url": "${timeline.IMAGE_URL }",
-		                	"credit": "<a href=\"#\" onclick=\"go2Post(${timeline.BOARD_IDX},${timeline.TOPIC_IDX});\">  게시판 </a>"
+		                	"credit": "<a href=\"#\" onclick=\"go2Post(${timeline.BOARD_IDX},${timeline.TOPIC_IDX}); \"> Link to [ ${timeline.TITLE} ]</a>"
 		                		//"<a href =\'javascript:void(0);\' onclick=\"go2Post(\"ddag\");\">게시판으로</a>"
 		            },
 		            "text": {
