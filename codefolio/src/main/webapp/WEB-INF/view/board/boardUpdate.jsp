@@ -39,7 +39,7 @@
 	
 	<div class="row" style="padding:15px 15px 15px 15px;">
 		<div class="col-md-1"></div>
-  		<div class="col-md-10"">
+  		<div class="col-md-10">
   			<div class="form-group">
     			<label for="TITLE">제목 </label>
     			<input type='text' class="form-control" id="TITLE" name="TITLE" placeholder="제목을 입력하세요" style="height:40px;" value="${map.TITLE }">
@@ -48,7 +48,7 @@
 	</div>
 	<div class="row" style="padding:5px 15px 15px 15px;">
 		<div class="col-md-1"></div>
-  		<div class="col-md-10"">
+  		<div class="col-md-10">
   			<div class="form-group">
     			<label for="CONTENTS">내용 </label>
     			<textarea id="CONTENTS" name="CONTENTS">${map.CONTENTS }</textarea>
@@ -57,9 +57,9 @@
 	</div>
 	<div class="row" style="padding:5px 15px 15px 15px;">
 		<div class="col-md-1"></div>
-  		<div class="col-md-10"">
-  			<a href="#this" class="btn" id="update">수정하기</a>
-  			<a href="#this" class="btn" id="list">목록으로</a>
+  		<div class="col-md-10">
+  			<a href="#this" class="btn" id="update"><span style="color:#000000">수정하기</span></a>
+  			<a href="#this" class="btn" id="list"><span style="color:#000000">목록으로</span></a>
   		</div>
 	</div>
 	

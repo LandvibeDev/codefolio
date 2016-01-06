@@ -47,9 +47,9 @@
 	
 	<div class="row" style="padding:15px 15px 15px 15px;">
 		<div class="col-md-8">
-			<a href="#this" class="btn" id="list">목록으로</a>
-			<a href="#this" class="btn" id="update">수정하기</a>
-			<a href="#this" class="btn" id="delete">삭제하기</a>
+			<a href="#this" class="btn" id="list"><span style="color:#000000">목록으로</span></a>
+			<a href="#this" class="btn" id="update"><span style="color:#000000">수정하기</span></a>
+			<a href="#this" class="btn" id="delete"><span style="color:#000000">삭제하기</span></a>
 		</div>
 	</div>
 	

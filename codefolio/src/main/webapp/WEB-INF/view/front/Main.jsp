@@ -32,8 +32,8 @@
 
 
 <!-- 하단 -->
- <div style="width:100%;height:6%;float:left;background-color: #B26B69;">
- </div>
+ <footer style="width:100%;height:6%;float:left;background-color: #000000;">
+ </footer>>
  
 
     <!-- JavaScript-->

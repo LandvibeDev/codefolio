@@ -8,7 +8,7 @@
 
 	<div class="row" style="padding:15px 15px 15px 15px;">
 		<div class="col-md-1"></div>
-  		<div class="col-md-11"">
+  		<div class="col-md-11">
 			<table class="board_list">
 				<colgroup>
 					<col width="*"/>
@@ -58,7 +58,7 @@
 	<div class="row" style="padding:15px 15px 15px 15px;">
 		<div class="col-md-1"></div>
 		<div class="col-md-11">
-			<a href="#this" class="btn" id="write">글쓰기</a>
+			<a href="#this" class="btn" id="write"><span style="color:#000000">글쓰기</span></a>
 		</div>
 	</div>	
 	

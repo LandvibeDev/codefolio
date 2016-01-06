@@ -16,27 +16,27 @@
 
 
 <!-- side menu (row 3 - col 1)-->
-<!-- 밑의 script 참고 -->
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
-<!--side menu 버튼에 해당하는 게시판 내용  -->
+<!-- 밑의 script 참고 -->
 <div id="menu_bar" style="height:100%;width:15%;float:left;">
+		<!--카테고리 버튼에 해당하는 side menu 버튼 추가내용  -->
 		<form id='frmTopic' class="form-inline">
   			<div class="form-group">
     			<input type="text" class="form-control" id="NAME" name="NAME" placeholder="카테고리 추가" style="height:30pt;width:175pt;">
-  				<button type="button" class="btn btn-primary" id="addTopic" style="height:30pt;width:35pt;">
-  					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  				<button type="button" class="btn" id="addTopic" style="background-color:#eeeeee;height:30pt;width:35pt;">
+  					<span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#000000"></span>
   				</button>
   			</div>
  		</form>
  		
-	
+		<!--side menu 버튼에 해당하는 게시판 내용  -->
 		<div class="btn-group-vertical" role="group" aria-label="..." >
 				<p style="margin:0px; padding:0px;"/>
-				<button class="btn btn-primary" name='topicBtn' style="height:30pt;width:217pt;">모든글보기</button>
+				<button class="btn" name='topicBtn' style="height:30pt;width:217pt;"><span style="color:#000000">모든글보기</span></button>
 			<c:forEach var="topic" items="${topicList }">
 				<p style="margin:0px; padding:0px"/>
 				<input type='hidden' id='IDX' value="${topic.TOPIC_IDX }">
-				<button class="btn btn-primary" name='topicBtn' style="height:30pt;width:217pt;" >${topic.NAME }</button>
+				<button class="btn" name='topicBtn' style="height:30pt;width:217pt;" ><span style="color:#000000">${topic.NAME }</span></button>
 	    	</c:forEach>
 		</div>
 	</div>
@@ -60,14 +60,14 @@
 
 
 <!-- 부가적인 이용약관에 대한 내용 (row 4)-->
-<footer style="height:50px;width:100%;float:left;background-color: #B26B69;">
+<footer style="height:50px;width:100%;float:left;background-color: #000000;">
 
 </footer>
 
 
 <!-- script -->
 
-<!-- 로고 버튼에 대한 script(fn-backHome), 카테고리 추가 버튼에 대한 script(fn-boardChange)-->
+<!-- 로고 버튼에 대한 script(fn-backHome), 카테고리 추가 버튼에 대한 script(fn-boardChange), side menu 버튼에 대한 blog페이지 재호출-->
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#Cf").on("click", function(e){ 

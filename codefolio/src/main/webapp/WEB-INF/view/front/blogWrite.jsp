@@ -24,7 +24,7 @@
 <div id="menu_bar" style="height:100%;width:15%;float:left;">
 <div class="btn-group-vertical" role="group" aria-label="..." >
 				<p style="margin:0px; padding:0px;"/>
-				<button class="btn" name='topicBtn' style="height:30pt;width:217pt;">모든글보기</button>
+				<button class="btn" name='topicBtn' style="height:30pt;width:217pt;"><span style="color:#000000">모든글보기</span></button>
 			<c:forEach var="topic" items="${topicList }">
 				<p style="margin:0px; padding:0px"/>
 				<input type='hidden' id='IDX' value="${topic.TOPIC_IDX }">
@@ -48,7 +48,7 @@
 
 
 <!-- 부가적인 꼬리말에 대한 층 -->
-<footer style="height:50px;width:100%;float:left;background-color: #B26B69;">
+<footer style="height:50px;width:100%;float:left;background-color: #000000;">
 
 </footer>
 

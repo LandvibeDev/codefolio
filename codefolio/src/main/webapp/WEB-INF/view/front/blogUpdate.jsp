@@ -11,27 +11,26 @@
 </head>
 <body >
   
-    
 <!-- 세번째 층에 대한 내용 -->
 <div  style=" width:100%;height:1500px;border:none;" >
 
-
-<!-- 세번째 층의 왼쪽 메뉴목록 -->
-<!-- 밑의 script 참고 -->
+<!-- side menu (row 3 - col 1)-->
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
-
+<!-- 밑의 script 참고 -->
 <div id="menu_bar" style="height:100%;width:15%;float:left;">
-		<div class="btn-group-vertical" role="group" aria-label="..." >
-				<p style="margin:0px; padding:0px;"/>
-				<button class="btn" name='topicBtn' style="height:30pt;width:217pt;">모든글보기</button>
-			<c:forEach var="topic" items="${topicList }">
-				<p style="margin:0px; padding:0px"/>
-				<input type='hidden' id='IDX' value="${topic.TOPIC_IDX }">
-				<button class="btn" name='topicBtn' style="height:30pt;width:217pt;" >${topic.NAME }</button>
-	    	</c:forEach>
-		</div>
+	<!--side menu 버튼에 해당하는 게시판 내용  -->
+	<div class="btn-group-vertical" role="group" aria-label="..." >
+		<p style="margin:0px; padding:0px;"/>
+		<button class="btn" name='topicBtn' style="height:30pt;width:217pt;"><span style="color:#000000">모든글보기</span></button>
+		<c:forEach var="topic" items="${topicList }">
+			<p style="margin:0px; padding:0px"/>
+			<input type='hidden' id='IDX' value="${topic.TOPIC_IDX }">
+			<button class="btn" name='topicBtn' style="height:30pt;width:217pt;" >${topic.NAME }</button>
+	    </c:forEach>
 	</div>
+</div>
 
+<!-- 스크롤이 300이상시 빈공간을 채워준다.(row 3 - col 1-1) -->
 <div id="menu_bar_after" style="float:left; ">
 </div>
 
@@ -46,7 +45,7 @@
 
 
 <!-- 부가적인 꼬리말에 대한 층 -->
-<footer style="height:50px;width:100%;float:left;background-color: #B26B69;">
+<footer style="height:50px;width:100%;float:left;background-color: #000000;">
 
 </footer>
 

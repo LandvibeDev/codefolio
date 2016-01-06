@@ -30,23 +30,10 @@
         <input type= "text" name = "comment" id = "comment" style="height:50pt;width:100%;float:left;">
         <input type="file" name="file" style="height:20pt;width:100%;float:left;"> <!-- 첨부파일  -->
         <div style="height:3pt;width:100%;float:left;"></div>
-      	<a href="#this" class="btn btn-primary" id="write" style="height:30pt;width:100%;float:left;">커밋!!</a>
+      	<a href="#this" class="btn" id="write" style="height:30pt;width:100%;float:left;"><span style="color:#000000;"><strong>커밋!!</strong></span></a>
  		<div style="height:30pt;width:100%;float:left;"></div>
  		
- 		
- 		<!-- 나라별 언어선택 -->
- 		<div class="dropdown" style="height:30pt;width:100%;float:left;">
-  		<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="height:100%;width:100%;float:left;">
-  		 나라별 언어
-   		 <span class="caret"></span>
- 	 	</button>
- 		 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:100%;float:left;" >
-   		<li><a href="#">한국어</a></li>
-    	<li><a href="#">스패인어</a></li>
-    	<li><a href="#">중국어</a></li>
-   		<li><a href="#">몽골어</a></li>
-  		</ul>
-		</div>
+ 	
  
 
    </form>
