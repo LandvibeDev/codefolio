@@ -5,9 +5,14 @@
 <!-- 첫번째 층 중간의 "codeFOLIO" 마크버튼 구현 -->
 <!-- script 이용 id=Cf -->
 <div  style="height:12%;width:100% ; float:left; " >
+<div style="background-color:#75A3A3; WIDTH: 35%; HEIGHT: 100%;float:left;"></div>
+
  	<a href="#this"  id="Cf">
- <button  style=" WIDTH: 100%; HEIGHT: 100%; padding:0%;margin:0%; background-color:#75A3A3;border:0;float:left;"   type="button"><img src="http://oursoccer.co.kr/study/reserve/img/logo.png" class="img-rounded"   style="height:100%;width:37% ; float:center " ></button>	
+ <button  style=" WIDTH: 30%; HEIGHT: 100%; padding:0%;margin:0%; background-color:#75A3A3;border:0;float:left;" type="button"><img src="http://oursoccer.co.kr/study/reserve/img/logo.png" class="img-rounded"   style="height:100%;width:100% ; float:center " ></button>	
 	</a>
+	
+<div style="background-color:#75A3A3; WIDTH: 35%; HEIGHT: 100%;float:left;"></div>	
+	
 </div>
 
 

@@ -17,7 +17,7 @@
 	 <!-- bootstrap -->
    <link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
    <script src="<%=cp%>/resources/bootstrap/js/bootstrap.min.js"></script>
-   
+    <script src="<%=cp%>/resources/bootstrap/js/bootstrap.js"></script>
 	 <!-- CSS-->
     <link rel="stylesheet" href="../css/timeline.css?v1">
    

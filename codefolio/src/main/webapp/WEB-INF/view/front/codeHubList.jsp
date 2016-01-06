@@ -17,7 +17,7 @@
 	 <!-- bootstrap -->
    <link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
    <script src="<%=cp%>/resources/bootstrap/js/bootstrap.min.js"></script>
-   
+    <script src="<%=cp%>/resources/bootstrap/js/bootstrap.js"></script>
 	 <!-- CSS-->
     <link rel="stylesheet" href="../css/timeline.css?v1">
    
@@ -66,13 +66,13 @@
         <input type= "text" name = "comment" id = "comment" style="height:50pt;width:100%;float:left;">
         <input type="file" name="file" style="height:20pt;width:100%;float:left;"> <!-- 첨부파일  -->
         <div style="height:3pt;width:100%;float:left;"></div>
-      	<a href="#this" class="btn" id="write" style="height:30pt;width:100%;float:left;">커밋!!</a>
+      	<a href="#this" class="btn btn-primary" id="write" style="height:30pt;width:100%;float:left;">커밋!!</a>
  		<div style="height:30pt;width:100%;float:left;"></div>
  		
  		
  		<!-- 나라별 언어선택 -->
  		<div class="dropdown" style="height:30pt;width:100%;float:left;">
-  		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="height:100%;width:100%;float:left;">
+  		<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="height:100%;width:100%;float:left;">
   		 나라별 언어
    		 <span class="caret"></span>
  	 	</button>
