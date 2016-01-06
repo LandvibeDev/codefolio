@@ -1,10 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
-
-<% String cp = request.getContextPath(); %>
-
-<%--ContextPath 선언 --%>
-
 <html>
 <head>
 
@@ -17,19 +12,10 @@
     <script src="//cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
     <script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/timeline-min.js"></script>
    
-	 <!-- CSS-->
-    <link rel="stylesheet" href="../css/timeline.css?v1">
-    <!--FONT-->
-    <link rel="stylesheet" href="../css/fonts/font.default.css?v1">
+	
     <!-- Style-->
     <style>
-      html, body {
-      	height:100%;
-      	width:100%;
-      	padding: 0px;
-      	margin: 0px;
-      	text-align: right;
-      }
+    
       .tl-timeline {
       
       }
@@ -37,10 +23,6 @@
     </style> 
   </head>
   
- 
-    
-    
-     
 
   </head>
   <body >

@@ -1,4 +1,10 @@
+    	
 <%@ page pageEncoding="utf-8"%>
+
+
+<%--ContextPath 선언 --%>
+<% String cp = request.getContextPath(); %>
+
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -21,13 +27,35 @@
 
 <!-- bootstrap -->
 <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="<%=cp%>/resources/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="<%=cp%>/resources/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="<%=cp%>/resources/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="<%=cp%>/resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="<%=cp%>/resources/bootstrap/js/bootstrap.js"></script>
+
+<!-- CSS-->
+<link rel="stylesheet" href="../css/timeline.css?v1">
+   
+<!--FONT-->
+<link rel="stylesheet" href="../css/fonts/font.default.css?v1">
+    
+<!-- Style-->
+<style>
+html, body {
+ height:100%;
+ width:100%;
+ padding: 0px;
+ margin: 0px;
+ text-align: left;
+ }  
+</style> 
 
 <!-- 전자정부 프레임워크  -->
 <%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui" %>
 
 <!-- ckeditor -->
 <script src="//cdn.ckeditor.com/4.5.6/full/ckeditor.js"></script>
-

@@ -1,51 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
 
-<% String cp = request.getContextPath(); %>
-
-<%--ContextPath 선언 --%>
 <html>
 <head>
-
-	
+<!-- include 부분 -->
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
 <%@ include file="/WEB-INF/include/include-Topbase.jspf" %>
- 
    
-
-	 <!-- bootstrap -->
-   <link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-   <script src="<%=cp%>/resources/bootstrap/js/bootstrap.min.js"></script>
-   
-	 <!-- CSS-->
-    <link rel="stylesheet" href="../css/timeline.css?v1">
-   
-    <!--FONT-->
-    <link rel="stylesheet" href="../css/fonts/font.default.css?v1">
-    
-     <!-- Style-->
-       <style>
-      html, body {
-      	height:100%;
-      	width:100%;
-      	padding: 0px;
-      	margin: 0px;
-      	text-align: left;
-      	
-      
-      
-      }  
-</style> 
 </head>
 <body >
-
-
-
-
-    
-    
-    
+  
     
 <!-- 세번째 층에 대한 내용 -->
 <div  style=" width:100%;height:1500px;border:none;" >

@@ -1,63 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
 
-<% String cp = request.getContextPath(); %>
-
-<%--ContextPath 선언 --%>
 <html>
 <head>
-
-	
+<!-- include 부분 -->
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
 <%@ include file="/WEB-INF/include/include-Topbase.jspf" %>
- 
    
-
-	 <!-- bootstrap -->
-   <link href="<%=cp%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-   <script src="<%=cp%>/resources/bootstrap/js/bootstrap.min.js"></script>
-   
-	 <!-- CSS-->
-    <link rel="stylesheet" href="../css/timeline.css?v1">
-   
-    <!--FONT-->
-    <link rel="stylesheet" href="../css/fonts/font.default.css?v1">
-    
-     <!-- Style-->
-       <style>
-      html, body {
-      	height:100%;
-      	width:100%;
-      	padding: 0px;
-      	margin: 0px;
-      	text-align: left;
-      	
-      
-      
-      }  
-</style> 
 </head>
 <body >
 
-
-
-
-
-
-    
-
-    
- 
-    
-<!-- 네번째 층에 대한 내용 -->
+<!-- side menu와 게시판에 대한 내용 (row 3)-->
 <div  style=" width:100%;height:1500px;border:none;" >
 
 
-<!-- 네번째 층의 왼쪽 메뉴목록 -->
+<!-- side menu (row 3 - col 1)-->
 <!-- 밑의 script 참고 -->
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
-
+<!--side menu 버튼에 해당하는 게시판 내용  -->
 <div id="menu_bar" style="height:100%;width:15%;float:left;">
 		<form id='frmTopic' class="form-inline">
   			<div class="form-group">
@@ -80,23 +41,25 @@
 		</div>
 	</div>
 
+<!-- 스크롤이 300이상시 빈공간을 채워준다.(row 3 - col 1-1) -->
 <div id="menu_bar_after" style="float:left; ">
 </div>
 
-<!--세번째 층의 게시판 목록 리스트에 대한 jsp 호출   -->
+<!-- 게시판 (row 3 - col 2)-->
 <div style=" height:100%;float:left;width:70%;overflow:auto;">
 	<jsp:include page="/board/openBoardList.do" flush="false">
 		<jsp:param name="TOPIC_IDX" value="${TOPIC_IDX }" />
 	</jsp:include>
 </div>
 
+<!-- 공백 (row 3 - col 3)-->
 <div style=" height:100%;float:left;width:15%;overflow:auto;">
 </div>
 
 </div>
 
 
-<!-- 부가적인 꼬리말에 대한 층 -->
+<!-- 부가적인 이용약관에 대한 내용 (row 4)-->
 <footer style="height:50px;width:100%;float:left;background-color: #B26B69;">
 
 </footer>
@@ -104,7 +67,7 @@
 
 <!-- script -->
 
-<!-- 첫번째 "codeFOLIO" 버튼에 대한 script -->
+<!-- 로고 버튼에 대한 script(fn-backHome), 카테고리 추가 버튼에 대한 script(fn-boardChange)-->
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#Cf").on("click", function(e){ 
@@ -116,7 +79,10 @@
 			e.preventDefault();
 			fn_boardChange($(this));
 		});
-		
+		$("#addTopic").on("click", function(e){ 
+			e.preventDefault();
+			fn_addTopic();
+		});
 		
 		
 	});
@@ -133,13 +99,17 @@
 		comSubmit.addParam("TOPIC_IDX", obj.parent().find("#IDX").val());
 		comSubmit.submit();
 	}
-	
+	function fn_addTopic(){
+		var comSubmit = new ComSubmit('frmTopic');
+		comSubmit.setUrl("<c:url value='/front/insertTopic.do' />");
+		comSubmit.submit();
+	}
 	
 	
 	
 </script>		
 
- <!-- 네번째 층의 왼쪽  메뉴 스크롤시 상단 고정에 대한 스크립트 -->
+<!-- 스크롤이 300이상시 빈공간을 채워주는 side menu에 대한 내용(row 3 - col 1-1) -->
  <script> 
  function menuScroll() { 
      var menu_bar = document.getElementById('menu_bar');
@@ -170,10 +140,5 @@ $(window).scroll(menuScroll);
 </script>
 
 
-
-
-
-
-  
 </body>
 </html>
