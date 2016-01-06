@@ -3,6 +3,7 @@
 <html lang="ko">
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
+<script src="<%=cp%>/resources/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
 	

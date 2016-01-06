@@ -3,7 +3,7 @@
 <html lang="ko">
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
-
+<script src="<%=cp%>/resources/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
@@ -117,14 +117,14 @@
 				e.preventDefault();
 				fn_insertBoard();
 			});
-			
 			$(".dropdown-menu li a").click(function(){ // 버튼 이름 변경 
 		 		
 		 		$("#dropdownMenu1").html('<font color="#808080">'+$(this).text()+'</font> <span style="color:808080" class="caret"></span>');
 		 		topic_idx = $(this).parent().find("#TOPIC_IDX").val();
 			}); 
+
+			
 		});
-	  
 
 		function fn_openBoardList() { //목록 버튼
 			var comSubmit = new ComSubmit();

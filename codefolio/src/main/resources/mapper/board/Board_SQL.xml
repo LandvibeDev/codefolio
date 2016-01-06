@@ -17,7 +17,7 @@
 			FROM
 				board
 			ORDER BY
-				BOARD_IDX DESC
+				DATE DESC
 			LIMIT #{START}, #{END}
 		]]>
 	</select>
@@ -37,7 +37,7 @@
 			WHERE
 				TOPIC_IDX = #{T_IDX}
 			ORDER BY
-				BOARD_IDX DESC
+				DATE DESC
 			LIMIT #{START}, #{END}
 		]]>
 	</select>
