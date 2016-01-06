@@ -7,9 +7,10 @@
 
 ## 주요기능
 
-###1. ![jgit](https://git-scm.com/images/logo@2x.png)    ###Git을 이용한 소스 저장 관리
-###2. ![ckeditor](http://a.cksource.com/e/1/img/logo-ckeditor-h100.png) ###CKEditor 기반의 블로그
-###3. ![TimelineJS](http://onmedia.dw-akademie.com/english/files/TimelineJS-logo-300x96.jpg) ###TimelineJS를 이용한 타임라인 구성
+![jgit](https://git-scm.com/images/logo@2x.png)  ![ckeditor](http://a.cksource.com/e/1/img/logo-ckeditor-h100.png)  ![TimelineJS](http://onmedia.dw-akademie.com/english/files/TimelineJS-logo-300x96.jpg)
+###1. Git을 이용한 소스 저장 관리 ![jgit](https://git-scm.com/images/logo@2x.png)    
+###2. CKEditor 기반의 블로그 
+###3.  TimelineJS를 이용한 타임라인 구성
 
 
 
