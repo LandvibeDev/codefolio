@@ -197,7 +197,8 @@
 		            },
 		            "media": {
 		                	"url": "${timeline.IMAGE_URL }",
-		                	"credit": "<a href ='codeHubList.do'>게시판으로</a>"
+		                	"credit": "<a href=\"#\" onclick=\"go2Post(${timeline.BOARD_IDX},${timeline.TOPIC_IDX});\">  게시판 </a>"
+		                		//"<a href =\'javascript:void(0);\' onclick=\"go2Post(\"ddag\");\">게시판으로</a>"
 		            },
 		            "text": {
 		            	
@@ -211,9 +212,31 @@
 		    ]
 		
     };
+    
     window.timeline = new TL.Timeline('timeline', timelineJson,additionalOptions);
     
-   
+   /* function go2Post(str)
+    {
+    	alert(str);
+    }*/
+    
+    function go2Post(str1, str2)
+    {
+    	var comSubmit = new ComSubmit();
+		comSubmit.setUrl("<c:url value='/front/blogDetail.do' />");
+		comSubmit.addParam("IDX", str1);
+		comSubmit.addParam("TOPIC_IDX", str2);
+		comSubmit.submit();
+    }
+    
+  /*  function fn_openBoardDetail(obj){
+		var comSubmit = new ComSubmit();
+		comSubmit.setUrl("<c:url value='/front/blogDetail.do' />");
+		comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
+		comSubmit.addParam("TOPIC_IDX", obj.parent().find("#TOPIC_IDX").val());
+		comSubmit.submit();
+	}*/
+    
       
       function fn_dateParse(str){ //date parsing
   		var dateList = new Array();

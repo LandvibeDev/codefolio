@@ -54,14 +54,15 @@ public class ProjectServiceImpl implements ProjectService{
 		// TODO Auto-generated method stub
 		String result= "success";
 		String projectName="";
+		String source ="";
 		
 		projectName = fileUtils.makegit(map, request);
+		
 		
 		log.debug("projectName : "+projectName );
 		
 		map.put("projectName", projectName);
-		map.put("readme", "");
-		//map.put("readme", gitUtils.getSource(projectName, "README.md").substring(0, 100));
+		map.put("comment", map.get("comment"));
 		projectDAO.insertProject(map);
 		
 			return result;
