@@ -13,6 +13,7 @@
 ###1. Git을 이용한 소스 저장 관리     
 ###2. CKEditor 기반의 블로그 
 ###3. TimelineJS를 이용한 타임라인 구성
+###4. Spring MVC + MySQL + JavaScript을 사용
 
 
 ##확장성
