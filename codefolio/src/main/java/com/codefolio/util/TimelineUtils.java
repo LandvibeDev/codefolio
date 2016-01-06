@@ -23,7 +23,7 @@ public class TimelineUtils {
 	/**	 
 	 * 	DEFAULTURL : CONTENTS에 이미지 url이 없을 때 디폴트값
 	 */
-	private static final String DEFAULTURL = "http://dev.naver.com/dbimage.php?id=3955";
+	private static final String DEFAULTURL = "https://git-scm.com/images/logos/downloads/Git-Logo-1788C.png";
 	
 	/** 
 	 * DB의 data 가공

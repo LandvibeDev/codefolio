@@ -73,7 +73,11 @@ ${source}
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/twilight");
-    editor.session.setMode("ace/mode/javascript");
+    editor.session.setMode("ace/mode/java");
+    document.getElementById('editor').style.fontSize='12px';
+    editor.setHighlightActiveLine(false);
+    editor.setValue("the new text here");
+    editor.insert("Something cool");
 </script>
 
 <!-- 첫번째 "codeFOLIO" 버튼에 대한 script -->
