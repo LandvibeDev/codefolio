@@ -25,7 +25,34 @@ public class TimelineUtils {
 	 */
 	private static final String DEFAULTURL = "http://dev.naver.com/dbimage.php?id=3955";
 	
-	
+	/** 
+	 * DB의 data 가공
+	 *  
+	 * @param queryId List from Readme
+	 */
+	public List<Map<String,Object>> extractUrlContentsFromProject(List<Map<String,Object>> list) throws Exception{
+		
+		String imageURL = null;
+		String contents = null;
+		
+		List<Map<String,Object>> resultList = new ArrayList<Map<String,Object>>();
+		Map<String,Object> iter =null; 
+		
+		for(int i = 0 ; i < list.size(); i++){
+			
+			iter = list.get(i);
+			
+			imageURL = extractUrl((String)iter.get("CONTENTS"));
+			contents = (String)iter.get("CONTENTS");
+			
+			iter.put("IMAGE_URL", imageURL);
+			iter.put("TIMELINE_CONTENTS", contents);
+			
+			resultList.add(iter);
+		}
+		
+		return resultList;
+	}
 	
 	/** 
 	 * DB의 data 가공

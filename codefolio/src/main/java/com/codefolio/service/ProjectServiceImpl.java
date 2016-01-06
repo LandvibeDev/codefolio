@@ -44,7 +44,7 @@ public class ProjectServiceImpl implements ProjectService{
 	
 	@Override
 	public List<Map<String, Object>> selectProjectList(Map<String, Object> map) throws Exception {
-	    return timelineUtils.extractUrlContents(projectDAO.selectProjectList(map));
+	    return timelineUtils.extractUrlContentsFromProject(projectDAO.selectProjectList(map));
 	}
 	
 
@@ -60,7 +60,8 @@ public class ProjectServiceImpl implements ProjectService{
 		log.debug("projectName : "+projectName );
 		
 		map.put("projectName", projectName);
-		map.put("readme", gitUtils.getSource(projectName, "README.md").substring(0, 100));
+		map.put("readme", "");
+		//map.put("readme", gitUtils.getSource(projectName, "README.md").substring(0, 100));
 		projectDAO.insertProject(map);
 		
 			return result;
