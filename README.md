@@ -8,15 +8,15 @@
 **개발자로써의 성장과정과 능력**을 효과적으로 보여줄 수 있는 자료를 제공하는 것이 목적입니다.
 
 
-## 주요기능
+# 주요기능
 ![jgit](https://git-scm.com/images/logo@2x.png)  ![ckeditor](http://a.cksource.com/e/1/img/logo-ckeditor-h100.png)  ![TimelineJS](http://onmedia.dw-akademie.com/english/files/TimelineJS-logo-300x96.jpg)
-###1. Git을 이용한 소스 저장 관리     
-###2. CKEditor 기반의 블로그 
-###3. TimelineJS를 이용한 타임라인 구성
-###4. Spring MVC + MySQL + JavaScript을 사용
+####1. Git을 이용한 소스 저장 관리     
+####2. CKEditor 기반의 블로그 
+####3. TimelineJS를 이용한 타임라인 구성
+####4. Spring MVC + MySQL + JavaScript을 사용
 
 
-##확장성
+#확장성
 - 블로그와 소스저장소를 연동하여 효과적인 블로깅지원
 - SNS 기능을 추가하여 다른 사람과 소스 공유, 팀프로젝트 제안
 
