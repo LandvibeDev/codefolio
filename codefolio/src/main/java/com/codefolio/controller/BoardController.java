@@ -22,9 +22,10 @@ import com.codefolio.service.BoardService;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 
-/*
- * BoardController : 게시판 관련 Controller 
+/**
  * 
+ * 게시판 관련 Controller
+ *
  */
 @Controller
 public class BoardController {
@@ -35,7 +36,13 @@ public class BoardController {
 	private BoardService boardService;
 	
 
-	//게시판 리스트 페이지    
+	/**
+	 * 게시판 리스트 페이지   
+	 * @param commandMap
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */  
 	@RequestMapping(value="/board/openBoardList.do")
 	public ModelAndView openBoardList(CommandMap commandMap,HttpServletRequest request) throws Exception{
 	    ModelAndView mv = new ModelAndView("/board/boardList");
@@ -51,7 +58,13 @@ public class BoardController {
 	    return mv;
 	}
 	
-	//게시글 작성 페이지 
+	
+	/**
+	 * 게시글 작성 페이지 
+	 * @param commandMap
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="/board/openBoardWrite.do")
 	public ModelAndView openBoardWrite(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardWrite");
@@ -62,7 +75,14 @@ public class BoardController {
 		return mv;
 	}
 	
-	//게시글 작성 
+	
+	/**
+	 * 게시글 작성  
+	 * @param commandMap
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="/board/insertBoard.do")
 	public ModelAndView insertBoard(CommandMap commandMap ,HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView("redirect:/front/blog.do");
@@ -71,7 +91,13 @@ public class BoardController {
 		return mv;
 	}
 	
-	//파일 업로드 
+	/**
+	 * 파일 업로
+	 * @param commandMap
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="/board/insertFile.do")
 	public ModelAndView insertFile(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("/FileNotice");
@@ -80,7 +106,13 @@ public class BoardController {
 		return mv;
 	}
 	
-	//게시글 상세보기 페이지 
+	
+	/**
+	 * 게시글 상세보기 페이지 
+	 * @param commandMap
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="/board/openBoardDetail.do")
 	public ModelAndView openBoardDetail(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardDetail");
@@ -92,8 +124,14 @@ public class BoardController {
 		
 		return mv;
 	}
+
 	
-	//게시글 수정 페이지 
+	/**
+	 * 게시글 수정 페이지 
+	 * @param commandMap
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="/board/openBoardUpdate.do")
 	public ModelAndView openBoardUpdate(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardUpdate");
@@ -107,7 +145,12 @@ public class BoardController {
 		return mv;
 	}
 	
-	//게시글 수정 
+	/**
+	 * 게시글 수정 
+	 * @param commandMap
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="/board/updateBoard.do")
 	public ModelAndView updateBoard(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("redirect:/front/blogDetail.do");
@@ -118,7 +161,12 @@ public class BoardController {
 		return mv;
 	}
 	
-	//게시글 삭제 
+	/**
+	 * 게시글 삭제 
+	 * @param commandMap
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="/board/deleteBoard.do")
 	public ModelAndView deleteBoard(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("redirect:/front/blog.do");
@@ -129,7 +177,12 @@ public class BoardController {
 	}
 	
 
-	//파일 다운로드 요청 
+	/**
+	 * 파일 다운로드 요청 
+	 * @param commandMap
+	 * @param response
+	 * @throws Exception
+	 */
 	 @RequestMapping(value="/board/downloadFile.do")
 	    public void downloadFile(CommandMap commandMap, HttpServletResponse response) throws Exception{
 		 	
@@ -137,7 +190,8 @@ public class BoardController {
 	        String storedFileName = (String)map.get("STORED_FILE_NAME");
 	        String originalFileName = (String)map.get("ORIGINAL_FILE_NAME");
 	        
-	        byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(new File("/Users/kimgh6554/Documents/Dev/File/"+storedFileName)); //mac
+	        byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(
+	        		new File("/Users/kimgh6554/Documents/Dev/File/"+storedFileName)); // 서버의 저장경로
 	        //byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(new File("C:\\dev\\file\\"+storedFileName)); //window
 	        response.setContentType("application/octet-stream");
 	        response.setContentLength(fileByte.length);
@@ -147,7 +201,6 @@ public class BoardController {
 	         
 	        response.getOutputStream().flush();
 	        response.getOutputStream().close();
-	        
 	        
 	    }
 }

@@ -14,6 +14,14 @@ import org.springframework.util.StringUtils;
 
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
+
+/**
+ * 	로그출력을 편하게 하기 위해서  
+ *  SqlSessionTemplate 메소드 재정의
+ *   
+ * @author 카루시에라's Blog 참조 
+ *{@link http://addio3305.tistory.com }
+ */
 public class AbstractDAO {
 	protected Log log = LogFactory.getLog(AbstractDAO.class);
 	
@@ -63,7 +71,16 @@ public class AbstractDAO {
 		return sqlSession.selectList(queryId,params);
 	}
 	
-	// 게시판 페이징
+	// 게시판 페이징 blog참조 일부 수정
+	
+	/**
+	 * 게시판 페이징 
+	 * 전자전부 프레임워크 사용 
+	 * 
+	 * @param queryId
+	 * @param params
+	 * @return
+	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Map selectPagingList(String queryId, Object params){
 	    printQueryId(queryId);

@@ -16,16 +16,24 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
- 
+ /**
+  *  
+  *
+  */
 @Component("fileUtils")
 public class FileUtils {
-    private static final String filePath = "/Users/kimgh6554/Documents/Dev/File/"; //파일이 저장될 위치 mac 
-    //private static final String filePath = "C:\\dev\\file\\"; //파일이 저장될 위치 window
+    private static final String filePath = "/Users/kimgh6554/Documents/Dev/File/"; //서버에 파일이 저장될 위치  
     private static final String filePath_zip = "C:/dev/git/";
     Logger log = Logger.getLogger(this.getClass());
 	
     
-    //파일의 이름을 재정의하여 저장 
+    /**
+     * 파일의 정보들을 재정의하여 저장 
+     * @param map
+     * @param request
+     * @return 
+     * @throws Exception
+     */
     public List<Map<String,Object>> parseInsertFileInfo(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
@@ -48,13 +56,13 @@ public class FileUtils {
             if(multipartFile.isEmpty() == false){
                 originalFileName = multipartFile.getOriginalFilename();
                 originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
-                storedFileName = CommonUtils.getRandomString() + originalFileExtension; //랜덤파일이름+확장자 
+                storedFileName = CommonUtils.getRandomString() + originalFileExtension; //랜덤파일이름+확장자 (서버에 저장될 이름) 
                  
                 file = new File(filePath + storedFileName);
                 multipartFile.transferTo(file); //파일저장
                  
                 listMap = new HashMap<String,Object>();
-                listMap.put("BOARD_IDX", -1);
+                listMap.put("BOARD_IDX", -1);  //임시로 -1로 저장 -> 글 작성완료시 update
                 listMap.put("ORIGINAL_FILE_NAME", originalFileName);
                 listMap.put("STORED_FILE_NAME", storedFileName);
                 listMap.put("FILE_SIZE", multipartFile.getSize());

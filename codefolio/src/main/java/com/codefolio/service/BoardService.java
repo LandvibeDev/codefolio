@@ -5,8 +5,12 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 게시판 관련 비지니스 계층 
+ *
+ */
 public interface BoardService {
-
+	
 	Map<String, Object> selectBoardList(Map<String, Object> map) throws Exception;
 	
 	List<Map<String, Object>> selectTopicList(Map<String, Object> map) throws Exception;

@@ -19,9 +19,9 @@ import com.codefolio.util.FileUtils;
 import com.codefolio.util.TimelineUtils;
 
 
-/*
- *  게시판 관련 비지니스 계층 
- * 
+/**
+ * 게시판 관련 비지니스 계층 
+ *
  */
 @Service("boardService")
 public class BoardServiceImpl implements BoardService{
@@ -36,42 +36,54 @@ public class BoardServiceImpl implements BoardService{
 	@Resource(name="timelineUtils")
 	private TimelineUtils timelineUtils;
 	
-	//게시글 리스트 
+	/**
+	 * 게시글 리스트  
+	 */
 	@Override
 	public Map<String, Object> selectBoardList(Map<String, Object> map) throws Exception {
 	    return boardDAO.selectBoardList(map);
 	}
 	
-	//게시판 카테고리 리스트
+	/**
+	 * 게시판 카테고리 리스트  
+	 */
 	@Override
 	public List<Map<String, Object>> selectTopicList(Map<String, Object> map) throws Exception{
 		return boardDAO.selectTopicList(map);
 	}
 	
-	//게시글 입력 
+	/**
+	 * 게시글 입력 
+	 */
 	@Override
 	public void insertBoard(Map<String, Object> map) throws Exception {
-		
 		boardDAO.insertBoard(map);
-		
 	}
+	
+	/**
+	 * 카테고리 입력 
+	 */
 	@Override
 	public void insertTopic(Map<String, Object> map) throws Exception{
 		boardDAO.insertTopic(map);
 	}
 	
+	/**
+	 * 파일 정보 입력 
+	 */
 	@Override
 	public void insertFile(Map<String, Object> map,HttpServletRequest request) throws Exception {
 		
-		//첨부파일 정보 저장 
-		List<Map<String,Object>> list = fileUtils.parseInsertFileInfo(map, request);
+		List<Map<String,Object>> list = fileUtils.parseInsertFileInfo(map, request); // 파일 정보 조작 
 		for(int i=0, size=list.size(); i<size; i++){
 			boardDAO.insertFile(list.get(i)); //db에저장
 			}
 		
 	}
 	
-	//게시글 상세 
+	/**
+	 * 게시글 상세 정보 
+	 */
 	@Override
 	public Map<String, Object> selectBoardDetail(Map<String, Object> map, boolean isBoardDetail) throws Exception {
 		if(isBoardDetail){boardDAO.updateHitCnt(map);} // 조회수 증가 
@@ -86,25 +98,34 @@ public class BoardServiceImpl implements BoardService{
 		return resultMap;
 	}
 	
-	//파일 리스트
+	/**
+	 * 파일 리스트 
+	 */
 	@Override
     public Map<String, Object> selectFileInfo(Map<String, Object> map) throws Exception {
         return boardDAO.selectFileInfo(map);
     }
 
-	// 게시글 수정 
+	/**
+	 * 게시글 수정 
+	 */
 	@Override
 	public void updateBoard(Map<String, Object> map) throws Exception{
 		boardDAO.updateBoard(map);
 	}
 
-	//게시글 삭제 
+	/**
+	 * 게시글 삭제 
+	 */
 	@Override
 	public void deleteBoard(Map<String, Object> map) throws Exception {
 		boardDAO.deleteBoard(map);
 	}
 	
-	//TimelineJS 정보 
+	/**
+	 * TimelineJS 정보
+	 * @return DB data 에서 TimelineJS에 쓰일 정보들 추출 
+	 */
 	@Override
 	public List<Map<String, Object>> selectTimelineList(Map<String, Object> map) throws Exception {
 	    return timelineUtils.extractUrlContents(boardDAO.selectTimelineList(map));

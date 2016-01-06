@@ -4,7 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
- 
+
+/**
+ * HandlerMethodArgumentResolver 인터페이스를 사용하기 위해
+ * map의 주요기능들 재정의 
+ * 
+ */
 public class CommandMap {
     Map<String,Object> map = new HashMap<String,Object>();
      

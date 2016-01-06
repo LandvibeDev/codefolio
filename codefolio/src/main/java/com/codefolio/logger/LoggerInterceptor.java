@@ -10,6 +10,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.codefolio.logger.LoggerInterceptor;
 
+
+
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
 	protected Log log = LogFactory.getLog(LoggerInterceptor.class);
 	
