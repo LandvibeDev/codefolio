@@ -33,6 +33,41 @@ MIT license를 통하여 배포 (README.md 참조)
 
 
 
-#실행방법(경로지정, 각종툴)
+#실행방법
+1. MySQL 설정
+'/codefolio/src/main/resources/config/spring/context-datasource.xml' 경로에 접근하여
+아래코드의 'property'를 설정합니다
+
+'''
+ <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://[URL]"/>
+        <property name="username" value="[ID]"/>
+        <property name="password" value="[password]"/>
+        '''
+
+2. 설정이 끝나면 코드를 실행하고 
+'http://localhost:9090/codefolio/front/Main.do'
+에 접속해 주시면 됩니다.
+
+
+#실행화면
+
+*타임라인(메인페이지)
+![timeline](http://oursoccer.co.kr/study/reserve/img/home_img.png)
+
+
+*글쓰기 페이지
+![boardWrite](http://oursoccer.co.kr/study/reserve/img/blog_write.png)
+
+
+*소스저장소
+![gitDirectory](http://oursoccer.co.kr/study/reserve/img/git_directory.png)
+
+
+
+
+
+
+
 
 
