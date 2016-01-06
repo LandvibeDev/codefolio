@@ -15,12 +15,6 @@
   			<div class="dropdown">
   			<button class="btn btn-default btn-lg dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
     				<font color="#808080">
-    					<%-- <c:set var="TOPIC_IDX" value="${map.TOPIC_IDX}"/>
-    					<c:forEach items="${topicList }" var="topic"> 
-							<c:if test="${topic.TOPIC_IDX eq TOPIC_IDX}">
-					        	<c:out value="${topic.NAME }"/>
-					        </c:if>    				   
-						</c:forEach> --%>
 						${topicInfo.NAME }
     				</font>
     			<span style="color:808080" class="caret"></span>

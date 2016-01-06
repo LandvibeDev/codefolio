@@ -22,6 +22,8 @@
 		]]>
 	</select>
 	
+	
+	
 	<!-- 특정한 카테고리 게시글 리스트 -->
 	<select id="selectTopicBoardList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
