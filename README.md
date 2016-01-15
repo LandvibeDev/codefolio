@@ -28,7 +28,7 @@
 
 
 #배포 라이센스
-MIT license를 통하여 배포 (README.md 참조)
+MIT license를 통하여 배포 (LICENSE 참조)
 
 
 
