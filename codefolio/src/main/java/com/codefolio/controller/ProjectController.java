@@ -28,6 +28,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * 프로젝트 관련 Controller
  *
  */
+// Rest Controller 바꾸기~
 @Controller
 public class ProjectController {
 	Logger log = Logger.getLogger(this.getClass());

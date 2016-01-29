@@ -426,7 +426,7 @@ public class GitUtils {
         
 	}
 	
-	
+//해당 path의 source를 전달.	
 	public String getSource(String projectName, String path) throws UnsupportedEncodingException{
 		 FileRepositoryBuilder builder = new FileRepositoryBuilder();
 		 ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -443,21 +443,16 @@ public class GitUtils {
        	
        	log.debug("DirCache has " + index.getEntryCount() + " items");
              for (int i = 0; i < index.getEntryCount(); i++) {
-             //	log.debug(index.getEntry(i).getPathString()+ "\n");
              	list.add(index.getEntry(i).getPathString());
              	map.put(index.getEntry(i).getPathString(),index.getEntry(i).getObjectId() );
             
              }
              for(int i =0 ; i< list.size(); i++)
              { 
-            	 //log.debug("********** baos test  :  " + list.get(i)+ "\n");
-            	// log.debug("********** baos test  :  " + path+ "\n");
              	if (list.get(i).equals(path))
              	{ 
              		loader = repository.open(map.get(path));
              		loader.copyTo(baos);
-             		// log.debug("********** baos test  :  " + baos.toString()+ "\n");
-             	    //loader.copyTo(System.out);
              	}
                 
              }
