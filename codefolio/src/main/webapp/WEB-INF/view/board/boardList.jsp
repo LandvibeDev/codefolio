@@ -5,7 +5,6 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 </head>
 <body>
-
 	<div class="row" style="padding:15px 15px 15px 15px;">
 		<div class="col-md-1"></div>
   		<div class="col-md-11">
