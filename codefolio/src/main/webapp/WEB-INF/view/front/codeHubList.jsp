@@ -5,11 +5,11 @@
 <head>
 <!-- include 부분 -->
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
-<%@ include file="/WEB-INF/include/include-body.jspf" %>
 <%@ include file="/WEB-INF/include/include-Topbase.jspf" %>
    
 </head>
 <body >
+
 
 <!-- side menu와 소스 저장소에 대한 내용 (row 3)-->
 <div  style=" width:100%;height:1500px;border:none;" >
@@ -43,7 +43,7 @@
 
 <!-- 소스 저장소 내용 (row 3 - col 3)   -->
 <div style=" height:100%;float:left;width:70%;overflow:auto; align:left;">
-<h2 align="center"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Code Hub </h2> <!-- bootstrap 기호 추가 -->
+<h2 align="center"><span class="col-md-3" aria-hidden="true"></span> Code Hub </h2> <!-- bootstrap 기호 추가 -->
    <table class="board_list" text-align="left">
       <colgroup>
          <col width="*"/>

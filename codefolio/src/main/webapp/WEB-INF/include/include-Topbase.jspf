@@ -1,69 +1,53 @@
-<%@ page pageEncoding="utf-8"%>
- <!-- 로고 디자인 (row 1) -->
-<div  style="height:12%;width:100% ; float:left; " >
-<!-- 공백 (row 1 - col 1) -->
-<div style="background-color:#000000; WIDTH: 40%; HEIGHT: 100%;float:left;"></div>
-<!-- 로고 (row 1 - col 2) -->
- 	<a href="#this"  id="Cf">
- <button  style=" WIDTH: 20%; HEIGHT: 100%; padding:0%;margin:0%; background-color:#000000; border:0;float:left;border-active:1 solid #000000 " type="button"><img src="http://oursoccer.co.kr/study/reserve/img/logo.png" class="img-rounded"   style="height:100%;width:100% ; float:center " ></button>	
-	</a>
-<!-- 공백 (row 1 - col 3) -->
-<div style="background-color:#000000; WIDTH: 40%; HEIGHT: 100%;float:left;"></div>	
-</div>
-
-
-
-<!-- 페이지 이동에 대한 메뉴 (row 2) -->
-<div style="width:100%;height:50pt;float:left;background-color :#000000;">
-
-<!-- 공백 (row 2 - col 1) -->
-<div style="background-color :#000000; height:100%;width:10%;float:left;" ></div>
-
-<!-- 계정 관리등의 메뉴버튼 (row 2 - col 2) -->
-<div  class="dropdown" style="background-color :#000000; height:100%;width:30%;float:left;" >
-      	
- <ul class="nav nav-tabs" style="border-bottom:none;">  <!-- list 시작 -->
-  <li ><a href="http://localhost:8080/codefolio/"><span style="color:#ffffff " ><strong>홈</strong></span></a></li>
-  <li role="presentation" class="dropdown">	 <!-- 두번째 List는 dropdown형식으로 구현 -->
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-      <span style="color:#ffffff " ><strong>계정 관리</strong></span> <span class="caret"></span>
-    </a>
-    <!-- dropdown 안쪽의 내용 -->
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li ><a href="#">비밀번호 변경</a></li>
-    <li><a href="#">회원 탈퇴</a></li>
-    <li><a href="#">로그아웃</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">고객 센터</a></li>
-  	</ul>
-  </li>
-  <li><a href="#"><span style="color:#ffffff " ><strong>메시지</strong></span></a></li>
-  <li><a href="#"><span style="color:#ffffff " ><strong>알림</strong></span></a></li>
-</ul>	
-</div>
-
-
-
-<!-- 페이지 이동에 대한 메뉴버튼 (row 2 - col 3) -->
-<div style="height:100%;width:25%;float:left;">
-<ul class="nav nav-pills">
-  <li role="presentation" ><a href="/codefolio/front/codeHubList.do"><span style="color:#ffffff">소스 저장소</span></a></li>
-  <li role="presentation" ><a href="/codefolio/front/blog.do"><span style="color:#ffffff">코드 포스팅</span></a></li>
-  <li role="presentation" class="disabled" ><a href=""><span style="color:#ffffff">개인 포트폴리오 관리</span></a></li>
-  
-</ul>
-</div>
-
-<!-- 공백 (row 2 - col 4) -->
-<div style="background-color :#000000; height:100%;width:7%;float:left;" ></div>
-
-
-<!-- 검색기능 (row 2 - col 5) -->
-<div style="height:100%;width:28%;float:left;">
-<form class="navbar-search pull-left" >
-  <input type="text" class="search-query" placeholder="검색" style="background-color :#FFFFFF; height:30pt;width:200pt ">
-   <button type="submit" class="btn"  style="background-color:#eeeeee;height:30pt;width:60pt"><span style="color:#000000;">Submit</span></button>
-</form>
-</div>
-
-</div>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+               
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="/codefolio/front/codeHubList.do">Source Store</a>
+                    </li>
+                    <li>
+                        <a href="/codefolio/front/blog.do">Code Posting</a>
+                    </li>
+                     <li>
+                        <a href="/codefolio/front/blog.do">Portfolio</a>
+                    </li>
+                   
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="portfolio-1-col.html">Your Profile</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-2-col.html">Settings</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-3-col.html">Sign out</a>
+                            </li>
+                        </ul>
+                    </li>
+                  
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+        
+        
+    </nav>
+    <div style ="width:100%; height:70px; border:none;"></div>

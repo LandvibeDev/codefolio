@@ -5,7 +5,6 @@
 <head>
 <!-- include 부분 -->
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
-<%@ include file="/WEB-INF/include/include-body.jspf" %>
 <%@ include file="/WEB-INF/include/include-Topbase.jspf" %>
    
 </head>

@@ -4,7 +4,6 @@
 <head>
 
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
-<%@ include file="/WEB-INF/include/include-body.jspf" %>
 <%@ include file="/WEB-INF/include/include-Topbase.jspf" %>
 
 	<!-- timelineJS -->
@@ -24,13 +23,15 @@
 </head>
  <body>
  
+   
+ 
 <!-- timeline (row 3) -->
-<div id="timeline" style="width:100%;height:75%;float:left;">
+<div id="timeline" style="width:100%;height:90%;float:left;">
 </div>
 
 
 <!-- 부가적인 이용약관에 대한 내용 (row 4)-->
- <footer style="width:100%;height:6%;float:left;background-color: #000000;">
+ <footer style="width:100%;height:10%;float:left;background-color: #000000;">
  </footer>
  
 
