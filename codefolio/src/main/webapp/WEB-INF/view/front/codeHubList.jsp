@@ -19,17 +19,39 @@
 <!-- 스크롤 이동에 대한 menu_bar에 스타일을 지정 -->
 <!-- 밑의 script 참고 -->
 <!--side menu 버튼에 해당하는 게시판 내용  -->
-<div id="menu_bar" style="height:100%;width:15%;float:left;">
+<div id="menu_bar" style="height:100%;width:100%;float:left;">
    <form id="frm" name="frm" enctype="multipart/form-data" style="height:100%;width:100%;float:left;"> <!-- 첨부파일  -->
 
+
+<!-- Content Row -->
+        <div class="row">
+            <!-- Sidebar Column -->
+            <div class="col-md-3">
+                <div class="list-group">
+                   
+                      <c:choose>
+            <c:when test="${fn:length(list) > 0}">
+               <c:forEach items="${list}" var="row">
+                 
+                   <a href='#this' name='title' class="list-group-item">${row.TITLE }</a>
+               </c:forEach>
+            </c:when>
+            <c:otherwise>
+            </c:otherwise>
+         </c:choose>
+                </div>
+            </div>
+        </div>
        <!-- 파일 업로드 -->
         <br/>
-        <div align="center" style="height:15pt;width:100%;float:left;"><strong>프로젝트 설명</strong></div>
-        <input type= "text" name = "comment" id = "comment" style="height:50pt;width:100%;float:left;">
-        <input type="file" name="file" style="height:20pt;width:100%;float:left;"> <!-- 첨부파일  -->
-        <div style="height:3pt;width:100%;float:left;"></div>
-      	<a href="#this" class="btn" id="write" style="height:30pt;width:100%;float:left;"><span style="color:#000000;"><strong>커밋!!</strong></span></a>
- 		<div style="height:30pt;width:100%;float:left;"></div>
+       
+        <strong>프로젝트 설명</strong></div>
+        <input type= "text" name = "comment" id = "comment">
+        <input type="file" name="file" style="height:20pt;width:20%;float:left;"> <!-- 첨부파일  -->
+        <div style="height:3pt;width:20%;float:left;"></div>
+      	<a href="#this" class="btn" id="write" style="height:30pt;width:20%;float:left;">
+      	<span style="color:#000000;"><strong>커밋!!</strong></span></a>
+ 		<div style="height:30pt;width:20%;float:left;"></div>
 
    </form>
 </div>
@@ -38,51 +60,8 @@
 <div id="menu_bar_after" style="float:left; ">
 </div>
 
-<!-- 공백  (row 3 - col 2)-->
-<div style=" height:100%;float:left;width:5%;"></div>
 
-<!-- 소스 저장소 내용 (row 3 - col 3)   -->
-<div style=" height:100%;float:left;width:70%;overflow:auto; align:left;">
-<h2 align="center"><span class="col-md-3" aria-hidden="true"></span> Code Hub </h2> <!-- bootstrap 기호 추가 -->
-   <table class="board_list" text-align="left">
-      <colgroup>
-         <col width="*"/>
-         <col width="40%"/>
-         <col width="20%"/>
-      </colgroup>
-      <thead>
-         <tr>
-            <th scope="col" text-align="left">Name</th>
-            <th scope="col" text-align="left"> Comment</th>
-            <th scope="col" text-align="left"> StartDate</th>
-         </tr>
-      </thead>
-      <tbody>
-         <c:choose>
-            <c:when test="${fn:length(list) > 0}">
-               <c:forEach items="${list}" var="row">
-                  <tr >
-                     <td class="title">
-                     <input type='hidden' id='IDX' value="${row.TITLE }">
-                        <a href='#this' name='title'>${row.TITLE }</a>
-                     </td>
-                     <td  > ${row.CONTENTS }</td>
-                     <td > ${row.DATE }</td>
-                     
-                  </tr>
-                  
-               </c:forEach>
-            </c:when>
-            <c:otherwise>
-               <tr>
-                  <td colspan="4">조회된 결과가 없습니다.</td>
-               </tr>
-            </c:otherwise>
-         </c:choose>
-      </tbody>
-   </table>
-</div>
-</div>
+        <!-- /.row -->
 
 <!-- 부가적인 이용약관에 대한 내용 (row 4)-->
 <footer style="height:50px;width:100%;float:left;background-color: #B26B69;">
